@@ -9,6 +9,85 @@ namespace Criptografia
 {
     class CipherManager
     {
+        public string CifrarPorGrupos(string mensaje, int p, int[] permutacion)
+        {
+            // Convertir el mensaje en un array de caracteres
+            mensaje = mensaje.Replace(" ", "");
+            char[] mensajeArray = mensaje.ToCharArray();
+            string mensajeCifrado = "";
+
+            // Calcular el número de bloques
+            int bloques = (int)Math.Ceiling((double)mensajeArray.Length / p);
+
+            // Rellenar el mensaje con caracteres adicionales si es necesario
+            int caracteresFaltantes = bloques * p - mensajeCifrado.Length;
+            for (int i = 0; i < caracteresFaltantes; i++)
+            {
+                mensajeCifrado += " ";
+            }
+
+            // Iterar sobre cada bloque
+            for (int i = 0; i < bloques; i++)
+            {
+                // Obtener el bloque actual
+                string bloque = mensaje.Substring(i * p, Math.Min(p, mensaje.Length - i * p));
+
+                // Aplicar la permutación a los caracteres del bloque
+                string bloquePermutado = "";
+                for (int j = 0; j < p; j++)
+                {
+                    if (permutacion[j] < bloque.Length)
+                    {
+                        bloquePermutado += bloque[permutacion[j]];
+                    }
+                }
+
+                // Agregar el bloque permutado al mensaje cifrado
+                mensajeCifrado += bloquePermutado;
+            }
+
+            return mensajeCifrado;
+        }
+        public string DescifrarPorGrupos(string mensaje, int p, int[] permutacion)
+        {
+            // Calcular el número de bloques
+            int bloques = (int)Math.Ceiling((double)mensaje.Length / p);
+
+            // Crear la permutación inversa
+            int[] permutacionInversa = new int[p];
+            for (int i = 0; i < p; i++)
+            {
+                permutacionInversa[permutacion[i]] = i;
+            }
+
+            string mensajeDescifrado = "";
+
+            // Iterar sobre cada bloque
+            for (int i = 0; i < bloques; i++)
+            {
+                // Obtener el bloque cifrado actual
+                string bloqueCifrado = mensaje.Substring(i * p, Math.Min(p, mensaje.Length - i * p));
+
+                // Aplicar la permutación inversa a los caracteres del bloque
+                string bloqueDescifrado = "";
+                for (int j = 0; j < p; j++)
+                {
+                    if (permutacionInversa[j] < bloqueCifrado.Length)
+                    {
+                        bloqueDescifrado += bloqueCifrado[permutacionInversa[j]];
+                    }
+                }
+
+                // Agregar el bloque descifrado al mensaje final
+                mensajeDescifrado += bloqueDescifrado;
+            }
+
+            // Eliminar los caracteres adicionales al final del mensaje descifrado
+            mensajeDescifrado = mensajeDescifrado.Trim();
+
+            return mensajeDescifrado;
+        }
+
         public string PrimerCifrado(string mensaje, string clave, ref DataGridView dataGridView1)
         {
             clave = clave.Replace(" ", "");
@@ -233,58 +312,6 @@ namespace Criptografia
             return mensajeDescifrado;
         }
 
-        private void LlenarDataGridView(string[][] matriz, int nf, int nc, ref DataGridView dataGridView)
-        {
-            // Limpiar el DataGridView
-            dataGridView.Rows.Clear();
-            dataGridView.Columns.Clear();
-
-            // sin esto no funciona
-            for (int j = 0; j < nc; j++)
-            {
-                dataGridView.Columns.Add("", "");
-            }
-
-            // Agregar filas al DataGridView
-            for (int i = 0; i < nf; i++)
-            {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView);
-
-                for (int j = 0; j < nc; j++)
-                {
-                    fila.Cells[j].Value = matriz[i][j];
-                }
-
-                dataGridView.Rows.Add(fila);
-            }
-        }
-        private void LlenarDataGridViewV2(char[,] matriz, int nf, int nc, ref DataGridView dataGridView)
-        {
-            // Limpiar el DataGridView
-            dataGridView.Rows.Clear();
-            dataGridView.Columns.Clear();
-
-            // sin esto no funciona
-            for (int j = 0; j < nc; j++)
-            {
-                dataGridView.Columns.Add("", "");
-            }
-
-            // Agregar filas al DataGridView
-            for (int i = 0; i < nf; i++)
-            {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView);
-
-                for (int j = 0; j < nc; j++)
-                {
-                    fila.Cells[j].Value = matriz[i, j];
-                }
-
-                dataGridView.Rows.Add(fila);
-            }
-        }
 
 
         public string CifrarPorFilas(string mensaje, string clave, ref DataGridView dataGridView1, ref DataGridView dataGridView2)
@@ -435,84 +462,58 @@ namespace Criptografia
 
             return mensajeDescifrado;
         }
-
-        public string CifrarPorGrupos(string mensaje, int p, int[] permutacion)
+        private void LlenarDataGridView(string[][] matriz, int nf, int nc, ref DataGridView dataGridView)
         {
-            // Convertir el mensaje en un array de caracteres
-            mensaje = mensaje.Replace(" ", "");
-            char[] mensajeArray = mensaje.ToCharArray();
-            string mensajeCifrado = "";
+            // Limpiar el DataGridView
+            dataGridView.Rows.Clear();
+            dataGridView.Columns.Clear();
 
-            // Calcular el número de bloques
-            int bloques = (int)Math.Ceiling((double)mensajeArray.Length / p);
-
-            // Rellenar el mensaje con caracteres adicionales si es necesario
-            int caracteresFaltantes = bloques * p - mensajeCifrado.Length;
-            for (int i = 0; i < caracteresFaltantes; i++)
+            // sin esto no funciona
+            for (int j = 0; j < nc; j++)
             {
-                mensajeCifrado += " ";
+                dataGridView.Columns.Add("", "");
             }
 
-            // Iterar sobre cada bloque
-            for (int i = 0; i < bloques; i++)
+            // Agregar filas al DataGridView
+            for (int i = 0; i < nf; i++)
             {
-                // Obtener el bloque actual
-                string bloque = mensaje.Substring(i * p, Math.Min(p, mensaje.Length - i * p));
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dataGridView);
 
-                // Aplicar la permutación a los caracteres del bloque
-                string bloquePermutado = "";
-                for (int j = 0; j < p; j++)
+                for (int j = 0; j < nc; j++)
                 {
-                    if (permutacion[j] < bloque.Length)
-                    {
-                        bloquePermutado += bloque[permutacion[j]];
-                    }
+                    fila.Cells[j].Value = matriz[i][j];
                 }
 
-                // Agregar el bloque permutado al mensaje cifrado
-                mensajeCifrado += bloquePermutado;
+                dataGridView.Rows.Add(fila);
             }
-
-            return mensajeCifrado;
         }
-        public string DescifrarPorGrupos(string mensaje, int p, int[] permutacion)
+        private void LlenarDataGridViewV2(char[,] matriz, int nf, int nc, ref DataGridView dataGridView)
         {
-            // Calcular el número de bloques
-            int bloques = (int)Math.Ceiling((double)mensaje.Length / p);
+            // Limpiar el DataGridView
+            dataGridView.Rows.Clear();
+            dataGridView.Columns.Clear();
 
-            // Crear la permutación inversa
-            int[] permutacionInversa = new int[p];
-            for (int i = 0; i < p; i++)
+            // sin esto no funciona
+            for (int j = 0; j < nc; j++)
             {
-                permutacionInversa[permutacion[i]] = i;
+                dataGridView.Columns.Add("", "");
             }
 
-            string mensajeDescifrado = "";
-
-            // Iterar sobre cada bloque
-            for (int i = 0; i < bloques; i++)
+            // Agregar filas al DataGridView
+            for (int i = 0; i < nf; i++)
             {
-                // Obtener el bloque cifrado actual
-                string bloqueCifrado = mensaje.Substring(i * p, Math.Min(p, mensaje.Length - i * p));
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dataGridView);
 
-                // Aplicar la permutación inversa a los caracteres del bloque
-                string bloqueDescifrado = "";
-                for (int j = 0; j < p; j++)
+                for (int j = 0; j < nc; j++)
                 {
-                    if (permutacionInversa[j] < bloqueCifrado.Length)
-                    {
-                        bloqueDescifrado += bloqueCifrado[permutacionInversa[j]];
-                    }
+                    fila.Cells[j].Value = matriz[i, j];
                 }
 
-                // Agregar el bloque descifrado al mensaje final
-                mensajeDescifrado += bloqueDescifrado;
+                dataGridView.Rows.Add(fila);
             }
-
-            // Eliminar los caracteres adicionales al final del mensaje descifrado
-            mensajeDescifrado = mensajeDescifrado.Trim();
-
-            return mensajeDescifrado;
         }
+
     }
 }
