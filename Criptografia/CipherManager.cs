@@ -117,7 +117,7 @@ namespace Criptografia
                 }
             }
 
-            LlenarDataGridViewV2(matriz, nf, nc, ref dataGridView1);
+            LlenarDataGridView(matriz, nf, nc, ref dataGridView1);
 
             for (int c = 0; c < nc; c++)
             {
@@ -161,7 +161,7 @@ namespace Criptografia
                 }
             }
 
-            LlenarDataGridViewV2(matriz, nf, nc, ref dataGridView1);
+            LlenarDataGridView(matriz, nf, nc, ref dataGridView1);
 
             // Intercambiar las columnas
             for (int c1 = 0; c1 < nc; c1++)
@@ -180,7 +180,7 @@ namespace Criptografia
                 }
             }
 
-            LlenarDataGridViewV2(matriz, nf, nc, ref dataGridView2);
+            LlenarDataGridView(matriz, nf, nc, ref dataGridView2);
 
             // Agregar la clave
             for (int c = 0; c < nc; c++)
@@ -235,7 +235,7 @@ namespace Criptografia
                 }
             }
 
-            LlenarDataGridViewV2(matriz, nf, nc, ref dataGridView1);
+            LlenarDataGridView(matriz, nf, nc, ref dataGridView1);
 
             // Intercambiar las columnas
             for (int c1 = 0; c1 < nc; c1++)
@@ -254,7 +254,7 @@ namespace Criptografia
                 }
             }
 
-            LlenarDataGridViewV2(matriz, nf, nc, ref dataGridView2);
+            LlenarDataGridView(matriz, nf, nc, ref dataGridView2);
 
             // Encontrar el mensaje
             for (int f = 1; f < nf; f++)
@@ -274,7 +274,7 @@ namespace Criptografia
 
             int nc = clave.Length;
             int nf = (int)Math.Ceiling((double)descifradoIntermedio.Length / clave.Length);
-            string[][] matriz = new string[nf][];
+            char[,] matriz = new char[nf, nc];
 
             int indexDescifradoIntermedio = 0;
             string mensajeDescifrado = "";
@@ -283,19 +283,17 @@ namespace Criptografia
             {
                 for (int f = 0; f < nf; f++)
                 {
-                    if (f >= matriz.Length || matriz[f] == null)
-                    {
-                        matriz[f] = new string[nc];
-                    }
+                    char characterToAdd;
                     if (indexDescifradoIntermedio < descifradoIntermedio.Length)
                     {
-                        matriz[f][c] = descifradoIntermedio[indexDescifradoIntermedio].ToString();
+                        characterToAdd = descifradoIntermedio[indexDescifradoIntermedio];
                         indexDescifradoIntermedio++;
                     }
                     else
                     {
-                        matriz[f][c] = "";
+                        characterToAdd = ' '; // O cualquier otro carácter predeterminado.
                     }
+                    matriz[f, c] = characterToAdd;
                 }
             }
 
@@ -305,14 +303,12 @@ namespace Criptografia
             {
                 for (int c = 0; c < nc; c++)
                 {
-                    mensajeDescifrado += matriz[f][c];
+                    mensajeDescifrado += matriz[f, c];
                 }
             }
 
             return mensajeDescifrado;
         }
-
-
 
         public string CifrarPorFilas(string mensaje, string clave, ref DataGridView dataGridView1, ref DataGridView dataGridView2)
         {
@@ -324,7 +320,7 @@ namespace Criptografia
             string contenido = clave + mensaje;
             int indexContenido = 0;
 
-            string[][] matriz = new string[nf][];
+            char[,] matriz = new char[nf, nc];
             string mensajeCifrado = "";
 
             // Llenar la matriz
@@ -332,19 +328,17 @@ namespace Criptografia
             {
                 for (int f = 0; f < nf; f++)
                 {
-                    if (f >= matriz.Length || matriz[f] == null)
-                    {
-                        matriz[f] = new string[nc];
-                    }
+                    char characterToAdd;
                     if (indexContenido >= contenido.Length)
                     {
-                        matriz[f][c] = "X";
+                        characterToAdd = 'X';
                     }
                     else
                     {
-                        matriz[f][c] = contenido[indexContenido].ToString();
+                        characterToAdd = contenido[indexContenido];
                         indexContenido++;
                     }
+                    matriz[f, c] = characterToAdd;
                 }
             }
 
@@ -356,13 +350,13 @@ namespace Criptografia
             {
                 for (int p = 0; p < nf - 1; p++)
                 {
-                    if (matriz[p][0].CompareTo(matriz[p + 1][0]) > 0)
+                    if (matriz[p, 0].CompareTo(matriz[p + 1, 0]) > 0)
                     {
                         for (int c1 = 0; c1 < nc; c1++)
                         {
-                            string temp = matriz[p][c1];
-                            matriz[p][c1] = matriz[p + 1][c1];
-                            matriz[p + 1][c1] = temp;
+                            char temp = matriz[p, c1];
+                            matriz[p, c1] = matriz[p + 1, c1];
+                            matriz[p + 1, c1] = temp;
                         }
                     }
                 }
@@ -375,7 +369,7 @@ namespace Criptografia
             {
                 for (int c = 1; c < nc; c++)
                 {
-                    mensajeCifrado += matriz[f][c];
+                    mensajeCifrado += matriz[f, c];
                 }
             }
 
@@ -390,7 +384,7 @@ namespace Criptografia
             int nc = (int)Math.Ceiling((double)(clave.Length + mensajeCifrado.Length) / clave.Length);
             int nf = clave.Length;
 
-            string[][] matriz = new string[nf][];
+            char[,] matriz = new char[nf, nc];
             string mensajeDescifrado = "";
 
             int indexClave = 0;
@@ -401,19 +395,17 @@ namespace Criptografia
             {
                 for (int f = 0; f < nf; f++)
                 {
-                    if (f >= matriz.Length || matriz[f] == null)
-                    {
-                        matriz[f] = new string[nc];
-                    }
+                    char characterToAdd;
                     if (indexClave >= clave.Length)
                     {
-                        matriz[f][c] = " ";
+                        characterToAdd = ' ';
                     }
                     else
                     {
-                        matriz[f][c] = clave[indexClave].ToString();
+                        characterToAdd = clave[indexClave];
                         indexClave++;
                     }
+                    matriz[f, c] = characterToAdd;
                 }
             }
 
@@ -424,7 +416,7 @@ namespace Criptografia
                 {
                     if (indexMensajeCifrado < mensajeCifrado.Length)
                     {
-                        matriz[f][c] = mensajeCifrado[indexMensajeCifrado].ToString();
+                        matriz[f, c] = mensajeCifrado[indexMensajeCifrado];
                         indexMensajeCifrado++;
                     }
                 }
@@ -437,13 +429,13 @@ namespace Criptografia
             {
                 for (int p = 0; p < nf - 1; p++)
                 {
-                    if (claveOriginal.IndexOf(matriz[p][0]) > claveOriginal.IndexOf(matriz[p + 1][0]))
+                    if (claveOriginal.IndexOf(matriz[p, 0]) > claveOriginal.IndexOf(matriz[p + 1, 0]))
                     {
                         for (int c1 = 0; c1 < nc; c1++)
                         {
-                            string temp = matriz[p][c1];
-                            matriz[p][c1] = matriz[p + 1][c1];
-                            matriz[p + 1][c1] = temp;
+                            char temp = matriz[p, c1];
+                            matriz[p, c1] = matriz[p + 1, c1];
+                            matriz[p + 1, c1] = temp;
                         }
                     }
                 }
@@ -456,39 +448,14 @@ namespace Criptografia
             {
                 for (int f = 0; f < nf; f++)
                 {
-                    mensajeDescifrado += matriz[f][c];
+                    mensajeDescifrado += matriz[f, c];
                 }
             }
 
             return mensajeDescifrado;
         }
-        private void LlenarDataGridView(string[][] matriz, int nf, int nc, ref DataGridView dataGridView)
-        {
-            // Limpiar el DataGridView
-            dataGridView.Rows.Clear();
-            dataGridView.Columns.Clear();
 
-            // sin esto no funciona
-            for (int j = 0; j < nc; j++)
-            {
-                dataGridView.Columns.Add("", "");
-            }
-
-            // Agregar filas al DataGridView
-            for (int i = 0; i < nf; i++)
-            {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView);
-
-                for (int j = 0; j < nc; j++)
-                {
-                    fila.Cells[j].Value = matriz[i][j];
-                }
-
-                dataGridView.Rows.Add(fila);
-            }
-        }
-        private void LlenarDataGridViewV2(char[,] matriz, int nf, int nc, ref DataGridView dataGridView)
+        private void LlenarDataGridView(char[,] matriz, int nf, int nc, ref DataGridView dataGridView)
         {
             // Limpiar el DataGridView
             dataGridView.Rows.Clear();
@@ -514,6 +481,5 @@ namespace Criptografia
                 dataGridView.Rows.Add(fila);
             }
         }
-
     }
 }

@@ -58,9 +58,9 @@
             this.radioDoble.AutoSize = true;
             this.radioDoble.Location = new System.Drawing.Point(677, 128);
             this.radioDoble.Name = "radioDoble";
-            this.radioDoble.Size = new System.Drawing.Size(66, 21);
+            this.radioDoble.Size = new System.Drawing.Size(132, 21);
             this.radioDoble.TabIndex = 5;
-            this.radioDoble.Text = "Doble";
+            this.radioDoble.Text = "Columnas Doble";
             this.radioDoble.UseVisualStyleBackColor = true;
             this.radioDoble.CheckedChanged += new System.EventHandler(this.radioDoble_CheckedChanged);
             // 
@@ -69,10 +69,10 @@
             this.radioSimple.AutoSize = true;
             this.radioSimple.Location = new System.Drawing.Point(677, 155);
             this.radioSimple.Name = "radioSimple";
-            this.radioSimple.Size = new System.Drawing.Size(71, 21);
+            this.radioSimple.Size = new System.Drawing.Size(97, 21);
             this.radioSimple.TabIndex = 6;
             this.radioSimple.TabStop = true;
-            this.radioSimple.Text = "Simple";
+            this.radioSimple.Text = "Fila Simple";
             this.radioSimple.UseVisualStyleBackColor = true;
             this.radioSimple.CheckedChanged += new System.EventHandler(this.radioSimple_CheckedChanged);
             // 
@@ -98,7 +98,7 @@
             // 
             // buttonConvertir
             // 
-            this.buttonConvertir.Location = new System.Drawing.Point(806, 101);
+            this.buttonConvertir.Location = new System.Drawing.Point(815, 103);
             this.buttonConvertir.Name = "buttonConvertir";
             this.buttonConvertir.Size = new System.Drawing.Size(88, 32);
             this.buttonConvertir.TabIndex = 9;
@@ -108,7 +108,7 @@
             // 
             // buttonReiniciar
             // 
-            this.buttonReiniciar.Location = new System.Drawing.Point(806, 139);
+            this.buttonReiniciar.Location = new System.Drawing.Point(815, 141);
             this.buttonReiniciar.Name = "buttonReiniciar";
             this.buttonReiniciar.Size = new System.Drawing.Size(88, 32);
             this.buttonReiniciar.TabIndex = 10;
