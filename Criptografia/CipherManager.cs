@@ -9,81 +9,89 @@ namespace Criptografia
 {
     class CipherManager
     {
-        public string CifrarPorGrupos(string mensaje, int p, int[] permutacion)
+        public string CifrarPorGrupos(string mensaje, int[] permutacion)
         {
-            // Convertir el mensaje en un array de caracteres
             mensaje = mensaje.Replace(" ", "");
-            char[] mensajeArray = mensaje.ToCharArray();
-            string mensajeCifrado = "";
+            // Convertir el mensaje a un array de caracteres
+            var mensajeArray = mensaje.Trim().ToCharArray().ToList();
 
-            // Calcular el número de bloques
-            int bloques = (int)Math.Ceiling((double)mensajeArray.Length / p);
+            // Calcular la longitud de cada grupo
+            var longitudGrupo = permutacion.Length;
 
-            // Rellenar el mensaje con caracteres adicionales si es necesario
-            int caracteresFaltantes = bloques * p - mensajeCifrado.Length;
+            // Calcular la cantidad de grupos necesarios
+            var cantidadGrupos = (int)Math.Ceiling((double)mensajeArray.Count / longitudGrupo);
+
+
+            // Calcular la cantidad de caracteres necesarios para completar el último grupo
+            var caracteresFaltantes = longitudGrupo - (mensajeArray.Count % longitudGrupo);
+
+            // Rellenar el mensaje con 'X' para completar el último grupo
             for (int i = 0; i < caracteresFaltantes; i++)
             {
-                mensajeCifrado += " ";
+                mensajeArray.Add('X');
             }
 
-            // Iterar sobre cada bloque
-            for (int i = 0; i < bloques; i++)
-            {
-                // Obtener el bloque actual
-                string bloque = mensaje.Substring(i * p, Math.Min(p, mensaje.Length - i * p));
+            // Crear una lista para almacenar los grupos cifrados
+            var gruposCifrados = new List<string>();
 
-                // Aplicar la permutación a los caracteres del bloque
-                string bloquePermutado = "";
-                for (int j = 0; j < p; j++)
+            // Iterar sobre cada grupo
+            for (int i = 0; i < cantidadGrupos; i++)
+            {
+                var grupoCifrado = "";
+
+                // Iterar sobre cada posición de la permutación
+                for (int j = 0; j < longitudGrupo; j++)
                 {
-                    if (permutacion[j] < bloque.Length)
-                    {
-                        bloquePermutado += bloque[permutacion[j]];
-                    }
+                    // Calcular la posición real en el mensaje
+                    var posicionMensaje = i * longitudGrupo + permutacion[j];
+
+                    // Añadir el carácter al grupo cifrado
+                    grupoCifrado += mensajeArray[posicionMensaje];
                 }
 
-                // Agregar el bloque permutado al mensaje cifrado
-                mensajeCifrado += bloquePermutado;
+                // Agregar el grupo cifrado a la lista de grupos cifrados
+                gruposCifrados.Add(grupoCifrado);
             }
+
+            // Unir los grupos cifrados en un solo mensaje cifrado
+            var mensajeCifrado = string.Concat(gruposCifrados);
 
             return mensajeCifrado;
         }
-        public string DescifrarPorGrupos(string mensaje, int p, int[] permutacion)
+
+        public string DescifrarPorGrupos(string mensajeCifrado, int[] permutacion)
         {
-            // Calcular el número de bloques
-            int bloques = (int)Math.Ceiling((double)mensaje.Length / p);
+            mensajeCifrado = mensajeCifrado.Replace(" ", "");
+            // Calcular la longitud de cada grupo
+            var longitudGrupo = permutacion.Length;
 
-            // Crear la permutación inversa
-            int[] permutacionInversa = new int[p];
-            for (int i = 0; i < p; i++)
+            // Calcular la cantidad de grupos
+            var cantidadGrupos = mensajeCifrado.Length / longitudGrupo;
+
+            // Crear un array para almacenar los grupos descifrados
+            var gruposDescifrados = new List<string>();
+
+            // Iterar sobre cada grupo
+            for (int i = 0; i < cantidadGrupos; i++)
             {
-                permutacionInversa[permutacion[i]] = i;
-            }
+                var grupoDescifrado = "";
 
-            string mensajeDescifrado = "";
-
-            // Iterar sobre cada bloque
-            for (int i = 0; i < bloques; i++)
-            {
-                // Obtener el bloque cifrado actual
-                string bloqueCifrado = mensaje.Substring(i * p, Math.Min(p, mensaje.Length - i * p));
-
-                // Aplicar la permutación inversa a los caracteres del bloque
-                string bloqueDescifrado = "";
-                for (int j = 0; j < p; j++)
+                // Iterar sobre cada posición de la permutación inversa
+                for (int j = 0; j < longitudGrupo; j++)
                 {
-                    if (permutacionInversa[j] < bloqueCifrado.Length)
-                    {
-                        bloqueDescifrado += bloqueCifrado[permutacionInversa[j]];
-                    }
+                    // Calcular la posición real en el mensaje cifrado
+                    var posicionCifrado = i * longitudGrupo + Array.IndexOf(permutacion, j);
+
+                    // Añadir el carácter al grupo descifrado
+                    grupoDescifrado += mensajeCifrado[posicionCifrado];
                 }
 
-                // Agregar el bloque descifrado al mensaje final
-                mensajeDescifrado += bloqueDescifrado;
+                // Agregar el grupo descifrado a la lista de grupos descifrados
+                gruposDescifrados.Add(grupoDescifrado);
             }
 
-            // Eliminar los caracteres adicionales al final del mensaje descifrado
-            mensajeDescifrado = mensajeDescifrado.Trim();
+            // Unir los grupos descifrados en un solo mensaje descifrado
+            var mensajeDescifrado = string.Concat(gruposDescifrados);
 
             return mensajeDescifrado;
         }
@@ -483,3 +491,4 @@ namespace Criptografia
         }
     }
 }
+

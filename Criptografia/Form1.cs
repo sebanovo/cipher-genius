@@ -26,17 +26,23 @@ namespace Criptografia
             textBoxCriptograma.Enabled = false;
         }
 
+        public void validacionesDTG(DataGridView datagridView)
+        {
+            datagridView.AllowUserToAddRows = false;
+            datagridView.AllowUserToDeleteRows = false;
+            datagridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            datagridView.ReadOnly = true;
+        }
+
         public void handleChangeRadioButton()
         {
             textBoxPermutacion.Enabled = false;
-            comboBoxPosicion.Enabled = false;
             textBoxClave.Enabled = true;
             textBoxPermutacion.Enabled = false;
             if (radioPorGrupos.Checked)
             {
                 textBoxClave.Enabled = false;
                 textBoxPermutacion.Enabled = true;
-                comboBoxPosicion.Enabled = true;
             }
 
         }
@@ -68,6 +74,9 @@ namespace Criptografia
         private void Form1_Load_1(object sender, EventArgs e)
         {
             deshabilitarTexBox();
+            validacionesDTG(dataGridView1);
+            validacionesDTG(dataGridView2);
+            validacionesDTG(dataGridView3);
             if (estaCifrando)
             {
                 textBoxMensaje.Enabled = true;
@@ -79,7 +88,6 @@ namespace Criptografia
                 textBoxCriptograma.Enabled = true;
             }
             textBoxPermutacion.Enabled = false;
-            comboBoxPosicion.Enabled = false;
         }
 
         private void buttonConvertir_Click(object sender, EventArgs e)
@@ -95,16 +103,14 @@ namespace Criptografia
                 // mejorar la logica
                 if (estaCifrando)
                 {
-                    int posicion = int.Parse(comboBoxPosicion.Text);
                     int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
-                    string cifradoFinal = cipher.CifrarPorGrupos(mensaje, posicion, permutacion);
+                    string cifradoFinal = cipher.CifrarPorGrupos(mensaje, permutacion);
                     textBoxCriptograma.Text = cifradoFinal;
                 }
                 else
                 {
-                    int posicion = int.Parse(comboBoxPosicion.Text);
                     int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
-                    string cifradoFinal = cipher.DescifrarPorGrupos(criptograma, posicion, permutacion);
+                    string cifradoFinal = cipher.DescifrarPorGrupos(criptograma, permutacion);
                     textBoxMensaje.Text = cifradoFinal;
                 }
             }

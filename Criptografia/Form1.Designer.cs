@@ -42,9 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBoxPosicion = new System.Windows.Forms.ComboBox();
             this.textBoxPermutacion = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -184,24 +182,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(451, 288);
             this.dataGridView1.TabIndex = 18;
             // 
-            // comboBoxPosicion
-            // 
-            this.comboBoxPosicion.FormattingEnabled = true;
-            this.comboBoxPosicion.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9"});
-            this.comboBoxPosicion.Location = new System.Drawing.Point(340, 73);
-            this.comboBoxPosicion.Name = "comboBoxPosicion";
-            this.comboBoxPosicion.Size = new System.Drawing.Size(77, 24);
-            this.comboBoxPosicion.TabIndex = 19;
-            // 
             // textBoxPermutacion
             // 
             this.textBoxPermutacion.Location = new System.Drawing.Point(435, 73);
@@ -209,15 +189,6 @@
             this.textBoxPermutacion.Name = "textBoxPermutacion";
             this.textBoxPermutacion.Size = new System.Drawing.Size(137, 24);
             this.textBoxPermutacion.TabIndex = 20;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(357, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "posición";
             // 
             // label5
             // 
@@ -254,9 +225,7 @@
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxPermutacion);
-            this.Controls.Add(this.comboBoxPosicion);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -297,9 +266,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBoxPosicion;
         private System.Windows.Forms.TextBox textBoxPermutacion;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
