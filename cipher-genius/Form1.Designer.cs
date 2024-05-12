@@ -1,4 +1,4 @@
-﻿namespace Criptografia
+﻿namespace cipher_genius 
 {
     partial class Form1
     {

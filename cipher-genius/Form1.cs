@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace Criptografia
+namespace cipher_genius
 {
     public partial class Form1 : Form
     {

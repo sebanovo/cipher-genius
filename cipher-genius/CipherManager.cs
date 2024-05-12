@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Criptografia
+namespace cipher_genius 
 {
     class CipherManager
     {
@@ -491,4 +491,3 @@ namespace Criptografia
         }
     }
 }
-
