@@ -13,6 +13,9 @@ namespace cipher_genius
 {
     public partial class Form1 : Form
     {
+        /**
+         * Sebastian Cespedes Rodas 
+        */
         bool estaCifrando = true;
         public Form1()
         {
@@ -164,5 +167,9 @@ namespace cipher_genius
         {
             Application.Restart();
         }
+        /**************************** Sebastian FIN *********************************************************************/
+
+        // Escribir aquí abajo
     }
 }
+
