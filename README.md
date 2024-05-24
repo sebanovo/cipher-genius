@@ -70,13 +70,12 @@ utilizar los métodos de cifrado, sigue las instrucciones en cada archivo de có
 ## Ejemplo de implementación
 
 ```csharp
-namespace CipherGenius {
+namespace cipher_genius {
     class CipherManager 
     {
-        public string primercifrado(string mensaje, string clave, ref DataGridView DataGridView1){}
-        public string segundocifrado(string cifradoIntermedio, string clave, ref DataGridView DataGridView1, ref DataGridView DataGridView2){}
-        public string cifrarporfilas(string mensaje, string clave, ref DataGridView DataGridView1, ref DataGridView DataGridView2){}
-        public string cifrarporgrupos(string mensaje, int posicion, int[] permutacion){}
+        public string cifrarPorColumnaDoble(string mensaje, string clave, ref DataGridView DataGridView1){}
+        public string cifrarPorFilaSimple(string mensaje, string clave, ref DataGridView DataGridView1, ref DataGridView DataGridView2){}
+        public string cifrarPorGrupo(string mensaje, int posicion, int[] permutacion){}
     }
 }
 ```
