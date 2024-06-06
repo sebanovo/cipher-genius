@@ -16,6 +16,8 @@ namespace cipher_genius
             return Array.IndexOf(abecedario, char.ToUpper(c));
         }
 
+        // cualquier cambio 
+
         private static char GetCharAt(int index)
         {
             return abecedario[index % abecedarioLength];
