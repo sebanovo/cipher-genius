@@ -33,7 +33,7 @@ namespace One1
         public double[,] MatrizClave;
         public double[,] MatrizCriptograma;
         int n;
-
+        //este es el comentadio de esta becha
         public Hill()
         {
 
