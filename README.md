@@ -1,13 +1,7 @@
 # Proyecto de demostración de métodos de cifrado
 
-Este proyecto tiene como objetivo demostrar diferentes métodos de cifrado utilizados en la
-criptografía. los métodos de cifrado implementados son:
-
-1. transposición por grupos
-2. cifrador de doble transposición por columnas
-3. transposición por filas
-
-[![cipher-genius.png](https://i.postimg.cc/fbN0rxt1/cipher-genius.png)](https://postimg.cc/Yvd94Lxx)
+<a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/mr7Zztzk/Captura-de-pantalla-2024-06-06-144502.png" alt="Captura-de-pantalla-2024-06-06-144502"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/wvV62Zkd/Captura-de-pantalla-2024-06-06-144804.png" alt="Captura-de-pantalla-2024-06-06-144804"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/d1vs8wrB/Captura-de-pantalla-2024-06-06-144855.png" alt="Captura-de-pantalla-2024-06-06-144855"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/vTZGNhPx/Captura-de-pantalla-2024-06-06-144923.png" alt="Captura-de-pantalla-2024-06-06-144923"/></a><br/><br/>
+<a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/HW6YyGxw/Captura-de-pantalla-2024-06-06-144950.png" alt="Captura-de-pantalla-2024-06-06-144950"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/fyqMndF2/Captura-de-pantalla-2024-06-06-145140.png" alt="Captura-de-pantalla-2024-06-06-145140"/></a> 
 
 ## Métodos de cifrado implementados
 
@@ -66,16 +60,3 @@ string clave = "CARO";
 El proyecto proporciona implementaciones de los métodos de cifrado mencionados
 anteriormente. cada método se encuentra en un archivo separado dentro del proyecto. para
 utilizar los métodos de cifrado, sigue las instrucciones en cada archivo de código fuente.
-
-## Ejemplo de implementación
-
-```csharp
-namespace cipher_genius {
-    class CipherManager 
-    {
-        public string cifrarPorColumnaDoble(string mensaje, string clave, ref DataGridView DataGridView1){}
-        public string cifrarPorFilaSimple(string mensaje, string clave, ref DataGridView DataGridView1, ref DataGridView DataGridView2){}
-        public string cifrarPorGrupo(string mensaje, int posicion, int[] permutacion){}
-    }
-}
-```
