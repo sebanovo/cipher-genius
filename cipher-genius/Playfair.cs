@@ -24,6 +24,7 @@ namespace Two2
         public char[,] Matriz = new char[Limite, Limite];
 
         public char[] CaracteresAlfabeticos = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
         public Playfair()
         {
 
@@ -34,6 +35,7 @@ namespace Two2
             CargarClave(clave);
             CargarAlfabetoRestante();
         }
+
         public String ImprimirMatriz()
         {
             String resultado = "";
@@ -47,8 +49,6 @@ namespace Two2
             }
             return resultado;
         }
-
-
 
         public void CargarClave(String clave)
         {
@@ -202,11 +202,8 @@ namespace Two2
 
             }
 
-
             return s.ToString();
-
         }
-
 
         public String Desencriptar(String texto, String clave)
         {
@@ -312,6 +309,7 @@ namespace Two2
             return s.ToString();
 
         }
+
         public List<List<char>> CargarPares(String texto)
         {
             List<List<char>> lista = new List<List<char>>();
@@ -330,6 +328,7 @@ namespace Two2
             }
             return lista;
         }
+
         public string EliminarEspacios(string texto)
         {
             if (string.IsNullOrEmpty(texto))
@@ -395,7 +394,6 @@ namespace Two2
 
         }
         // ... other methods (omitted for brevity)
-
     }
 }
 

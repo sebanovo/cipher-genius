@@ -33,17 +33,20 @@ namespace One1
         public double[,] MatrizClave;
         public double[,] MatrizCriptograma;
         int n;
+
         public Hill()
         {
-            
+
         }
-        public void run(String clave,int n)
+
+        public void run(String clave, int n)
         {
             Modulo = 27;
             this.n = n;
             MatrizClave = new double[n, n];
             CargarMatrizClave(clave);
         }
+
         public String Encriptar(String textClaro, String clave, int cuadrada)
         {
             String solucion = "";
@@ -436,7 +439,6 @@ namespace One1
             return result;
         }
 
-
         private double CalcularDeterminante(double[,] matriz)
         {
             int n = matriz.GetLength(0);
@@ -479,7 +481,7 @@ namespace One1
         }
 
 
-        public string Desencriptar(String texto,String clave)
+        public string Desencriptar(String texto, String clave)
         {
             StringBuilder a = new StringBuilder();
             int f = 0, c = 0;
@@ -512,7 +514,7 @@ namespace One1
             int inverso = ModInverso(dete, Modulo);
 
             double[,] adjunt = Adjunta(MatrizClave);
-          
+
             double[,] matrix = MultiplicarPorEscalar(adjunt, inverso);
             double[,] nueva = ModMatrix(matrix, Modulo);// esta es la nueva clave
 
@@ -530,25 +532,19 @@ namespace One1
             //aqui se encuentra el criptograma
 
             double[,] textoClaro = MultiplicarMatrices(nueva, Ayuda);
-            double[,] lista = ModMatrix(textoClaro,Modulo);
+            double[,] lista = ModMatrix(textoClaro, Modulo);
 
             Console.WriteLine("esta es el plato final");
-            for (int j = 0; j <lista.GetLength(1); j++)
+            for (int j = 0; j < lista.GetLength(1); j++)
             {
                 for (int i = 0; i < lista.GetLength(0); i++)
                 {
-                    a.Append(ParameterIntReturnChar((int)lista[i,j]));
+                    a.Append(ParameterIntReturnChar((int)lista[i, j]));
                 }
             }
             return a.ToString();
-        }      
-              
-   
-         
+        }
 
-        
-               
-        
         // Función para encontrar el MCD usando el algoritmo de Euclides
         public int MCD(int a, int b)
         {
@@ -560,37 +556,39 @@ namespace One1
             }
             return a;
         }
+
         // Función para encontrar la inversa modular utilizando el algoritmo extendido de Euclides
-        public  int ModInverso(int a, int m)
+        public int ModInverso(int a, int m)
+        {
+            int m0 = m, t, q;
+            int x0 = 0, x1 = 1;
+
+            if (MCD(a, m) != 1)
+                return -1; // No existe inversa modular
+
+            while (a > 1)
             {
-                int m0 = m, t, q;
-                int x0 = 0, x1 = 1;
+                q = a / m;
+                t = m;
 
-                if (MCD(a, m) != 1)
-                    return -1; // No existe inversa modular
+                // m es el resto ahora, procesa el próximo
+                m = a % m;
+                a = t;
+                t = x0;
 
-                while (a > 1)
-                {
-                    q = a / m;
-                    t = m;
-
-                    // m es el resto ahora, procesa el próximo
-                    m = a % m;
-                    a = t;
-                    t = x0;
-
-                    x0 = x1 - q * x0;
-                    x1 = t;
-                }
-
-                // Asegúrate de que x1 sea positivo
-                if (x1 < 0)
-                    x1 += m0;
-
-                return x1;
+                x0 = x1 - q * x0;
+                x1 = t;
             }
+
+            // Asegúrate de que x1 sea positivo
+            if (x1 < 0)
+                x1 += m0;
+
+            return x1;
+        }
+
         //ALGORITMOS PARA CALCULAR LA CONJUNTA DE UNA MATRIZ
-        public  double Determinante(double[,] matriz)
+        public double Determinante(double[,] matriz)
         {
             int n = matriz.GetLength(0);
             if (n == 1)
@@ -614,7 +612,7 @@ namespace One1
         }
 
         // Función para obtener una submatriz excluyendo una fila y una columna específicas
-        private  double[,] ObtenerSubMatriz(double[,] matriz, int filaExcluir, int columnaExcluir)
+        private double[,] ObtenerSubMatriz(double[,] matriz, int filaExcluir, int columnaExcluir)
         {
             int n = matriz.GetLength(0);
             double[,] subMatriz = new double[n - 1, n - 1];
@@ -635,7 +633,7 @@ namespace One1
         }
 
         // Función para calcular la matriz de cofactores
-        private  double[,] MatrizDeCofactores(double[,] matriz)
+        private double[,] MatrizDeCofactores(double[,] matriz)
         {
             int n = matriz.GetLength(0);
             double[,] cofactores = new double[n, n];
@@ -651,7 +649,7 @@ namespace One1
         }
 
         // Función para transponer una matriz
-        private  double[,] Transponer(double[,] matriz)
+        private double[,] Transponer(double[,] matriz)
         {
             int n = matriz.GetLength(0);
             double[,] transpuesta = new double[n, n];
@@ -666,19 +664,13 @@ namespace One1
         }
 
         // Función para calcular la adjunta de una matriz
-        public  double[,] Adjunta(double[,] matriz)
+        public double[,] Adjunta(double[,] matriz)
         {
             double[,] cofactores = MatrizDeCofactores(matriz);
             double[,] adjunta = Transponer(cofactores);
             return adjunta;
         }
-
-
-
-        
-        }
-
-
+    }
 }
 
 

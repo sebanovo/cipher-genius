@@ -22,9 +22,9 @@ namespace cipher_genius
          * Sebastian Cespedes Rodas 
         */
         bool estaCifrando = true;
-        Hill hill =new Hill();
+        Hill hill = new Hill();
         Playfair playfair = new Playfair();
-         
+
         public Form1()
         {
             InitializeComponent();
@@ -37,12 +37,6 @@ namespace cipher_genius
             lista = new List<int>(); // Inicializa la lista vacía
             this.MostrarUOcultar(false, 1);
             //-----------------------------------------
-            
-
-
-            //THIS IS MY PART
-            
-
         }
 
         public void deshabilitarTexBox()
@@ -127,7 +121,7 @@ namespace cipher_genius
 
             if (radioPorGrupos.Checked)
             {
-                // mejorar la logica
+                // TODO_SEBASTIAN: , mejorar la logica
                 if (estaCifrando)
                 {
                     int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
@@ -195,9 +189,6 @@ namespace cipher_genius
 
         /**************************** Sebastian FIN *********************************************************************/
 
-        // Escribir aquí abajo
-
-
         /*************************Adolfo INICIO ********************************************************/
 
         /**
@@ -207,10 +198,10 @@ namespace cipher_genius
         CipherManager cipher1 = new CipherManager();
         private List<PictureBox> pictureBoxes = new List<PictureBox>();
 
-        
-        
 
-    private void tabPage1_Click(object sender, EventArgs e)
+
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
@@ -298,7 +289,7 @@ namespace cipher_genius
             this.AgregarElemento(14);
             this.agregarPinturaAux(14);
             //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        } 
+        }
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
@@ -337,22 +328,22 @@ namespace cipher_genius
 
         private void pictureBox17_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(button3.Enabled==false)
+            if (button3.Enabled == false)
             {
                 int[] arregloPosiciones = lista.ToArray(); // Convierte la lista a un arreglo
 
                 string texto = comboBox1.SelectedItem.ToString();
                 int opcion = 1;
-                if(texto=="Alfanumerico")
+                if (texto == "Alfanumerico")
                 {
                     opcion = 1;
                 }
-                else if(texto=="Mixto")
+                else if (texto == "Mixto")
                 {
                     opcion = 0;
                 }
@@ -361,7 +352,7 @@ namespace cipher_genius
                 List<string> listaTextoCifrado = cipher1.DescifradorCesarMixto(arregloPosiciones, opcion);
                 richTextBox1.Text = string.Join("", listaTextoCifrado); // Muestra los elementos separados por comas
             }
-            else if (button2.Enabled==false)
+            else if (button2.Enabled == false)
             {
                 // Inicializa la lista de letras
                 List<string> listaLetras = new List<string>();
@@ -397,18 +388,18 @@ namespace cipher_genius
                 }
 
             }
-            else if(button7.Enabled==false)
+            else if (button7.Enabled == false)
             {
                 String textoClaro = richTextBox2.Text;
                 String cifra = richTextBox3.Text;
 
                 List<char> textoCifrado = cipher1.CifradoVigenere(textoClaro, cifra);
-                
+
 
                 // Convierte la lista de caracteres cifrados a una cadena y muestra el resultado
                 richTextBox1.Text = new string(textoCifrado.ToArray());
             }
-            else if(button4.Enabled==false)
+            else if (button4.Enabled == false)
             {
                 String textoClaro = richTextBox2.Text;
                 String cifra = richTextBox3.Text;
@@ -419,12 +410,12 @@ namespace cipher_genius
                 // Convierte la lista de caracteres cifrados a una cadena y muestra el resultado
                 richTextBox1.Text = new string(textoCifrado.ToArray());
             }
-            else if(button5.Enabled==false)
+            else if (button5.Enabled == false)
             {
                 int[,] matriz = cipher1.GenerarMatriz();
                 string palabra = richTextBox2.Text;
                 string clave = textBox2.Text;
-                if(clave.Length==4)
+                if (clave.Length == 4)
                 {
                     List<int> textoCifrado = cipher1.CifradorHomofono(matriz, palabra, clave);
                     // Convertir la lista de enteros a una cadena de texto separada por comas
@@ -437,9 +428,9 @@ namespace cipher_genius
                 {
                     richTextBox1.Text = "La clave debe tener 4 caracteres";
                 }
-                
+
             }
-            else if(button11.Enabled==false)
+            else if (button11.Enabled == false)
             {
                 int[,] matriz = cipher1.GenerarMatriz();
                 string textoCifradoString = richTextBox2.Text; // Cambio: Convertir a cadena de texto
@@ -462,7 +453,7 @@ namespace cipher_genius
                 }
 
                 string clave = textBox2.Text.ToUpper(); // Convertir la clave a mayúsculas
-                if(clave.Length==4)
+                if (clave.Length == 4)
                 {
                     List<char> textoClaro = cipher1.DescifradorHomofono(matriz, textoCifrado, clave);
 
@@ -476,7 +467,7 @@ namespace cipher_genius
                 {
                     richTextBox1.Text = "La clave debe tener 4 caracteres";
                 }
-                
+
             }
 
         }
@@ -547,16 +538,16 @@ namespace cipher_genius
             };
         }
 
-        
+
         private void AgregarElemento(int elemento)
         {
-                lista.Insert(0, elemento); // Agrega el elemento al principio de la lista
+            lista.Insert(0, elemento); // Agrega el elemento al principio de la lista
         }
         private void EliminarElemento(int elemento)
         {
             lista.Remove(elemento); // Elimina el elemento de la lista
         }
-        
+
 
         private void MostrarUOcultar(bool ver, int num)
         {
@@ -572,7 +563,7 @@ namespace cipher_genius
                 }
             }
 
-            if (num==1)
+            if (num == 1)
             {
                 button1.Text = "Cifrar";
                 button2.Enabled = false;
@@ -618,7 +609,7 @@ namespace cipher_genius
                 comboBox1.Visible = true;
 
 
-                
+
 
 
             }
@@ -717,7 +708,7 @@ namespace cipher_genius
 
 
             }
-            else if (num==4)
+            else if (num == 4)
             {
                 button1.Text = "Descifrar";
                 button2.Enabled = true;
@@ -762,7 +753,7 @@ namespace cipher_genius
                 comboBox1.Enabled = false;
                 comboBox1.Visible = false;
             }
-            else if(num==5)
+            else if (num == 5)
             {
                 button1.Text = "Cifrar";
                 button2.Enabled = true;
@@ -804,7 +795,7 @@ namespace cipher_genius
                 comboBox1.Enabled = false;
                 comboBox1.Visible = false;
             }
-            else if(num==6)
+            else if (num == 6)
             {
                 button1.Text = "Descifrar";
                 button2.Enabled = true;
@@ -821,7 +812,7 @@ namespace cipher_genius
                 label6.Visible = true;
                 label6.Enabled = true;
                 label6.Text = "Escribe el texto cifrado, que son maximo dos digitos y separados por comas";
-                
+
 
                 label7.Visible = true;
                 label7.Enabled = true;
@@ -851,21 +842,21 @@ namespace cipher_genius
             button1.Visible = true;
             richTextBox1.Visible = true;
             richTextBox1.Enabled = true;
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             pictureBoxes = new List<PictureBox>();
             lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(false,1);
+            this.MostrarUOcultar(false, 1);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             pictureBoxes = new List<PictureBox>();
             lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(true,2);
+            this.MostrarUOcultar(true, 2);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -952,7 +943,7 @@ namespace cipher_genius
         private void button8_Click(object sender, EventArgs e)
         {
             int[,] matriz = cipher1.GenerarMatriz(); // Utiliza el nombre de la función sin "cipher1."
-            int num=cipher1.BuscarNumeroEnMatriz(matriz,int.Parse(textBox2.Text));
+            int num = cipher1.BuscarNumeroEnMatriz(matriz, int.Parse(textBox2.Text));
             int columna;
             if (int.TryParse(textBox2.Text, out columna))
             {
@@ -972,7 +963,7 @@ namespace cipher_genius
 
         private void button9_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -1047,12 +1038,12 @@ namespace cipher_genius
         {
             ///encriptao playfair
             String clave = qey.Text;
-            clave=clave.Trim();
+            clave = clave.Trim();
             String texto = input.Text;
             texto = texto.Trim();
             playfair.run(clave);
-            String salida=playfair.Encriptar(texto,clave);
-            
+            String salida = playfair.Encriptar(texto, clave);
+
             output.Text = salida;
         }
 
@@ -1068,7 +1059,7 @@ namespace cipher_genius
             clave = clave.Trim();
             String cripto = input.Text;
             cripto = cripto.Trim();
-            String salida= playfair.Desencriptar( cripto,clave);
+            String salida = playfair.Desencriptar(cripto, clave);
             output.Text = salida;
         }
 
@@ -1088,10 +1079,10 @@ namespace cipher_genius
 
             String texto = input.Text;
             texto = texto.Trim();
-            
-            int nnn =int.Parse(nxn.Text);
+
+            int nnn = int.Parse(nxn.Text);
             hill.run(clave, nnn);
-            String salida =hill.Encriptar(texto, clave,nnn);
+            String salida = hill.Encriptar(texto, clave, nnn);
             output.Text = salida;
 
 
@@ -1126,13 +1117,7 @@ namespace cipher_genius
 
         }
 
-
-
-
-
         /*************************Adolfo Fin ********************************************************/
-
-      
 
         private void buttonCCC_Click(object sender, EventArgs e)
         {
@@ -1342,8 +1327,4 @@ namespace cipher_genius
 
         }
     }
-
 }
-    
-
-

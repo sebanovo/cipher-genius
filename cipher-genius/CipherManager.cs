@@ -5,24 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace cipher_genius 
+namespace cipher_genius
 {
     class CipherManager
     {
         public string CifrarPorGrupos(string mensaje, int[] permutacion)
         {
             mensaje = mensaje.Replace(" ", "");
-            // Convertir el mensaje a un array de caracteres
             var mensajeArray = mensaje.Trim().ToCharArray().ToList();
-
-            // Calcular la longitud de cada grupo
             var longitudGrupo = permutacion.Length;
-
-            // Calcular la cantidad de grupos necesarios
             var cantidadGrupos = (int)Math.Ceiling((double)mensajeArray.Count / longitudGrupo);
-
-
-            // Calcular la cantidad de caracteres necesarios para completar el último grupo
             var caracteresFaltantes = longitudGrupo - (mensajeArray.Count % longitudGrupo);
 
             // Rellenar el mensaje con 'X' para completar el último grupo
@@ -31,29 +23,22 @@ namespace cipher_genius
                 mensajeArray.Add('X');
             }
 
-            // Crear una lista para almacenar los grupos cifrados
             var gruposCifrados = new List<string>();
 
-            // Iterar sobre cada grupo
             for (int i = 0; i < cantidadGrupos; i++)
             {
                 var grupoCifrado = "";
 
-                // Iterar sobre cada posición de la permutación
                 for (int j = 0; j < longitudGrupo; j++)
                 {
-                    // Calcular la posición real en el mensaje
                     var posicionMensaje = i * longitudGrupo + permutacion[j];
-
-                    // Añadir el carácter al grupo cifrado
                     grupoCifrado += mensajeArray[posicionMensaje];
                 }
 
-                // Agregar el grupo cifrado a la lista de grupos cifrados
                 gruposCifrados.Add(grupoCifrado);
             }
 
-            // Unir los grupos cifrados en un solo mensaje cifrado
+            // Unir grupos
             var mensajeCifrado = string.Concat(gruposCifrados);
 
             return mensajeCifrado;
@@ -62,13 +47,8 @@ namespace cipher_genius
         public string DescifrarPorGrupos(string mensajeCifrado, int[] permutacion)
         {
             mensajeCifrado = mensajeCifrado.Replace(" ", "");
-            // Calcular la longitud de cada grupo
             var longitudGrupo = permutacion.Length;
-
-            // Calcular la cantidad de grupos
             var cantidadGrupos = mensajeCifrado.Length / longitudGrupo;
-
-            // Crear un array para almacenar los grupos descifrados
             var gruposDescifrados = new List<string>();
 
             // Iterar sobre cada grupo
@@ -76,21 +56,15 @@ namespace cipher_genius
             {
                 var grupoDescifrado = "";
 
-                // Iterar sobre cada posición de la permutación inversa
                 for (int j = 0; j < longitudGrupo; j++)
                 {
-                    // Calcular la posición real en el mensaje cifrado
                     var posicionCifrado = i * longitudGrupo + Array.IndexOf(permutacion, j);
-
-                    // Añadir el carácter al grupo descifrado
                     grupoDescifrado += mensajeCifrado[posicionCifrado];
                 }
 
-                // Agregar el grupo descifrado a la lista de grupos descifrados
                 gruposDescifrados.Add(grupoDescifrado);
             }
 
-            // Unir los grupos descifrados en un solo mensaje descifrado
             var mensajeDescifrado = string.Concat(gruposDescifrados);
 
             return mensajeDescifrado;
@@ -299,7 +273,7 @@ namespace cipher_genius
                     }
                     else
                     {
-                        characterToAdd = ' '; // O cualquier otro carácter predeterminado.
+                        characterToAdd = ' '; // ocupar el espacio 
                     }
                     matriz[f, c] = characterToAdd;
                 }
@@ -469,7 +443,7 @@ namespace cipher_genius
             dataGridView.Rows.Clear();
             dataGridView.Columns.Clear();
 
-            // sin esto no funciona
+            // prepar el dataGridView (sin esto no funciona) 
             for (int j = 0; j < nc; j++)
             {
                 dataGridView.Columns.Add("", "");
@@ -555,10 +529,10 @@ namespace cipher_genius
             return mensajeOriginal;
         }
 
-        public List<int> CifradorCesarMixto(List<string> letras,int num)
+        public List<int> CifradorCesarMixto(List<string> letras, int num)
         {
             string[] caracteres;
-            if(num==1)
+            if (num == 1)
             {
                 caracteres = new string[]
                 {
@@ -574,7 +548,7 @@ namespace cipher_genius
                      "%", "&", "(", ")", "=", ">", "<", "0", "1", "2", "3", "4", "5"
                 };
             }
-            
+
             List<int> listaPosiciones = new List<int>();
 
             foreach (string letra in letras)
@@ -597,7 +571,7 @@ namespace cipher_genius
             {
                 int pos = posiciones[i];
                 string nuevoCaracterCifrado;
-                if (num==1)
+                if (num == 1)
                 {
                     nuevoCaracterCifrado = ConvertirAlfanumerico(pos);
                 }
@@ -605,7 +579,7 @@ namespace cipher_genius
                 {
                     nuevoCaracterCifrado = ConvertirMixto(pos);
                 }
-                
+
                 listaTextoCifrado.Add(nuevoCaracterCifrado);
                 i--;
             }
@@ -628,7 +602,7 @@ namespace cipher_genius
 
         public string ConvertirAlfanumerico(int pos)
         {
-            String[] caracteresNormales = { "A", "B", "C", "D", "E", "F", "G", "H","I","J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+            String[] caracteresNormales = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
             if (pos >= 0 && pos < caracteresNormales.Length)
             {
                 return caracteresNormales[pos];
@@ -992,7 +966,7 @@ namespace cipher_genius
             clave = clave.Replace(",", "");
             clave = clave.Replace(".", "");
 
-            if (clave.Length>=textoClaro.Length)
+            if (clave.Length >= textoClaro.Length)
             {
                 // Verifica si la clave contiene caracteres especiales
                 foreach (char c in clave)
@@ -1188,10 +1162,4 @@ namespace cipher_genius
     }
 
     /*******************Adolfo FIN **********************/
-
-
-
-
-
-
 }
