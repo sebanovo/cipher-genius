@@ -1,7 +1,39 @@
 # Proyecto de demostración de métodos de cifrado
 
-<a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/mr7Zztzk/Captura-de-pantalla-2024-06-06-144502.png" alt="Captura-de-pantalla-2024-06-06-144502"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/wvV62Zkd/Captura-de-pantalla-2024-06-06-144804.png" alt="Captura-de-pantalla-2024-06-06-144804"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/d1vs8wrB/Captura-de-pantalla-2024-06-06-144855.png" alt="Captura-de-pantalla-2024-06-06-144855"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/vTZGNhPx/Captura-de-pantalla-2024-06-06-144923.png" alt="Captura-de-pantalla-2024-06-06-144923"/></a><br/><br/>
-<a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/HW6YyGxw/Captura-de-pantalla-2024-06-06-144950.png" alt="Captura-de-pantalla-2024-06-06-144950"/></a> <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/fyqMndF2/Captura-de-pantalla-2024-06-06-145140.png" alt="Captura-de-pantalla-2024-06-06-145140"/></a> 
+<table>
+  <tr>
+    <td>
+      <a href="https://postimages.org/" target="_blank">
+        <img src="https://i.postimg.cc/dVk9FVG1/Captura-de-pantalla-2024-06-08-172010.png" alt="Captura-de-pantalla-2024-06-08-172010"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://postimages.org/" target="_blank">
+        <img src="https://i.postimg.cc/bNvT6TJ1/Captura-de-pantalla-2024-06-08-172120.png" alt="Captura-de-pantalla-2024-06-08-172120"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://postimages.org/" target="_blank">
+        <img src="https://i.postimg.cc/5NkmDCYT/Captura-de-pantalla-2024-06-08-172144.png" alt="Captura-de-pantalla-2024-06-08-172144"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://postimages.org/" target="_blank">
+        <img src="https://i.postimg.cc/brmRyG6G/Captura-de-pantalla-2024-06-08-172214.png" alt="Captura-de-pantalla-2024-06-08-172214"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://postimages.org/" target="_blank">
+        <img src="https://i.postimg.cc/sfmm98VV/Captura-de-pantalla-2024-06-08-172236.png" alt="Captura-de-pantalla-2024-06-08-172236"/>
+      </a>
+    </td>
+    <td></td>
+  </tr>
+</table>
 
 ## Métodos de cifrado implementados
 
@@ -55,6 +87,7 @@ string clave = "CARO";
 string criptograma = "LIPIXAROFSOMRAXGTOLX";
 string clave = "CARO";
 ```
+
 ## Uso del proyecto
 
 El proyecto proporciona implementaciones de los métodos de cifrado mencionados
