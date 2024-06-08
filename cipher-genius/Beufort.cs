@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cipher_genius
 {
-    class Vigenere
+    class Beufort 
     {
         private static readonly char[] abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ".ToCharArray();
         private static readonly int abecedarioLength = abecedario.Length;
@@ -15,6 +15,8 @@ namespace cipher_genius
         {
             return Array.IndexOf(abecedario, char.ToUpper(c));
         }
+
+        // cualquier cambio 
 
         private static char GetCharAt(int index)
         {

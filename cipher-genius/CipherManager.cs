@@ -529,7 +529,7 @@ namespace cipher_genius
             return mensajeOriginal;
         }
 
-        public List<int> CifradorCesarMixto(List<string> letras, int num)
+        public List<int> CifradorCesarMixto(string textoClaro, int num)
         {
             string[] caracteres;
             if (num == 1)
@@ -548,6 +548,20 @@ namespace cipher_genius
                      "%", "&", "(", ")", "=", ">", "<", "0", "1", "2", "3", "4", "5"
                 };
             }
+            List<string> letras = new List<string>();
+
+            for (int i = textoClaro.Length - 1; i >= 0; i--)
+            {
+                if (textoClaro[i] == 'Ñ' | textoClaro[i]=='ñ')
+                {
+                    letras.Add('N'.ToString());
+                }
+                else
+                {
+                    letras.Add(textoClaro[i].ToString());
+                }
+                
+            }
 
             List<int> listaPosiciones = new List<int>();
 
@@ -559,6 +573,8 @@ namespace cipher_genius
                     listaPosiciones.Add(pos);
                 }
             }
+
+            listaPosiciones.Reverse();
 
             return listaPosiciones;
         }
@@ -637,6 +653,10 @@ namespace cipher_genius
             // Recorre el texto claro en orden inverso
             for (int i = textoClaro.Length - 1; i >= 0; i--)
             {
+                if (textoClaro[i] == 'Ñ' | textoClaro[i] == 'ñ')
+                {
+                    listaLetras.Add('N');
+                }    
                 listaLetras.Add(textoClaro[i]);
             }
 
