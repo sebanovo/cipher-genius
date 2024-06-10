@@ -21,12 +21,21 @@ namespace cipher_genius
         /**
          * Sebastian Cespedes Rodas 
         */
+        Grupos cipherByGroups = new Grupos();
+        ColumnaDoble doubleColumnCipher = new ColumnaDoble();
+        FilaSimple singleRowCipher = new FilaSimple();
         bool estaCifrando = true;
+
+        /*
+         * Mejia 
+        */
         Hill hill = new Hill();
         Playfair playfair = new Playfair();
 
 
-        //Adolfo Mendoza Ribera
+        /*
+         * Adolfo Mendoza Ribera 
+        */
         int controlador = -1;
         int tamCuadros = 40;
 
@@ -42,7 +51,7 @@ namespace cipher_genius
             lista = new List<int>(); // Inicializa la lista vacía
             this.MostrarUOcultar(false, 1);
 
-            
+
             AMRcomboBoxListasCD.Text = "Selecciona";
             AMRcomboBoxTL.Text = "14";
             AMRcomboBoxA.Text = "Alfanumerico";
@@ -87,9 +96,7 @@ namespace cipher_genius
             AMRrichTextBox3.Visible = false;
             AMRrichTextBox3.Enabled = false;
 
-            //-----------------------------------------
             //-----ADOLFO
-
         }
 
         public void deshabilitarTexBox()
@@ -105,6 +112,16 @@ namespace cipher_genius
             datagridView.AllowUserToDeleteRows = false;
             datagridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             datagridView.ReadOnly = true;
+        }
+
+        public void LimpiarDataGridView()
+        {
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
+            dataGridView2.Columns.Clear();
+            dataGridView2.Rows.Clear();
+            dataGridView3.Columns.Clear();
+            dataGridView3.Rows.Clear();
         }
 
         public void handleChangeRadioButton()
@@ -150,6 +167,7 @@ namespace cipher_genius
             validacionesDTG(dataGridView1);
             validacionesDTG(dataGridView2);
             validacionesDTG(dataGridView3);
+
             if (estaCifrando)
             {
                 textBoxMensaje.Enabled = true;
@@ -160,9 +178,10 @@ namespace cipher_genius
                 textBoxClave.Enabled = true;
                 textBoxCriptograma.Enabled = true;
             }
-            textBoxPermutacion.Enabled = false;
 
+            textBoxPermutacion.Enabled = false;
         }
+
 
         private void buttonConvertir_Click(object sender, EventArgs e)
         {
@@ -170,21 +189,20 @@ namespace cipher_genius
             string clave = textBoxClave.Text;
             string criptograma = textBoxCriptograma.Text;
 
-            CipherManager cipher = new CipherManager();
+            LimpiarDataGridView();
 
             if (radioPorGrupos.Checked)
             {
-                // TODO_SEBASTIAN: , mejorar la logica
                 if (estaCifrando)
                 {
                     int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
-                    string cifradoFinal = cipher.CifrarPorGrupos(mensaje, permutacion);
+                    string cifradoFinal = cipherByGroups.CifrarPorGrupos(mensaje, permutacion);
                     textBoxCriptograma.Text = cifradoFinal;
                 }
                 else
                 {
                     int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
-                    string cifradoFinal = cipher.DescifrarPorGrupos(criptograma, permutacion);
+                    string cifradoFinal = cipherByGroups.DescifrarPorGrupos(criptograma, permutacion);
                     textBoxMensaje.Text = cifradoFinal;
                 }
             }
@@ -193,14 +211,14 @@ namespace cipher_genius
                 if (estaCifrando)
                 {
 
-                    string cifradoIntermedio = cipher.PrimerCifrado(mensaje, clave, ref dataGridView1);
-                    string cifradoFinal = cipher.SegundoCifrado(cifradoIntermedio, clave, ref dataGridView2, ref dataGridView3);
+                    string cifradoIntermedio = doubleColumnCipher.PrimerCifrado(mensaje, clave, ref dataGridView1);
+                    string cifradoFinal = doubleColumnCipher.SegundoCifrado(cifradoIntermedio, clave, ref dataGridView2, ref dataGridView3);
                     textBoxCriptograma.Text = cifradoFinal;
                 }
                 else
                 {
-                    string descifradoIntemedio = cipher.PrimerDescrifrado(criptograma, clave, ref dataGridView1, ref dataGridView2);
-                    string descifradoFinal = cipher.SegundoDescifrado(descifradoIntemedio, clave, ref dataGridView3);
+                    string descifradoIntemedio = doubleColumnCipher.PrimerDescrifrado(criptograma, clave, ref dataGridView1, ref dataGridView2);
+                    string descifradoFinal = doubleColumnCipher.SegundoDescifrado(descifradoIntemedio, clave, ref dataGridView3);
                     textBoxMensaje.Text = descifradoFinal;
                 }
             }
@@ -208,12 +226,12 @@ namespace cipher_genius
             {
                 if (estaCifrando)
                 {
-                    string cifradoFinal = cipher.CifrarPorFilas(mensaje, clave, ref dataGridView1, ref dataGridView2);
+                    string cifradoFinal = singleRowCipher.CifrarPorFilas(mensaje, clave, ref dataGridView1, ref dataGridView2);
                     textBoxCriptograma.Text = cifradoFinal;
                 }
                 else
                 {
-                    string descifradoFinal = cipher.DescifrarPorFilas(criptograma, clave, ref dataGridView1, ref dataGridView2);
+                    string descifradoFinal = singleRowCipher.DescifrarPorFilas(criptograma, clave, ref dataGridView1, ref dataGridView2);
                     textBoxMensaje.Text = descifradoFinal;
                 }
             }
@@ -396,9 +414,9 @@ namespace cipher_genius
             this.agregarPinturaAux(17);
         }
 
-        
 
-       
+
+
 
         private void MostrarUOcultar(bool ver, int num)
         {
@@ -653,8 +671,8 @@ namespace cipher_genius
 
         }
 
-        private String[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"," "};
-        private String[] caracteresMixtos = { "[", "¡", "?", "{", "}", "*", "♥", "♦", "♣", "♣", "≠", "#", "@", "%", "&", "(", ")", "=", ">", "<", "0", "1", "2", "3", "4", "5", "]"," " };
+        private String[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " " };
+        private String[] caracteresMixtos = { "[", "¡", "?", "{", "}", "*", "♥", "♦", "♣", "♣", "≠", "#", "@", "%", "&", "(", ")", "=", ">", "<", "0", "1", "2", "3", "4", "5", "]", " " };
 
         private Dictionary<char, int> abecedarioEspañol = new Dictionary<char, int>
          {
@@ -924,7 +942,7 @@ namespace cipher_genius
             this.MostrarOcultarCuadros(false);
 
             //Cifrado Francmason
-            if (tipoCifrado== "Cifrador Francmason")
+            if (tipoCifrado == "Cifrador Francmason")
             {
                 this.controlador = 0;
 
@@ -942,11 +960,11 @@ namespace cipher_genius
                 AMRlabel4.Visible = true;
                 AMRlabel4.Enabled = true;
 
-                
+
 
                 AMRbuttonLIMPIAR.Location = new Point(400, 360);
-                AMRbuttonLIMPIAR.Width =260;
-                AMRbuttonLIMPIAR.Height =70;
+                AMRbuttonLIMPIAR.Width = 260;
+                AMRbuttonLIMPIAR.Height = 70;
 
                 AMRbuttonLIMPIAR.Enabled = true;
                 AMRbuttonLIMPIAR.Visible = true;
@@ -973,12 +991,12 @@ namespace cipher_genius
                 AMRrichTextBox3.Enabled = false;
 
                 AMRflowLayoutPanel1.Location = new Point(50, 450);
-                AMRflowLayoutPanel1.Width =1230;
-                AMRflowLayoutPanel1.Height =200;
+                AMRflowLayoutPanel1.Width = 1230;
+                AMRflowLayoutPanel1.Height = 200;
                 AMRflowLayoutPanel1.Visible = true;
                 AMRflowLayoutPanel1.Enabled = true;
             }
-            else if(tipoCifrado == "Descifrador Francmason")
+            else if (tipoCifrado == "Descifrador Francmason")
             {
                 this.controlador = 1;
 
@@ -1029,7 +1047,7 @@ namespace cipher_genius
                 AMRflowLayoutPanel1.Visible = true;
                 AMRflowLayoutPanel1.Enabled = true;
             }
-            else if(tipoCifrado== "Cifrador Vigenere")
+            else if (tipoCifrado == "Cifrador Vigenere")
             {
                 this.controlador = 2;
 
@@ -1067,9 +1085,9 @@ namespace cipher_genius
                 AMRrichTextBox1.Width = 1230;
                 AMRrichTextBox1.Height = 100;
 
-                AMRrichTextBox2.Location = new Point(680,295);
-                AMRrichTextBox2.Width =600;
-                AMRrichTextBox2.Height =100;
+                AMRrichTextBox2.Location = new Point(680, 295);
+                AMRrichTextBox2.Width = 600;
+                AMRrichTextBox2.Height = 100;
                 AMRrichTextBox2.Visible = true;
                 AMRrichTextBox2.Enabled = true;
 
@@ -1083,7 +1101,7 @@ namespace cipher_genius
                 AMRflowLayoutPanel1.Enabled = false;
 
             }
-            else if(tipoCifrado== "Descifrador Vigenere")
+            else if (tipoCifrado == "Descifrador Vigenere")
             {
                 this.controlador = 3;
 
@@ -1135,7 +1153,7 @@ namespace cipher_genius
                 AMRflowLayoutPanel1.Visible = false;
                 AMRflowLayoutPanel1.Enabled = false;
             }
-            else if (tipoCifrado=="Cifrador Homofono")
+            else if (tipoCifrado == "Cifrador Homofono")
             {
                 this.controlador = 4;
 
@@ -1187,7 +1205,7 @@ namespace cipher_genius
                 AMRflowLayoutPanel1.Visible = false;
                 AMRflowLayoutPanel1.Enabled = false;
             }
-            else if(tipoCifrado== "Descifrador Homofono")
+            else if (tipoCifrado == "Descifrador Homofono")
             {
                 this.controlador = 5;
 
@@ -1254,7 +1272,7 @@ namespace cipher_genius
         {
             string selectedItem = AMRcomboBoxTL.SelectedItem.ToString();
             int tam;
-            if (int.TryParse(selectedItem, out  tam))
+            if (int.TryParse(selectedItem, out tam))
             {
                 AMRrichTextBox1.Font = new Font(AMRrichTextBox1.Font.FontFamily, tam);
                 AMRrichTextBox2.Font = new Font(AMRrichTextBox2.Font.FontFamily, tam);
@@ -1343,9 +1361,9 @@ namespace cipher_genius
 
         private void AMRbuttonCD_Click(object sender, EventArgs e)
         {
-            if(this.controlador==0)
+            if (this.controlador == 0)
             {
-                if(AMRrichTextBox1.Text!="")
+                if (AMRrichTextBox1.Text != "")
                 {
                     AMRlabel1.Visible = false;
                     AMRlabel1.Enabled = false;
@@ -1366,11 +1384,11 @@ namespace cipher_genius
                         opcion = 0;
                     }
 
-                    bool ver=this.VerificarEnAbecedario(textoClaro,opcion);
+                    bool ver = this.VerificarEnAbecedario(textoClaro, opcion);
 
-                    if(ver==true)
+                    if (ver == true)
                     {
-                        
+
 
                         // Invoca el método CifradorCesarMixto
                         listaPosiciones = cipher1.CifradorCesarMixto(textoClaro, opcion);
@@ -1392,7 +1410,7 @@ namespace cipher_genius
                         AMRflowLayoutPanel1.Controls.Clear();
                     }
 
-                    
+
                 }
                 else
                 {
@@ -1405,12 +1423,12 @@ namespace cipher_genius
 
                     AMRflowLayoutPanel1.Controls.Clear();
                 }
-                
-            }
-            else if(this.controlador==1)
-            {  
 
-               if(this.lista.Count!=0)
+            }
+            else if (this.controlador == 1)
+            {
+
+                if (this.lista.Count != 0)
                 {
                     string texto1 = AMRcomboBoxA.SelectedItem.ToString();
 
@@ -1435,19 +1453,19 @@ namespace cipher_genius
                     AMRrichTextBox1.Text = "No hay nada que descifrar";
                 }
 
-                
+
             }
-            else if(this.controlador==2)
+            else if (this.controlador == 2)
             {
                 String textoClaro = AMRrichTextBox1.Text;
                 String cifra = AMRrichTextBox2.Text;
 
-                if(textoClaro!="" && cifra!="")
+                if (textoClaro != "" && cifra != "")
                 {
-                    bool ver1=this.VerificarEnAbecedario(textoClaro, 1);
-                    bool ver2=this.VerificarEnAbecedario(cifra, 1);
+                    bool ver1 = this.VerificarEnAbecedario(textoClaro, 1);
+                    bool ver2 = this.VerificarEnAbecedario(cifra, 1);
 
-                    if(ver1==true & ver2==true)
+                    if (ver1 == true & ver2 == true)
                     {
                         List<char> textoCifrado = cipher1.CifradoVigenere(textoClaro, cifra);
 
@@ -1460,16 +1478,16 @@ namespace cipher_genius
                         AMRrichTextBox3.Text = "Revisa que el texto y la clave tengas las letras del alfabeto";
                     }
 
-                    
+
                 }
                 else
                 {
                     AMRrichTextBox3.Text = "Revisa que en el campo de texto y clave tengan datos";
                 }
 
-                
+
             }
-            else if(this.controlador==3)
+            else if (this.controlador == 3)
             {
                 String textoClaro = AMRrichTextBox1.Text;
                 String cifra = AMRrichTextBox2.Text;
@@ -1497,7 +1515,7 @@ namespace cipher_genius
                     AMRrichTextBox3.Text = "Revisa que en el campo de texto y clave tengan datos";
                 }
             }
-            else if(this.controlador==4)
+            else if (this.controlador == 4)
             {
                 int[,] matriz = cipher1.GenerarMatriz();
                 string palabra = AMRrichTextBox1.Text;
@@ -1526,14 +1544,14 @@ namespace cipher_genius
                     AMRrichTextBox3.Text = "La clave debe tener 4 caracteres";
                 }
             }
-            else if(this.controlador==5)
+            else if (this.controlador == 5)
             {
                 int[,] matriz = cipher1.GenerarMatriz();
                 string textoCifradoString = AMRrichTextBox1.Text; // Cambio: Convertir a cadena de texto
                 string[] valoresTextoCifrado = textoCifradoString.Split(','); // Separar los valores por comas
 
                 bool ver1 = this.VerificarNumerosYComasEnArreglo(valoresTextoCifrado);
-                if(ver1==true)
+                if (ver1 == true)
                 {
                     string clave = AMRrichTextBox2.Text.ToUpper(); // Convertir la clave a mayúsculas
 
@@ -1577,15 +1595,15 @@ namespace cipher_genius
                     {
                         AMRrichTextBox3.Text = "La clave solo debe contener letras del alfabeto";
                     }
-                    
+
                 }
                 else
                 {
                     AMRrichTextBox3.Text = "Revisa que el texto cifrado sean numeros que tengan maximo 2 digitos y sean separados solo por comas ','";
                 }
 
-                
-               
+
+
             }
         }
 

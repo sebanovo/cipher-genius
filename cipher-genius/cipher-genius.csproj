@@ -63,12 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CipherManager.cs" />
+    <Compile Include="ColumnaDoble.cs" />
+    <Compile Include="FilaSimple.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grupos.cs" />
     <Compile Include="Hill.cs" />
     <Compile Include="Playfair.cs" />
     <Compile Include="Program.cs" />
