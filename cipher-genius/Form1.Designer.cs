@@ -299,7 +299,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(167, 42);
             this.button17.TabIndex = 18;
-            this.button17.Text = "DesencriptarBooleano";
+            this.button17.Text = "Decodificar Booleano";
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
@@ -310,7 +310,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(180, 36);
             this.button16.TabIndex = 17;
-            this.button16.Text = "EncriptarBooleano";
+            this.button16.Text = "Codificar Booleano";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
@@ -321,7 +321,7 @@
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(147, 28);
             this.button15.TabIndex = 16;
-            this.button15.Text = "DesencriptarBase";
+            this.button15.Text = "Decodificar Base";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
@@ -332,7 +332,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(147, 28);
             this.button14.TabIndex = 15;
-            this.button14.Text = "EncriptarBase";
+            this.button14.Text = "Codificar Base";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
