@@ -8,6 +8,7 @@ namespace cipher_genius
 {
     class Grupos
     {
+        private char X = '❌';
         public string CifrarPorGrupos(string mensaje, int[] permutacion)
         {
             mensaje = mensaje.Replace(" ", "");
@@ -19,7 +20,7 @@ namespace cipher_genius
             // Rellenar el mensaje con 'X' para completar el último grupo
             for (int i = 0; i < caracteresFaltantes; i++)
             {
-                mensajeArray.Add('X');
+                mensajeArray.Add(X);
             }
 
             var gruposCifrados = new List<string>();

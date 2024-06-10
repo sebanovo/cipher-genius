@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace cipher_genius
 {
     class FilaSimple
     {
+        private char X = '❌';
+
         public string CifrarPorFilas(string mensaje, string clave, ref DataGridView dataGridView1, ref DataGridView dataGridView2)
         {
             clave = clave.Replace(" ", "");
@@ -30,7 +33,7 @@ namespace cipher_genius
                     char characterToAdd;
                     if (indexContenido >= contenido.Length)
                     {
-                        characterToAdd = 'X';
+                        characterToAdd = X;
                     }
                     else
                     {
@@ -175,6 +178,12 @@ namespace cipher_genius
                 for (int j = 0; j < nc; j++)
                 {
                     fila.Cells[j].Value = matriz[i, j];
+                    fila.Cells[j].Style.Font = new Font("Microsoft YaHei UI", 10);
+                    if (matriz[i, j] == X)
+                    {
+                        fila.Cells[j].Style.ForeColor = Color.Red;
+                    }
+
                 }
 
                 dataGridView.Rows.Add(fila);

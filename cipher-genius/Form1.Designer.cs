@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -54,7 +57,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonVigenereDes = new System.Windows.Forms.Button();
-            this.buttonVigenere = new System.Windows.Forms.Button();
+            this.buttonBeufort = new System.Windows.Forms.Button();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.buttonDescifrar = new System.Windows.Forms.Button();
@@ -200,7 +203,7 @@
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(915, 292);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(147, 22);
             this.textBox11.TabIndex = 29;
@@ -208,7 +211,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(1103, 190);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(132, 22);
             this.textBox10.TabIndex = 28;
@@ -216,7 +219,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(915, 190);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(132, 22);
             this.textBox9.TabIndex = 27;
@@ -224,7 +227,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(1103, 126);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(132, 22);
             this.textBox8.TabIndex = 26;
@@ -232,7 +235,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(915, 126);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(132, 22);
             this.textBox7.TabIndex = 25;
@@ -240,7 +243,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(252, 292);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(132, 22);
             this.textBox6.TabIndex = 24;
@@ -248,7 +251,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(432, 190);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(132, 22);
             this.textBox5.TabIndex = 23;
@@ -256,7 +259,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(432, 117);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 22;
@@ -264,7 +267,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(252, 190);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(132, 22);
             this.textBox3.TabIndex = 21;
@@ -272,7 +275,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(252, 117);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 20;
@@ -281,7 +284,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(555, 57);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(160, 24);
             this.comboBox2.TabIndex = 19;
@@ -289,7 +292,7 @@
             // button17
             // 
             this.button17.Location = new System.Drawing.Point(707, 178);
-            this.button17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button17.Margin = new System.Windows.Forms.Padding(4);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(167, 42);
             this.button17.TabIndex = 18;
@@ -300,7 +303,7 @@
             // button16
             // 
             this.button16.Location = new System.Drawing.Point(707, 114);
-            this.button16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(180, 36);
             this.button16.TabIndex = 17;
@@ -311,7 +314,7 @@
             // button15
             // 
             this.button15.Location = new System.Drawing.Point(49, 186);
-            this.button15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(147, 28);
             this.button15.TabIndex = 16;
@@ -322,7 +325,7 @@
             // button14
             // 
             this.button14.Location = new System.Drawing.Point(49, 114);
-            this.button14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button14.Margin = new System.Windows.Forms.Padding(4);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(147, 28);
             this.button14.TabIndex = 15;
@@ -341,7 +344,7 @@
             this.tabPage5.Controls.Add(this.label10);
             this.tabPage5.Controls.Add(this.label9);
             this.tabPage5.Controls.Add(this.buttonVigenereDes);
-            this.tabPage5.Controls.Add(this.buttonVigenere);
+            this.tabPage5.Controls.Add(this.buttonBeufort);
             this.tabPage5.Controls.Add(this.pictureBox26);
             this.tabPage5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
@@ -358,7 +361,7 @@
             this.label12.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(758, 53);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(249, 37);
+            this.label12.Size = new System.Drawing.Size(242, 37);
             this.label12.TabIndex = 9;
             this.label12.Text = "Cifrado Beufort";
             // 
@@ -368,7 +371,7 @@
             this.label11.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(758, 374);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(206, 37);
+            this.label11.Size = new System.Drawing.Size(200, 37);
             this.label11.TabIndex = 8;
             this.label11.Text = "Criptograma";
             // 
@@ -408,7 +411,7 @@
             this.label10.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(758, 251);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 37);
+            this.label10.Size = new System.Drawing.Size(93, 37);
             this.label10.TabIndex = 6;
             this.label10.Text = "Clave";
             // 
@@ -418,7 +421,7 @@
             this.label9.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(758, 133);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(139, 37);
+            this.label9.Size = new System.Drawing.Size(134, 37);
             this.label9.TabIndex = 5;
             this.label9.Text = "Mensaje";
             // 
@@ -434,17 +437,17 @@
             this.buttonVigenereDes.UseVisualStyleBackColor = true;
             this.buttonVigenereDes.Click += new System.EventHandler(this.buttonVigenereDes_Click);
             // 
-            // buttonVigenere
+            // buttonBeufort
             // 
-            this.buttonVigenere.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVigenere.Location = new System.Drawing.Point(937, 124);
-            this.buttonVigenere.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonVigenere.Name = "buttonVigenere";
-            this.buttonVigenere.Size = new System.Drawing.Size(180, 46);
-            this.buttonVigenere.TabIndex = 3;
-            this.buttonVigenere.Text = "Cifrar";
-            this.buttonVigenere.UseVisualStyleBackColor = true;
-            this.buttonVigenere.Click += new System.EventHandler(this.buttonVigenere_Click);
+            this.buttonBeufort.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBeufort.Location = new System.Drawing.Point(937, 124);
+            this.buttonBeufort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBeufort.Name = "buttonBeufort";
+            this.buttonBeufort.Size = new System.Drawing.Size(180, 46);
+            this.buttonBeufort.TabIndex = 3;
+            this.buttonBeufort.Text = "Cifrar";
+            this.buttonBeufort.UseVisualStyleBackColor = true;
+            this.buttonBeufort.Click += new System.EventHandler(this.buttonVigenere_Click);
             // 
             // pictureBox26
             // 
@@ -502,9 +505,19 @@
             // 
             this.dataGridView3.BackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.ColumnHeadersVisible = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView3.Location = new System.Drawing.Point(932, 229);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(451, 288);
@@ -517,7 +530,7 @@
             this.radioDoble.Location = new System.Drawing.Point(781, 134);
             this.radioDoble.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioDoble.Name = "radioDoble";
-            this.radioDoble.Size = new System.Drawing.Size(279, 41);
+            this.radioDoble.Size = new System.Drawing.Size(276, 41);
             this.radioDoble.TabIndex = 5;
             this.radioDoble.Text = "Columnas Doble";
             this.radioDoble.UseVisualStyleBackColor = true;
@@ -527,9 +540,19 @@
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.Color.SpringGreen;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Location = new System.Drawing.Point(475, 229);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(451, 288);
@@ -543,7 +566,7 @@
             this.radioSimple.Location = new System.Drawing.Point(781, 179);
             this.radioSimple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioSimple.Name = "radioSimple";
-            this.radioSimple.Size = new System.Drawing.Size(203, 41);
+            this.radioSimple.Size = new System.Drawing.Size(196, 41);
             this.radioSimple.TabIndex = 6;
             this.radioSimple.TabStop = true;
             this.radioSimple.Text = "Fila Simple";
@@ -556,7 +579,7 @@
             this.label5.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(561, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(207, 37);
+            this.label5.Size = new System.Drawing.Size(201, 37);
             this.label5.TabIndex = 22;
             this.label5.Text = "permutación";
             // 
@@ -585,7 +608,7 @@
             // 
             // textBoxMensaje
             // 
-            this.textBoxMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMensaje.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMensaje.Location = new System.Drawing.Point(342, 93);
             this.textBoxMensaje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMensaje.Multiline = true;
@@ -595,7 +618,7 @@
             // 
             // textBoxClave
             // 
-            this.textBoxClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxClave.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxClave.Location = new System.Drawing.Point(342, 137);
             this.textBoxClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxClave.Multiline = true;
@@ -605,7 +628,7 @@
             // 
             // textBoxCriptograma
             // 
-            this.textBoxCriptograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCriptograma.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCriptograma.Location = new System.Drawing.Point(342, 184);
             this.textBoxCriptograma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCriptograma.Multiline = true;
@@ -629,9 +652,19 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(18, 229);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(451, 288);
@@ -655,7 +688,7 @@
             this.label3.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 183);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 37);
+            this.label3.Size = new System.Drawing.Size(200, 37);
             this.label3.TabIndex = 17;
             this.label3.Text = "Criptograma";
             // 
@@ -666,7 +699,7 @@
             this.radioPorGrupos.Location = new System.Drawing.Point(781, 89);
             this.radioPorGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioPorGrupos.Name = "radioPorGrupos";
-            this.radioPorGrupos.Size = new System.Drawing.Size(208, 41);
+            this.radioPorGrupos.Size = new System.Drawing.Size(206, 41);
             this.radioPorGrupos.TabIndex = 11;
             this.radioPorGrupos.Text = "Por Grupos";
             this.radioPorGrupos.UseVisualStyleBackColor = true;
@@ -678,7 +711,7 @@
             this.label2.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(16, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 37);
+            this.label2.Size = new System.Drawing.Size(93, 37);
             this.label2.TabIndex = 16;
             this.label2.Text = "Clave";
             // 
@@ -688,7 +721,7 @@
             this.label1.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 37);
+            this.label1.Size = new System.Drawing.Size(272, 37);
             this.label1.TabIndex = 15;
             this.label1.Text = "Mensaje en claro:";
             // 
@@ -875,7 +908,7 @@
             // 
             this.AMRpictureBox25.Image = global::cipher_genius.Properties.Resources.img26;
             this.AMRpictureBox25.Location = new System.Drawing.Point(700, 389);
-            this.AMRpictureBox25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox25.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox25.Name = "AMRpictureBox25";
             this.AMRpictureBox25.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -887,7 +920,7 @@
             // 
             this.AMRpictureBox24.Image = global::cipher_genius.Properties.Resources.img25;
             this.AMRpictureBox24.Location = new System.Drawing.Point(612, 389);
-            this.AMRpictureBox24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox24.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox24.Name = "AMRpictureBox24";
             this.AMRpictureBox24.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -899,7 +932,7 @@
             // 
             this.AMRpictureBox23.Image = global::cipher_genius.Properties.Resources.img24;
             this.AMRpictureBox23.Location = new System.Drawing.Point(524, 389);
-            this.AMRpictureBox23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox23.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox23.Name = "AMRpictureBox23";
             this.AMRpictureBox23.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -911,7 +944,7 @@
             // 
             this.AMRpictureBox22.Image = global::cipher_genius.Properties.Resources.img23;
             this.AMRpictureBox22.Location = new System.Drawing.Point(436, 389);
-            this.AMRpictureBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox22.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox22.Name = "AMRpictureBox22";
             this.AMRpictureBox22.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -923,7 +956,7 @@
             // 
             this.AMRpictureBox21.Image = global::cipher_genius.Properties.Resources.img22;
             this.AMRpictureBox21.Location = new System.Drawing.Point(347, 389);
-            this.AMRpictureBox21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox21.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox21.Name = "AMRpictureBox21";
             this.AMRpictureBox21.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -935,7 +968,7 @@
             // 
             this.AMRpictureBox20.Image = global::cipher_genius.Properties.Resources.img21;
             this.AMRpictureBox20.Location = new System.Drawing.Point(259, 389);
-            this.AMRpictureBox20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox20.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox20.Name = "AMRpictureBox20";
             this.AMRpictureBox20.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -947,7 +980,7 @@
             // 
             this.AMRpictureBox19.Image = global::cipher_genius.Properties.Resources.img20;
             this.AMRpictureBox19.Location = new System.Drawing.Point(171, 389);
-            this.AMRpictureBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox19.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox19.Name = "AMRpictureBox19";
             this.AMRpictureBox19.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -959,7 +992,7 @@
             // 
             this.AMRpictureBox18.Image = global::cipher_genius.Properties.Resources.img19;
             this.AMRpictureBox18.Location = new System.Drawing.Point(83, 389);
-            this.AMRpictureBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox18.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox18.Name = "AMRpictureBox18";
             this.AMRpictureBox18.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -971,7 +1004,7 @@
             // 
             this.AMRpictureBox17.Image = global::cipher_genius.Properties.Resources.img18;
             this.AMRpictureBox17.Location = new System.Drawing.Point(747, 308);
-            this.AMRpictureBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox17.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox17.Name = "AMRpictureBox17";
             this.AMRpictureBox17.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -983,7 +1016,7 @@
             // 
             this.AMRpictureBox16.Image = global::cipher_genius.Properties.Resources.img17;
             this.AMRpictureBox16.Location = new System.Drawing.Point(659, 308);
-            this.AMRpictureBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox16.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox16.Name = "AMRpictureBox16";
             this.AMRpictureBox16.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -995,7 +1028,7 @@
             // 
             this.AMRpictureBox15.Image = global::cipher_genius.Properties.Resources.img16;
             this.AMRpictureBox15.Location = new System.Drawing.Point(571, 308);
-            this.AMRpictureBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox15.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox15.Name = "AMRpictureBox15";
             this.AMRpictureBox15.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1007,7 +1040,7 @@
             // 
             this.AMRpictureBox14.Image = global::cipher_genius.Properties.Resources.img15;
             this.AMRpictureBox14.Location = new System.Drawing.Point(483, 308);
-            this.AMRpictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox14.Name = "AMRpictureBox14";
             this.AMRpictureBox14.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1019,7 +1052,7 @@
             // 
             this.AMRpictureBox13.Image = global::cipher_genius.Properties.Resources.img14;
             this.AMRpictureBox13.Location = new System.Drawing.Point(395, 308);
-            this.AMRpictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox13.Name = "AMRpictureBox13";
             this.AMRpictureBox13.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1031,7 +1064,7 @@
             // 
             this.AMRpictureBox12.Image = global::cipher_genius.Properties.Resources.img13;
             this.AMRpictureBox12.Location = new System.Drawing.Point(303, 308);
-            this.AMRpictureBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox12.Name = "AMRpictureBox12";
             this.AMRpictureBox12.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1043,7 +1076,7 @@
             // 
             this.AMRpictureBox11.Image = global::cipher_genius.Properties.Resources.img12;
             this.AMRpictureBox11.Location = new System.Drawing.Point(215, 308);
-            this.AMRpictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox11.Name = "AMRpictureBox11";
             this.AMRpictureBox11.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1055,7 +1088,7 @@
             // 
             this.AMRpictureBox10.Image = global::cipher_genius.Properties.Resources.img11;
             this.AMRpictureBox10.Location = new System.Drawing.Point(129, 308);
-            this.AMRpictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox10.Name = "AMRpictureBox10";
             this.AMRpictureBox10.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1067,7 +1100,7 @@
             // 
             this.AMRpictureBox9.Image = global::cipher_genius.Properties.Resources.img10;
             this.AMRpictureBox9.Location = new System.Drawing.Point(41, 308);
-            this.AMRpictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox9.Name = "AMRpictureBox9";
             this.AMRpictureBox9.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1079,7 +1112,7 @@
             // 
             this.AMRpictureBox8.Image = global::cipher_genius.Properties.Resources.img9;
             this.AMRpictureBox8.Location = new System.Drawing.Point(747, 226);
-            this.AMRpictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox8.Name = "AMRpictureBox8";
             this.AMRpictureBox8.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1091,7 +1124,7 @@
             // 
             this.AMRpictureBox7.Image = global::cipher_genius.Properties.Resources.img8;
             this.AMRpictureBox7.Location = new System.Drawing.Point(659, 226);
-            this.AMRpictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox7.Name = "AMRpictureBox7";
             this.AMRpictureBox7.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1103,7 +1136,7 @@
             // 
             this.AMRpictureBox6.Image = global::cipher_genius.Properties.Resources.img7;
             this.AMRpictureBox6.Location = new System.Drawing.Point(571, 226);
-            this.AMRpictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox6.Name = "AMRpictureBox6";
             this.AMRpictureBox6.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1115,7 +1148,7 @@
             // 
             this.AMRpictureBox5.Image = global::cipher_genius.Properties.Resources.img6;
             this.AMRpictureBox5.Location = new System.Drawing.Point(483, 226);
-            this.AMRpictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox5.Name = "AMRpictureBox5";
             this.AMRpictureBox5.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1127,7 +1160,7 @@
             // 
             this.AMRpictureBox4.Image = global::cipher_genius.Properties.Resources.img5;
             this.AMRpictureBox4.Location = new System.Drawing.Point(395, 226);
-            this.AMRpictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox4.Name = "AMRpictureBox4";
             this.AMRpictureBox4.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1139,7 +1172,7 @@
             // 
             this.AMRpictureBox3.Image = global::cipher_genius.Properties.Resources.img4;
             this.AMRpictureBox3.Location = new System.Drawing.Point(305, 226);
-            this.AMRpictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox3.Name = "AMRpictureBox3";
             this.AMRpictureBox3.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1151,7 +1184,7 @@
             // 
             this.AMRpictureBox2.Image = global::cipher_genius.Properties.Resources.img3;
             this.AMRpictureBox2.Location = new System.Drawing.Point(217, 226);
-            this.AMRpictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox2.Name = "AMRpictureBox2";
             this.AMRpictureBox2.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1163,7 +1196,7 @@
             // 
             this.AMRpictureBox1.Image = global::cipher_genius.Properties.Resources.img2;
             this.AMRpictureBox1.Location = new System.Drawing.Point(129, 226);
-            this.AMRpictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox1.Name = "AMRpictureBox1";
             this.AMRpictureBox1.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1175,7 +1208,7 @@
             // 
             this.AMRpictureBox0.Image = global::cipher_genius.Properties.Resources.img1;
             this.AMRpictureBox0.Location = new System.Drawing.Point(41, 226);
-            this.AMRpictureBox0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRpictureBox0.Margin = new System.Windows.Forms.Padding(4);
             this.AMRpictureBox0.Name = "AMRpictureBox0";
             this.AMRpictureBox0.Size = new System.Drawing.Size(80, 74);
             this.AMRpictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1187,7 +1220,7 @@
             // 
             this.AMRrichTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AMRrichTextBox3.Location = new System.Drawing.Point(67, 630);
-            this.AMRrichTextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRrichTextBox3.Margin = new System.Windows.Forms.Padding(4);
             this.AMRrichTextBox3.Name = "AMRrichTextBox3";
             this.AMRrichTextBox3.Size = new System.Drawing.Size(1639, 122);
             this.AMRrichTextBox3.TabIndex = 52;
@@ -1197,7 +1230,7 @@
             // 
             this.AMRrichTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AMRrichTextBox2.Location = new System.Drawing.Point(1075, 533);
-            this.AMRrichTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRrichTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.AMRrichTextBox2.Name = "AMRrichTextBox2";
             this.AMRrichTextBox2.Size = new System.Drawing.Size(376, 73);
             this.AMRrichTextBox2.TabIndex = 8;
@@ -1207,7 +1240,7 @@
             // 
             this.AMRrichTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AMRrichTextBox1.Location = new System.Drawing.Point(868, 500);
-            this.AMRrichTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRrichTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.AMRrichTextBox1.Name = "AMRrichTextBox1";
             this.AMRrichTextBox1.Size = new System.Drawing.Size(197, 96);
             this.AMRrichTextBox1.TabIndex = 4;
@@ -1217,7 +1250,7 @@
             // 
             this.AMRbuttonLIMPIAR.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AMRbuttonLIMPIAR.Location = new System.Drawing.Point(492, 512);
-            this.AMRbuttonLIMPIAR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRbuttonLIMPIAR.Margin = new System.Windows.Forms.Padding(4);
             this.AMRbuttonLIMPIAR.Name = "AMRbuttonLIMPIAR";
             this.AMRbuttonLIMPIAR.Size = new System.Drawing.Size(347, 95);
             this.AMRbuttonLIMPIAR.TabIndex = 7;
@@ -1229,7 +1262,7 @@
             // 
             this.AMRbuttonCD.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AMRbuttonCD.Location = new System.Drawing.Point(784, 512);
-            this.AMRbuttonCD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRbuttonCD.Margin = new System.Windows.Forms.Padding(4);
             this.AMRbuttonCD.Name = "AMRbuttonCD";
             this.AMRbuttonCD.Size = new System.Drawing.Size(347, 95);
             this.AMRbuttonCD.TabIndex = 6;
@@ -1241,7 +1274,7 @@
             // 
             this.AMRflowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AMRflowLayoutPanel1.Location = new System.Drawing.Point(868, 226);
-            this.AMRflowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRflowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.AMRflowLayoutPanel1.Name = "AMRflowLayoutPanel1";
             this.AMRflowLayoutPanel1.Size = new System.Drawing.Size(614, 236);
             this.AMRflowLayoutPanel1.TabIndex = 5;
@@ -1271,7 +1304,7 @@
             this.panel1.Controls.Add(this.AMRlabelTitulo);
             this.panel1.Controls.Add(this.AMRcomboBoxListasCD);
             this.panel1.Location = new System.Drawing.Point(4, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1800, 153);
             this.panel1.TabIndex = 3;
@@ -1298,7 +1331,7 @@
             "75",
             "80"});
             this.AMRcomboBoxTC.Location = new System.Drawing.Point(1417, 70);
-            this.AMRcomboBoxTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRcomboBoxTC.Margin = new System.Windows.Forms.Padding(4);
             this.AMRcomboBoxTC.Name = "AMRcomboBoxTC";
             this.AMRcomboBoxTC.Size = new System.Drawing.Size(160, 38);
             this.AMRcomboBoxTC.TabIndex = 56;
@@ -1338,7 +1371,7 @@
             "Alfanumerico",
             "Mixto"});
             this.AMRcomboBoxA.Location = new System.Drawing.Point(335, 60);
-            this.AMRcomboBoxA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRcomboBoxA.Margin = new System.Windows.Forms.Padding(4);
             this.AMRcomboBoxA.Name = "AMRcomboBoxA";
             this.AMRcomboBoxA.Size = new System.Drawing.Size(256, 38);
             this.AMRcomboBoxA.TabIndex = 53;
@@ -1375,7 +1408,7 @@
             "38",
             "40"});
             this.AMRcomboBoxTL.Location = new System.Drawing.Point(63, 60);
-            this.AMRcomboBoxTL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRcomboBoxTL.Margin = new System.Windows.Forms.Padding(4);
             this.AMRcomboBoxTL.Name = "AMRcomboBoxTL";
             this.AMRcomboBoxTL.Size = new System.Drawing.Size(160, 38);
             this.AMRcomboBoxTL.TabIndex = 3;
@@ -1419,7 +1452,7 @@
             "Cifrador Homofono",
             "Descifrador Homofono"});
             this.AMRcomboBoxListasCD.Location = new System.Drawing.Point(764, 89);
-            this.AMRcomboBoxListasCD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AMRcomboBoxListasCD.Margin = new System.Windows.Forms.Padding(4);
             this.AMRcomboBoxListasCD.Name = "AMRcomboBoxListasCD";
             this.AMRcomboBoxListasCD.Size = new System.Drawing.Size(459, 44);
             this.AMRcomboBoxListasCD.TabIndex = 0;
@@ -1537,7 +1570,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonVigenereDes;
-        private System.Windows.Forms.Button buttonVigenere;
+        private System.Windows.Forms.Button buttonBeufort;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button buttonDescifrar;

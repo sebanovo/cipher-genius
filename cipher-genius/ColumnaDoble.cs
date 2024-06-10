@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace cipher_genius
 {
     class ColumnaDoble
     {
+        private char X = '❌';
         public string PrimerCifrado(string mensaje, string clave, ref DataGridView dataGridView1)
         {
             clave = clave.Replace(" ", "");
@@ -33,7 +35,7 @@ namespace cipher_genius
                     }
                     else
                     {
-                        matriz[f, c] = 'X';
+                        matriz[f, c] = X;
                     }
                 }
             }
@@ -77,7 +79,7 @@ namespace cipher_genius
                     }
                     else
                     {
-                        matriz[f, c] = 'X';
+                        matriz[f, c] = X;
                     }
                 }
             }
@@ -248,10 +250,14 @@ namespace cipher_genius
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dataGridView);
-
                 for (int j = 0; j < nc; j++)
                 {
                     fila.Cells[j].Value = matriz[i, j];
+                    fila.Cells[j].Style.Font = new Font("Microsoft YaHei UI", 10);
+                    if (matriz[i, j] == X)
+                    {
+                        fila.Cells[j].Style.ForeColor = Color.Red;
+                    }
                 }
 
                 dataGridView.Rows.Add(fila);

@@ -12,8 +12,6 @@ using System.IO;
 using One1;
 using Two2;
 
-
-
 namespace cipher_genius
 {
     public partial class Form1 : Form
@@ -27,7 +25,7 @@ namespace cipher_genius
         bool estaCifrando = true;
 
         /*
-         * Mejia 
+         * Mejia  
         */
         Hill hill = new Hill();
         Playfair playfair = new Playfair();
@@ -43,14 +41,32 @@ namespace cipher_genius
         public Form1()
         {
             InitializeComponent();
+            // Sebastian Cespedes Rodas
+            //-----------------------------------------
+            deshabilitarTexBox();
+            validacionesDTG(dataGridView1);
+            validacionesDTG(dataGridView2);
+            validacionesDTG(dataGridView3);
 
+            if (estaCifrando)
+            {
+                textBoxMensaje.Enabled = true;
+                textBoxClave.Enabled = true;
+            }
+            else
+            {
+                textBoxClave.Enabled = true;
+                textBoxCriptograma.Enabled = true;
+            }
+
+            textBoxPermutacion.Enabled = false;
+            // FIN Sebastian 
 
             //Adolfo Mendoza Ribera
             //-----------------------------------------
             pictureBoxes = new List<PictureBox>();
             lista = new List<int>(); // Inicializa la lista vacía
             this.MostrarUOcultar(false, 1);
-
 
             AMRcomboBoxListasCD.Text = "Selecciona";
             AMRcomboBoxTL.Text = "14";
@@ -96,25 +112,27 @@ namespace cipher_genius
             AMRrichTextBox3.Visible = false;
             AMRrichTextBox3.Enabled = false;
 
-            //-----ADOLFO
+            // Fin ADOLFO
         }
 
-        public void deshabilitarTexBox()
+        private void deshabilitarTexBox()
         {
             textBoxMensaje.Enabled = false;
             textBoxClave.Enabled = false;
             textBoxCriptograma.Enabled = false;
         }
 
-        public void validacionesDTG(DataGridView datagridView)
+        private void validacionesDTG(DataGridView datagridView)
         {
             datagridView.AllowUserToAddRows = false;
             datagridView.AllowUserToDeleteRows = false;
             datagridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             datagridView.ReadOnly = true;
+            datagridView.AllowUserToResizeColumns = false;
+            datagridView.AllowUserToResizeRows = false;
         }
 
-        public void LimpiarDataGridView()
+        private void LimpiarDataGridView()
         {
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
@@ -124,7 +142,7 @@ namespace cipher_genius
             dataGridView3.Rows.Clear();
         }
 
-        public void handleChangeRadioButton()
+        private void handleChangeRadioButton()
         {
             textBoxPermutacion.Enabled = false;
             textBoxClave.Enabled = true;
@@ -134,7 +152,6 @@ namespace cipher_genius
                 textBoxClave.Enabled = false;
                 textBoxPermutacion.Enabled = true;
             }
-
         }
 
         private void buttonCifrar_Click(object sender, EventArgs e)
@@ -163,25 +180,8 @@ namespace cipher_genius
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            deshabilitarTexBox();
-            validacionesDTG(dataGridView1);
-            validacionesDTG(dataGridView2);
-            validacionesDTG(dataGridView3);
-
-            if (estaCifrando)
-            {
-                textBoxMensaje.Enabled = true;
-                textBoxClave.Enabled = true;
-            }
-            else
-            {
-                textBoxClave.Enabled = true;
-                textBoxCriptograma.Enabled = true;
-            }
-
-            textBoxPermutacion.Enabled = false;
+            // void
         }
-
 
         private void buttonConvertir_Click(object sender, EventArgs e)
         {
@@ -256,8 +256,6 @@ namespace cipher_genius
         {
             Application.Restart();
         }
-
-
         /**************************** Sebastian FIN *********************************************************************/
 
         /*************************Adolfo INICIO ********************************************************/
@@ -269,12 +267,9 @@ namespace cipher_genius
         CipherManager cipher1 = new CipherManager();
         private List<PictureBox> pictureBoxes = new List<PictureBox>();
 
-
-
-
         private void tabPage1_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void pictureBox0_Click(object sender, EventArgs e)
@@ -399,13 +394,12 @@ namespace cipher_genius
 
         private void pictureBox17_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
+            // void
         }
 
         private void pictureBox17_Click_1(object sender, EventArgs e)
@@ -414,12 +408,9 @@ namespace cipher_genius
             this.agregarPinturaAux(17);
         }
 
-
-
-
-
         private void MostrarUOcultar(bool ver, int num)
         {
+            // void
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -438,7 +429,7 @@ namespace cipher_genius
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -463,17 +454,17 @@ namespace cipher_genius
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            // void
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -490,16 +481,17 @@ namespace cipher_genius
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            // void
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            // void 
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -514,7 +506,7 @@ namespace cipher_genius
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void pictureBox18_Click(object sender, EventArgs e)
@@ -567,7 +559,7 @@ namespace cipher_genius
 
         private void tabPage3_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -585,7 +577,7 @@ namespace cipher_genius
 
         private void richTextBox4_TextChanged(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button10_Click_1(object sender, EventArgs e)
@@ -604,7 +596,6 @@ namespace cipher_genius
             qey.Clear();
             input.Clear();
             output.Clear();
-
         }
 
         private void button8_Click_1(object sender, EventArgs e)
@@ -620,8 +611,6 @@ namespace cipher_genius
             hill.run(clave, nnn);
             String salida = hill.Encriptar(texto, clave, nnn);
             output.Text = salida;
-
-
         }
 
         private void button9_Click_1(object sender, EventArgs e)
@@ -637,11 +626,11 @@ namespace cipher_genius
 
         private void qey_TextChanged(object sender, EventArgs e)
         {
-
+            // void
         }
         private void buttonVigenere_Click(object sender, EventArgs e)
         {
-            // vigenere cifrar
+            // Beufort cifrar
             Beufort vigenere = new Beufort();
             Edit3.Text = vigenere.Cifrar(Edit1.Text, Edit2.Text);
         }
@@ -650,25 +639,23 @@ namespace cipher_genius
         {
             Beufort vigenere = new Beufort();
             Edit1.Text = vigenere.Descifrar(Edit3.Text, Edit2.Text);
-
         }
 
         /*************************Adolfo Fin ********************************************************/
 
         private void buttonCCC_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void buttonDCC_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void buttonCV_Click(object sender, EventArgs e)
         {
-
-
+            // void
         }
 
         private String[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " " };
@@ -690,8 +677,6 @@ namespace cipher_genius
              {'U', 21}, {'V', 22}, {'W', 23}, {'X', 24}, {'Y', 25}, {'Z', 26}, {' ',27}
          };
 
-
-
         public int BinarioADecimal(string input)
         {
             char[] array = input.ToCharArray(); // Invertido porque los valores incrementan de derecha a izquierda: 16-8-4-2-1
@@ -712,7 +697,7 @@ namespace cipher_genius
 
         private void buttonDV_Click(object sender, EventArgs e)
         {
-
+            // void
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -734,7 +719,6 @@ namespace cipher_genius
                 // Manejar el error si la conversión falla
                 MessageBox.Show("Por favor, ingresa un número válido en el segundo campo.");
             }
-
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -756,7 +740,6 @@ namespace cipher_genius
                 // Manejar el error si la conversión falla
                 MessageBox.Show("Por favor, ingresa un número válido en el segundo campo.");
             }
-
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -784,15 +767,15 @@ namespace cipher_genius
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // void
         }
 
         //--------------ADOLFO--------------------------------------------
-
         private void AgregarElemento(int elemento)
         {
             lista.Insert(0, elemento); // Agrega el elemento al principio de la lista
         }
+
         private void EliminarElemento(int elemento)
         {
             lista.Remove(elemento); // Elimina el elemento de la lista
@@ -913,7 +896,6 @@ namespace cipher_genius
                 pictureBoxes.Remove(pictureBox);
             };
         }
-
 
         private void AMRcomboBoxListasCD_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1358,7 +1340,6 @@ namespace cipher_genius
             return true; // Si todos los elementos cumplen con los requisitos, retornamos verdadero
         }
 
-
         private void AMRbuttonCD_Click(object sender, EventArgs e)
         {
             if (this.controlador == 0)
@@ -1601,12 +1582,8 @@ namespace cipher_genius
                 {
                     AMRrichTextBox3.Text = "Revisa que el texto cifrado sean numeros que tengan maximo 2 digitos y sean separados solo por comas ','";
                 }
-
-
-
             }
         }
-
 
         public void ModificarTamanioPictureBoxes(int nuevoAncho, int nuevoAlto)
         {
@@ -1807,7 +1784,7 @@ namespace cipher_genius
 
         private void AMRcomboBoxA_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // void
         }
     }
 }
