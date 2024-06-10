@@ -22,6 +22,7 @@ namespace cipher_genius
         Grupos cipherByGroups = new Grupos();
         ColumnaDoble doubleColumnCipher = new ColumnaDoble();
         FilaSimple singleRowCipher = new FilaSimple();
+        Beufort beufortCipher = new Beufort();
         bool estaCifrando = true;
 
         /*
@@ -47,6 +48,8 @@ namespace cipher_genius
             validacionesDTG(dataGridView1);
             validacionesDTG(dataGridView2);
             validacionesDTG(dataGridView3);
+            validacionesDTG(dataGridView4);
+            beufortCipher.generarTablaBeufort(ref dataGridView4);
 
             if (estaCifrando)
             {
@@ -124,6 +127,7 @@ namespace cipher_genius
 
         private void validacionesDTG(DataGridView datagridView)
         {
+            datagridView.EnableHeadersVisualStyles = false;
             datagridView.AllowUserToAddRows = false;
             datagridView.AllowUserToDeleteRows = false;
             datagridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -631,14 +635,12 @@ namespace cipher_genius
         private void buttonVigenere_Click(object sender, EventArgs e)
         {
             // Beufort cifrar
-            Beufort vigenere = new Beufort();
-            Edit3.Text = vigenere.Cifrar(Edit1.Text, Edit2.Text);
+            Edit3.Text = beufortCipher.Cifrar(Edit1.Text, Edit2.Text);
         }
 
         private void buttonVigenereDes_Click(object sender, EventArgs e)
         {
-            Beufort vigenere = new Beufort();
-            Edit1.Text = vigenere.Descifrar(Edit3.Text, Edit2.Text);
+            Edit1.Text = beufortCipher.Descifrar(Edit3.Text, Edit2.Text);
         }
 
         /*************************Adolfo Fin ********************************************************/

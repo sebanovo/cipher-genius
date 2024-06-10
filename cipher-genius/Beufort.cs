@@ -3,78 +3,107 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace cipher_genius
 {
-    class Beufort 
+    class Beufort
     {
-        private static readonly char[] abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ".ToCharArray();
-        private static readonly int abecedarioLength = abecedario.Length;
+        private readonly string abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        private int n;
 
-        private static int GetCharIndex(char c)
+        public Beufort()
         {
-            return Array.IndexOf(abecedario, char.ToUpper(c));
+            n = abecedario.Length;
         }
 
-        // cualquier cambio 
-
-        private static char GetCharAt(int index)
+        private int Mod(int A, int n)
         {
-            return abecedario[index % abecedarioLength];
+            return ((A % n) + n) % n;
+        }
+
+        private string AjustarClave(string mensaje, string clave)
+        {
+            int lengthMensaje = mensaje.Length;
+            int lengthClave = clave.Length;
+            int indexClave = 0;
+            string claveCopia = clave;
+
+            while (lengthClave < lengthMensaje)
+            {
+                claveCopia += clave[indexClave];
+                lengthClave++;
+                if (indexClave >= clave.Length - 1)
+                {
+                    indexClave = 0;
+                }
+                else
+                {
+                    indexClave++;
+                }
+            }
+
+            return claveCopia.Substring(0, mensaje.Length);
         }
 
         public string Cifrar(string mensaje, string clave)
         {
-            // Remover espacios y convertir a mayúsculas
-            mensaje = mensaje.Replace(" ", "").ToUpper();
             clave = clave.Replace(" ", "").ToUpper();
-            string result = string.Empty;
-            int claveIndex = 0;
+            mensaje = mensaje.Replace(" ", "").ToUpper();
+            clave = AjustarClave(mensaje, clave);
+            string criptograma = "";
 
-            foreach (char ch in mensaje)
+            for (int i = 0; i < mensaje.Length; i++)
             {
-                if (char.IsLetter(ch) || ch == ' ')
-                {
-                    int mensajeIndex = GetCharIndex(ch);
-                    int claveIndexValue = GetCharIndex(clave[claveIndex % clave.Length]);
-                    int encryptedIndex = (mensajeIndex + claveIndexValue) % abecedarioLength;
-                    result += GetCharAt(encryptedIndex);
-                    claveIndex++;
-                }
-                else
-                {
-                    result += ch;
-                }
+                int m = abecedario.IndexOf(mensaje[i]);
+                int k = abecedario.IndexOf(clave[i]);
+                criptograma += abecedario[Mod(m - k, n)];
             }
-            return result;
+
+            return criptograma;
         }
 
-        // Método para descifrar el texto usando la clave
         public string Descifrar(string mensaje, string clave)
         {
-            // Convertir a mayúsculas
-            mensaje = mensaje.Replace(" ", "").ToUpper();
             clave = clave.Replace(" ", "").ToUpper();
+            mensaje = mensaje.Replace(" ", "").ToUpper();
+            clave = AjustarClave(mensaje, clave);
 
-            string result = string.Empty;
-            int claveIndex = 0;
+            string criptograma = "";
 
-            foreach (char ch in mensaje)
+            for (int i = 0; i < mensaje.Length; i++)
             {
-                if (char.IsLetter(ch) || ch == ' ')
+                int m = abecedario.IndexOf(mensaje[i]);
+                int k = abecedario.IndexOf(clave[i]);
+                criptograma += abecedario[Mod(m + k, n)];
+            }
+
+            return criptograma;
+        }
+
+        public void generarTablaBeufort(ref DataGridView dataGridView)
+        {
+            dataGridView.ColumnCount = n;
+            dataGridView.RowCount = n;
+
+            for (int c = 0; c < n; c++)
+            {
+                dataGridView.Columns[c].HeaderText = $"{abecedario[c]}";
+                dataGridView.Columns[c].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            for (int f = 0; f < n; f++)
+            {
+                dataGridView.Rows[f].HeaderCell.Value = $"{abecedario[f]}";
+                for (int c = 0; c < n; c++)
                 {
-                    int mensajeIndex = GetCharIndex(ch);
-                    int claveIndexValue = GetCharIndex(clave[claveIndex % clave.Length]);
-                    int decryptedIndex = (mensajeIndex - claveIndexValue + abecedarioLength) % abecedarioLength;
-                    result += GetCharAt(decryptedIndex);
-                    claveIndex++;
-                }
-                else
-                {
-                    result += ch;
+                    dataGridView.Rows[f].Cells[c].Value = abecedario[(n + f - c) % n];
                 }
             }
-            return result;
+
+            dataGridView.RowHeadersDefaultCellStyle.BackColor = Color.Turquoise;
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Turquoise;
         }
     }
 }

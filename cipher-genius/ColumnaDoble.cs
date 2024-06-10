@@ -263,7 +263,5 @@ namespace cipher_genius
                 dataGridView.Rows.Add(fila);
             }
         }
-
-
     }
 }
