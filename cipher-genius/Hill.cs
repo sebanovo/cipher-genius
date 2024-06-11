@@ -26,156 +26,66 @@ namespace One1
 {
     public class Hill
     {
-        public char[] Alfabeto = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '_' };
-        public double[] ValoresDelAlfabeto = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 };
-        public int Modulo;
-        public double[,] MatrizA;
-        public double[,] MatrizClave;
-        public double[,] MatrizCriptograma;
-        int n;
-        //este es el comentadio de esta becha
-        public Hill()
-        {
 
-        }
+        public int Modulo = 27;
+        public int n;
 
-        public void run(String clave, int n)
-        {
-            Modulo = 27;
-            this.n = n;
-            MatrizClave = new double[n, n];
-            CargarMatrizClave(clave);
-        }
+        public char[] Alfabeto = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+        public double[] ValoresDelAlfabeto = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 };
 
-        public String Encriptar(String textClaro, String clave, int cuadrada)
+        public string AnadirFinal(String textoSinEspacios)
         {
-            String solucion = "";
-            if (ClaveValida(clave))
+            int length = textoSinEspacios.Length;
+            int remainder = length % n;
+
+            if (remainder == 0)
             {
-                textClaro = textClaro.ToUpper();
-                String textoClaroSinEspacios = QuitarEspacios(textClaro);
-                int cantidadComodines = CalcularCantidadComodines(textoClaroSinEspacios.Length, n);
-                if (cantidadComodines != 0)
-                {
-                    textoClaroSinEspacios = AgregarComodines(textoClaroSinEspacios, n);
-                }
-                Console.WriteLine("la nueva longitud es =" + textoClaroSinEspacios.Length);
-                //  Dimensionar la Matriz A que contiene los numeros de la matriz
-                MatrizA = new double[cuadrada, (textoClaroSinEspacios.Length / cuadrada)];
-                //  cargado por bloques MATRIZ A
-                CargarPorBloques(textoClaroSinEspacios);
-                Console.WriteLine("begin=========matriz cargado por bloques");
-                ImprimirMatriz(MatrizA);
-                Console.WriteLine("==========end");
-                double[,] operacionIntermedia = MultiplicarMatrices(MatrizClave, MatrizA);
-                Console.WriteLine("begin============el resulatado de la nulitplcaicon  ");
-                ImprimirMatriz(operacionIntermedia);
-                Console.WriteLine("==========end");
-                //  Operacion Modulo
-                MatrizCriptograma = OperacionModulo(operacionIntermedia);
-                Console.WriteLine("begin============matriz ciptograma  ");
-                ImprimirMatriz(MatrizCriptograma);
-                Console.WriteLine("==========end");
-                //  Extraemos del criptograma
-                solucion = Extracccion();
+                return textoSinEspacios; //string es multiplo de m
             }
-            return solucion;
-        }
 
+            int charsToAdd = n - remainder;
 
-        public String Extracccion()
-        {
-            String criptograma = "";
-            for (int j = 0; j < MatrizCriptograma.GetLength(1); j++)
+            StringBuilder sb = new StringBuilder(textoSinEspacios);
+
+            for (int i = 0; i < charsToAdd; i++)
             {
-
-                for (int i = 0; i < MatrizCriptograma.GetLength(0); i++)
+                sb.Append('X');
+            }
+            return sb.ToString();
+        }
+        public int[,] MatrizAdjuntaModulo(int[,] m)
+        {
+            int[,] matrizAjuntaSinModulo = CalcularAdjunta(m);
+            for (int i = 0; i < matrizAjuntaSinModulo.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrizAjuntaSinModulo.GetLength(1); j++)
                 {
-                    int indice = (int)MatrizCriptograma[i, j];
-                    criptograma += ParameterIntReturnChar(indice);
+                    matrizAjuntaSinModulo[i, j] = ModuloPositivo(matrizAjuntaSinModulo[i, j], Modulo);
                 }
             }
-            return criptograma;
+            return matrizAjuntaSinModulo;
         }
-
-        public String AgregarComodines(String texto, int cantidadComodines)
+        // Función para encontrar el MCD usando el algoritmo de Euclides
+        public int MCD(int a, int b)
         {
-            String textoConComodines = texto;
-            for (int i = 0; i < cantidadComodines; i++)
+            while (b != 0)
             {
-                textoConComodines += "_";
+                int temp = b;
+                b = a % b;
+                a = temp;
             }
-            return textoConComodines;
-
-        }
-        public int CalcularCantidadComodines(int longitudTextoPlano, int cuadrada)
-        {
-            int cantComodines = 0;
-            bool flag = false;
-            if (longitudTextoPlano % cuadrada != 0)
-            {
-                while (flag == false)
-                {
-                    if ((longitudTextoPlano + cantComodines) % 3 == 0)
-                    {
-                        flag = true;
-                        break;
-                    }
-                    cantComodines++;
-                }
-            }
-            return cantComodines;
-        }
-        public int[] ConvetiAlfabetoIndices(String clave)
-        {
-            int[] valores = new int[clave.Length];//CREAMOS UN VECTOR DE TAMANO N CON LA DIMENSION DE 
-
-            for (int i = 0; i < clave.Length; i++)
-            {
-                int indice = ParameterCharReturnInt(clave[i]);
-                valores[i] = indice;
-            }
-            return valores;
-
-        }
-
-        public void CargarMatrizClave(String clave)
-        {
-            int[] valores = ConvetiAlfabetoIndices(clave.ToUpper());
-            int indice = 0;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    MatrizClave[i, j] = valores[indice];
-                    indice++;
-                }
-            }
-
-
-        }
-        public String QuitarEspacios(String s)
-        {
-            String nuevo = ""; ;
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i] != ' ')
-                {
-                    nuevo += s[i];
-                }
-            }
-            return nuevo;
+            return a;
         }
         public char ParameterIntReturnChar(int indice)
         {
             return Alfabeto[indice];
         }
-        public int ParameterCharReturnInt(char k)
+        public int ParameterCharReturnInt(char caracter)
         {
             int x = -1;
             for (int i = 0; i < Alfabeto.Length; i++)
             {
-                if (Alfabeto[i] == k)
+                if (Alfabeto[i] == caracter)
                 {
                     x = i;
                     break;
@@ -183,112 +93,267 @@ namespace One1
             }
             return x;
         }
-        //este metodo carga la matriz en bloques
-        public void CargarPorBloques(String texto)
-        {
-            int indice = 0;
-            for (int col = 0; col < MatrizA.GetLength(1); col++)
-            {
-                for (int row = 0; row < MatrizA.GetLength(0); row++)
-                {
-                    MatrizA[row, col] = ParameterCharReturnInt(texto[indice]);
-                    indice++;
-                }
-            }
-
-        }
-
-        //  Verifica si la clave ingresa por el usuario es valida
-        public bool ClaveValida(String clave)
-        {
-            bool f = true;
-            int det = (int)CalcularDeterminante(MatrizClave);
-            int modi = ModInverso(det, Modulo);
-            Console.WriteLine("tiene la determinante " + det);
-            Console.WriteLine("tiene la modulo" + modi);
-
-            if (det == 0 || modi == -1 || SonCoprimos(det, Modulo) == false)
-            {
-                f = false;
-            }
-            return f;
-        }
-
-
-
-        // Función booleana para verificar si dos números son coprimos
         public bool SonCoprimos(int a, int b)
         {
             return MCD(a, b) == 1;
         }
 
-
-
-        public double[,] Submatriz(double[,] matriz, int fila, int columna)
+        public bool ClaveValida(String clave)
         {
-            int n = matriz.GetLength(0);
-            int m = matriz.GetLength(1);
+            bool f = true;
+            int[,] matrizClaveCargada = CargarMatrizClave(clave);
 
-            double[,] submatriz = new double[n - 1, m - 1];
+            //determinante parcial 
+            int deparcial = CalcularDeterminante(matrizClaveCargada);
+            //determinante modulo n
+            int determinante = DeterminanteModulo(deparcial);
 
+            int moduloInversoMultiplicativo = ModInverso(determinante, Modulo);
+
+            //            Console.WriteLine("La determinantees " + determinante);
+            //           Console.WriteLine("El  INVERSO multiplicativo modulo" + moduloInversoMultiplicativo);
+            int[,] inversa = Inversa(matrizClaveCargada, deparcial);
+
+            if (determinante == 0 || moduloInversoMultiplicativo == -1 || SonCoprimos(determinante, Modulo) == false || CumpleReglaDeLaInversa(matrizClaveCargada, inversa) == false)
+            {
+                f = false;
+            }
+            return f;
+        }
+        public int[,] CargarMatrizClave(String clave)
+        {
+            int[,] r = new int[n, n];
+            int indice = 0;
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < n; j++)
                 {
-                    if (i != fila && j != columna)
+                    r[i, j] = ParameterCharReturnInt(clave[indice]);
+                    indice++;
+                }
+            }
+            return r;
+
+        }
+        public List<List<int>> CargarPorBloques(String textoClaroSinEspacios)
+        {
+
+            List<List<int>> bloques = new List<List<int>>();
+            int indice = 0;
+            //quiero cargar en n bloque digamos
+            /**
+             [][][]   [][][] [][][] [][][] [][][] [][][]
+             [][][]
+             [][][]
+             */
+            for (int i = 0; i < textoClaroSinEspacios.Length / n; i++)
+            {
+                List<int> a = new List<int>();
+                for (int j = 0; j < n; j++)
+                {
+                    //  Console.WriteLine(textoClaroSinEspacios[indice] + "->" + ParameterCharReturnInt(textoClaroSinEspacios[indice]));
+                    int x = ParameterCharReturnInt(textoClaroSinEspacios[indice]); ;
+                    a.Add(x);
+                    indice++;
+                }
+                bloques.Add(a);
+            }
+
+            return bloques;
+        }
+
+
+
+
+        public String Encriptar(String textClaro, String clave, int n)
+        {
+            this.n = n;
+            String solucion = "";
+            textClaro = textClaro.ToUpper();
+            clave = clave.ToUpper();
+            if (ClaveValida(clave))
+            {
+                String textoClaroSinEspacios = QuitarEspacios(textClaro);
+
+                if (textoClaroSinEspacios.Length % n != 0)
+                {
+                    textoClaroSinEspacios = AnadirFinal(textoClaroSinEspacios);
+                }
+                List<List<int>> listaCargadaPorBloques = CargarPorBloques(textoClaroSinEspacios);
+
+                int[,] MatrizClave = CargarMatrizClave(clave);
+
+                List<List<char>> mulipliionYModulo = MultiplicionYModulo(listaCargadaPorBloques, MatrizClave);
+
+
+                for (int i = 0; i < mulipliionYModulo.Count; i++)
+                {
+                    for (int j = 0; j < mulipliionYModulo[i].Count; j++)
                     {
-                        int newi = i < fila ? i : i - 1;
-                        int newj = j < columna ? j : j - 1;
-                        submatriz[newi, newj] = matriz[i, j];
+                        solucion += mulipliionYModulo[i][j];
+                    }
+                }
+            }
+            return solucion;
+
+        }
+
+        public bool CumpleReglaDeLaInversa(int[,] clave, int[,] inversaClave)
+        {
+            int[,] resultado = MultiplicarMatrices(clave, inversaClave);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    resultado[i, j] = ModuloPositivo(resultado[i, j], Modulo);
+                }
+            }
+            return EsMatrizIdentidad(resultado);
+        }
+        public bool EsMatrizIdentidad(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            if (rows != cols)
+            {
+                // Si no es una matriz cuadrada, no puede ser una matriz identidad
+                return false;
+            }
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (i == j)
+                    {
+                        // Verificar que los elementos de la diagonal principal sean 1
+                        if (matrix[i, j] != 1)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        // Verificar que todos los demás elementos sean 0
+                        if (matrix[i, j] != 0)
+                        {
+                            return false;
+                        }
                     }
                 }
             }
 
-            return submatriz;
+            return true;
         }
 
-        public String ImprimirAlfabeto()
+        public string Desencriptar(String criptograma, String clave, int n)
         {
-            String cadena = "|";
-            int k = 1;
-            for (int i = 0; i < Alfabeto.Length; i++)
+            criptograma = criptograma.ToUpper();
+            clave = clave.ToUpper();
+            this.n = n;
+            StringBuilder a = new StringBuilder();
+            if (ClaveValida(clave))
             {
-                if (k >= 11)
+
+
+
+                List<List<int>> listaCargadaPorBloques = new List<List<int>>();
+                int indice = 0;
+
+                for (int i = 0; i < criptograma.Length / n; i++)
                 {
-                    cadena += Alfabeto[i] + "  |";
+                    List<int> nsima = new List<int>();
+                    for (int j = 0; j < n; j++)
+                    {
+                        nsima.Add(ParameterCharReturnInt(criptograma[indice]));
+                        indice++;
+                    }
+                    listaCargadaPorBloques.Add(nsima);
                 }
-                else
+
+                int[,] matrizClaveCargada = CargarMatrizClave(clave);
+
+                int deteparcial = CalcularDeterminante(matrizClaveCargada);
+
+                int[,] inversa = Inversa(matrizClaveCargada, deteparcial);
+                //esta es el resultado
+                List<char> r = new List<char>(); ;
+
+                for (int i = 0; i < listaCargadaPorBloques.Count; i++)
                 {
-                    cadena += Alfabeto[i] + " |";
+                    int[,] nsima = new int[1, n];
+
+                    List<int> enteros = listaCargadaPorBloques[i];
+
+                    for (int j = 0; j < n; j++)
+                    {
+                        nsima[0, j] = enteros[j];
+                    }
+                    //multiplicacion
+                    int[,] multiplicacion = MultiplicarMatrices(nsima, inversa);
+
+                    for (int k = 0; k < n; k++)
+                    {
+                        int modulo = ModuloPositivo(multiplicacion[0, k], Modulo);
+
+                        r.Add(ParameterIntReturnChar(modulo));
+                    }
                 }
-                k++;
 
+                for (int j = 0; j < r.Count; j++)
+                {
+                    a.Append(r[j]);
+                }
             }
-            cadena += "\n|";
-            for (int i = 0; i < Alfabeto.Length; i++)
-            {
-                cadena += i + " |";
-
-
-            }
-            return cadena;
+            return a.ToString();
         }
-        public void ImprimirMatriz(double[,] matriz)
+
+
+        public HashSet<String> Generaclave(int n, int cantidad)
         {
-            int filas = matriz.GetLength(0);
-            int columnas = matriz.GetLength(1);
+            this.n = n;
+
+            HashSet<String> r = new HashSet<String>();
+            int x = 0;
+            while (x <= cantidad)
+            {
+                String valida = "";
+                Random ra = new Random();
+                for (int i = 0; i < n * n; i++)
+                {
+                    int va = ra.Next(0, 25);
+                    valida += ParameterIntReturnChar(va);
+
+                }
+                // Console.WriteLine(valida);
+                if (ClaveValida(valida))
+                {
+                    r.Add(valida);
+                    x++;
+                }
+            }
+            return r;
+
+        }
+
+
+
+        public void ImprimirMatriz(int[,] matrix)
+        {
+            int filas = matrix.GetLength(0);
+            int columnas = matrix.GetLength(1);
 
             for (int i = 0; i < filas; i++)
             {
                 for (int j = 0; j < columnas; j++)
                 {
-                    Console.Write(matriz[i, j] + "\t");
+                    Console.Write(matrix[i, j] + "\t");
                 }
                 Console.WriteLine();
             }
         }
-
-        public double[,] MultiplicarMatrices(double[,] matriz1, double[,] matriz2)
+        public int[,] MultiplicarMatrices(int[,] matriz1, int[,] matriz2)
         {
 
             if (matriz1.GetLength(1) != matriz2.GetLength(0))
@@ -301,7 +366,7 @@ namespace One1
             int columnas = matriz2.GetLength(1);
 
 
-            double[,] matrizResultado = new double[filas, columnas];
+            int[,] matrizResultado = new int[filas, columnas];
 
 
             for (int i = 0; i < filas; i++)
@@ -314,120 +379,94 @@ namespace One1
                     }
                 }
             }
-
-
             return matrizResultado;
 
 
         }
-        public double[,] OperacionModulo(double[,] operacionIntermedia)
-
+        public List<List<char>> MultiplicionYModulo(List<List<int>> bloques, int[,] MatrizClave)
         {
-            double[,] resultado = new double[operacionIntermedia.GetLength(0), operacionIntermedia.GetLength(1)];
-            for (int i = 0; i < operacionIntermedia.GetLength(0); i++)
-            {
-                for (int j = 0; j < operacionIntermedia.GetLength(1); j++)
-                {
-                    double moduloEnesimo = (operacionIntermedia[i, j]) % Modulo;
+            List<List<char>> resultado = new List<List<char>>();
 
-                    resultado[i, j] = moduloEnesimo;
+            for (int i = 0; i < bloques.Count; i++)
+            {
+                int[,] horintal = new int[1, n];
+
+                //matriz de bloques
+                List<int> block = bloques[i];
+
+                //esta es el la lista de lamuli0lica
+                List<char> salida = new List<char>();
+
+                for (int j = 0; j < block.Count; j++)
+                {
+                    horintal[0, j] = block[j];
+                }
+                //aqui se encunetra multiplicado
+
+                int[,] muliplicado = MultiplicarMatrices(horintal, MatrizClave);
+
+                //ImprimirMatriz(muliplicado);
+                for (int k = 0; k < n; k++)
+                {
+
+                    salida.Add(ParameterIntReturnChar(ModuloPositivo(muliplicado[0, k], Modulo)));
 
                 }
+                //agregando a la lista
+                resultado.Add(salida);
+
             }
             return resultado;
-
         }
-
-
-        public bool TieneInversa(double[,] matriz)
+        public int[,] Inversa(int[,] clave, int determinante)
         {
-            if (matriz.GetLength(0) != matriz.GetLength(1))
+            //matrz Adjunta modular
+            int[,] resultado = new int[n, n];
+            int[,] matrizAdjuntaModulo = MatrizAdjuntaModulo(clave);
+
+
+            //  Determinante Modular
+            int deter = DeterminanteModulo(determinante);
+            // Console.WriteLine(" la determinante es " +deter);
+            int inversoModular = ModInverso(deter, Modulo);
+            //Console.WriteLine("el inverso modular es "+inversoModular );
+            for (int i = 0; i < n; i++)
             {
-                return false;
+                for (int j = 0; j < n; j++)
+                {
+                    resultado[i, j] = matrizAdjuntaModulo[i, j] * inversoModular;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    resultado[i, j] = ModuloPositivo(resultado[i, j], Modulo);
+
+
+                }
             }
 
-            double determinante = CalcularDeterminante(matriz);
-
-            if (determinante == 0)
+            return resultado;
+        }
+        public bool VerificarPositividad(int[,] matriz)
+        {
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                return false;
-
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    if (matriz[i, j] != 0)
+                    {
+                        return false;
+                    }
+                }
             }
-
             return true;
         }
-
-        public double[,] MatrizAdjuntiva(double[,] matriz)
+        public int DeterminanteModulo(int a)
         {
-            int n = matriz.GetLength(0);
 
-            // Calcular el determinante de la matriz
-            double determinante = CalcularDeterminante(matriz);
-
-            // Si el determinante es 0, la matriz no tiene inversa
-            if (determinante == 0)
-            {
-                throw new Exception("LA MATRIZ NO TIENE INVERSA");
-            }
-
-            // Calcular la matriz adjunta
-            double[,] adjunta = new double[n, n];
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    adjunta[i, j] = Cofactor(matriz, i, j) * Math.Pow(-1, i + j);
-                }
-            }
-
-            // Transponer la matriz adjunta
-            double[,] inversa = new double[n, n];
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    inversa[i, j] = adjunta[j, i];
-                }
-            }
-
-            return inversa;
-        }
-
-        // Función para calcular el determinante de una matriz
-
-        public double[,] MultiplicarPorEscalar(double[,] matrix, int scalar)
-        {
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
-            double[,] result = new double[rows, cols];
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    result[i, j] = matrix[i, j] * scalar;
-
-
-                }
-            }
-
-            return result;
-        }
-        public double[,] ModMatrix(double[,] matrix, int mod)
-        {
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
-            double[,] resultMatrix = new double[rows, cols];
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    resultMatrix[i, j] = ModuloPositivo((int)matrix[i, j], Modulo);
-                }
-            }
-
-            return resultMatrix;
+            return ModuloPositivo(a, Modulo);
         }
         public int ModuloPositivo(int a, int b)
         {
@@ -439,124 +478,100 @@ namespace One1
             return result;
         }
 
-        private double CalcularDeterminante(double[,] matriz)
+        public int[,] CalcularAdjunta(int[,] matrix)
         {
-            int n = matriz.GetLength(0);
+            int n = matrix.GetLength(0);
+            int[,] cofactores = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    cofactores[i, j] = CalcularCofactor(matrix, i, j);
+                }
+            }
+            return TransponerMatriz(cofactores);
+        }
+
+
+        public int CalcularCofactor(int[,] matrix, int p, int q)
+        {
+            int n = matrix.GetLength(0);
+            int[,] submatriz = new int[n - 1, n - 1];
+            int i = 0, j = 0;
+
+            for (int fila = 0; fila < n; fila++)
+            {
+                for (int columna = 0; columna < n; columna++)
+                {
+                    if (fila != p && columna != q)
+                    {
+                        submatriz[i, j++] = matrix[fila, columna];
+
+                        if (j == n - 1)
+                        {
+                            j = 0;
+                            i++;
+                        }
+                    }
+                }
+            }
+
+            return (int)Math.Pow(-1, p + q) * CalcularDeterminante(submatriz);
+        }
+
+        public int CalcularDeterminante(int[,] matrix)
+        {
+            int n = matrix.GetLength(0);
 
             if (n == 1)
             {
-                return matriz[0, 0];
+                return matrix[0, 0];
             }
 
-            double determinante = 0;
+            if (n == 2)
+            {
+                return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
+            }
+
+            int determinante = 0;
+
             for (int i = 0; i < n; i++)
             {
-                double cofactor = Cofactor(matriz, 0, i);
-                determinante += matriz[0, i] * cofactor * Math.Pow(-1, i);
+                determinante += matrix[0, i] * CalcularCofactor(matrix, 0, i);
             }
 
             return determinante;
         }
 
-        // Función para calcular el cofactor de un elemento de una matriz
-        private double Cofactor(double[,] matriz, int fila, int columna)
+
+        public int[,] TransponerMatriz(int[,] matrix)
         {
-            int n = matriz.GetLength(0);
-            double[,] submatriz = new double[n - 1, n - 1];
+            int n = matrix.GetLength(0);
+            int[,] transpuesta = new int[n, n];
 
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (i != fila && j != columna)
-                    {
-                        int newFila = i < fila ? i : i - 1;
-                        int newColumna = j < columna ? j : j - 1;
-                        submatriz[newFila, newColumna] = matriz[i, j];
-                    }
+                    transpuesta[j, i] = matrix[i, j];
                 }
             }
 
-            return CalcularDeterminante(submatriz);
+            return transpuesta;
         }
 
-
-        public string Desencriptar(String texto, String clave)
+        public String QuitarEspacios(String s)
         {
-            StringBuilder a = new StringBuilder();
-            int f = 0, c = 0;
-            double[,] Ayuda = new double[n, texto.Length / n];
-            for (int i = 0; i < texto.Length; i++)
+            String nuevo = ""; ;
+            for (int i = 0; i < s.Length; i++)
             {
-                if (f == n)
+                if (s[i] != ' ')
                 {
-                    f = 0;
-                    c++;
-                }
-                Ayuda[f, c] = ParameterCharReturnInt(texto[i]);
-                f++;
-            }
-
-            Console.WriteLine("la ayuda cargada en bloques");
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < Ayuda.GetLength(1); j++)
-                {
-
-                    Console.Write(Ayuda[i, j] + "\t");
-
-                }
-                Console.WriteLine();
-
-            }
-            Console.WriteLine("la ayuda cargada en bloques");
-            int dete = (int)CalcularDeterminante(MatrizClave);
-            int inverso = ModInverso(dete, Modulo);
-
-            double[,] adjunt = Adjunta(MatrizClave);
-
-            double[,] matrix = MultiplicarPorEscalar(adjunt, inverso);
-            double[,] nueva = ModMatrix(matrix, Modulo);// esta es la nueva clave
-
-            Console.WriteLine("esta es la nueva matris");
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-
-                    Console.Write(nueva[i, j] + " ");
-
-                }
-                Console.WriteLine();
-            }
-            //aqui se encuentra el criptograma
-
-            double[,] textoClaro = MultiplicarMatrices(nueva, Ayuda);
-            double[,] lista = ModMatrix(textoClaro, Modulo);
-
-            Console.WriteLine("esta es el plato final");
-            for (int j = 0; j < lista.GetLength(1); j++)
-            {
-                for (int i = 0; i < lista.GetLength(0); i++)
-                {
-                    a.Append(ParameterIntReturnChar((int)lista[i, j]));
+                    nuevo += s[i];
                 }
             }
-            return a.ToString();
+            return nuevo;
         }
-
-        // Función para encontrar el MCD usando el algoritmo de Euclides
-        public int MCD(int a, int b)
-        {
-            while (b != 0)
-            {
-                int temp = b;
-                b = a % b;
-                a = temp;
-            }
-            return a;
-        }
-
         // Función para encontrar la inversa modular utilizando el algoritmo extendido de Euclides
         public int ModInverso(int a, int m)
         {
@@ -587,89 +602,6 @@ namespace One1
             return x1;
         }
 
-        //ALGORITMOS PARA CALCULAR LA CONJUNTA DE UNA MATRIZ
-        public double Determinante(double[,] matriz)
-        {
-            int n = matriz.GetLength(0);
-            if (n == 1)
-            {
-                return matriz[0, 0];
-            }
-            else if (n == 2)
-            {
-                return matriz[0, 0] * matriz[1, 1] - matriz[0, 1] * matriz[1, 0];
-            }
-            else
-            {
-                double determinante = 0;
-                for (int i = 0; i < n; i++)
-                {
-                    double[,] subMatriz = ObtenerSubMatriz(matriz, 0, i);
-                    determinante += matriz[0, i] * Determinante(subMatriz) * (i % 2 == 0 ? 1 : -1);
-                }
-                return determinante;
-            }
-        }
-
-        // Función para obtener una submatriz excluyendo una fila y una columna específicas
-        private double[,] ObtenerSubMatriz(double[,] matriz, int filaExcluir, int columnaExcluir)
-        {
-            int n = matriz.GetLength(0);
-            double[,] subMatriz = new double[n - 1, n - 1];
-            int filaSub = 0;
-            for (int i = 0; i < n; i++)
-            {
-                if (i == filaExcluir) continue;
-                int columnaSub = 0;
-                for (int j = 0; j < n; j++)
-                {
-                    if (j == columnaExcluir) continue;
-                    subMatriz[filaSub, columnaSub] = matriz[i, j];
-                    columnaSub++;
-                }
-                filaSub++;
-            }
-            return subMatriz;
-        }
-
-        // Función para calcular la matriz de cofactores
-        private double[,] MatrizDeCofactores(double[,] matriz)
-        {
-            int n = matriz.GetLength(0);
-            double[,] cofactores = new double[n, n];
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    double[,] subMatriz = ObtenerSubMatriz(matriz, i, j);
-                    cofactores[i, j] = Determinante(subMatriz) * ((i + j) % 2 == 0 ? 1 : -1);
-                }
-            }
-            return cofactores;
-        }
-
-        // Función para transponer una matriz
-        private double[,] Transponer(double[,] matriz)
-        {
-            int n = matriz.GetLength(0);
-            double[,] transpuesta = new double[n, n];
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    transpuesta[j, i] = matriz[i, j];
-                }
-            }
-            return transpuesta;
-        }
-
-        // Función para calcular la adjunta de una matriz
-        public double[,] Adjunta(double[,] matriz)
-        {
-            double[,] cofactores = MatrizDeCofactores(matriz);
-            double[,] adjunta = Transponer(cofactores);
-            return adjunta;
-        }
     }
 }
 

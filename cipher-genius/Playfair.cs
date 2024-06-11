@@ -20,6 +20,7 @@ namespace Two2
 {
     public class Playfair
     {
+
         public const int Limite = 5;
         public char[,] Matriz = new char[Limite, Limite];
 
@@ -72,11 +73,15 @@ namespace Two2
                     {
                         columna = 0; fila++;
                     }
+                    Console.Write(clave[i] + "-> ");
                     Matriz[fila, columna] = clave[i];
                     columna++;
                 }
             }
+
         }
+
+
         public Boolean BuscarCaracter(char caracter)
         {
             for (int i = 0; i < Limite; i++)
@@ -144,16 +149,16 @@ namespace Two2
         }
         public String Encriptar(String texto, String clave)
         {
+            Console.WriteLine("clave dentro del metodoo " + clave);
             String newClave = QuitarEspacios(clave);
             String newTexto = QuitarEspacios(texto);
 
             newTexto = newTexto.ToUpper();
             newClave = newClave.ToUpper();
-
             //reemplamos la j->i y la ñ->n
             newClave = reemplazoNyJ(newClave);
             newTexto = reemplazoNyJ(newTexto);
-
+            LimpiarMatrix(Matriz);
             CargarClave(newClave);
             CargarAlfabetoRestante();
 
@@ -239,6 +244,19 @@ namespace Two2
             return s.ToString();
 
         }
+        public void LimpiarMatrix(char[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    matrix[i, j] = '\0';
+                }
+            }
+        }
 
 
         public String Desencriptar(String texto, String clave)
@@ -253,6 +271,7 @@ namespace Two2
             newClave = reemplazoNyJ(newClave);
             newTexto = reemplazoNyJ(newTexto);
             //cargamos la clave y el alfabeto restante
+            LimpiarMatrix(Matriz);
             CargarClave(newClave);
             CargarAlfabetoRestante();
             int[] vectorCordenadaA = new int[2];
@@ -444,9 +463,10 @@ namespace Two2
             return modifiedString.ToString();
 
         }
-      }
 
     }
+
+}
 
 
 

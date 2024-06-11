@@ -138,6 +138,12 @@
             this.AMRcomboBoxListasCD = new System.Windows.Forms.ComboBox();
             this.AMRlabel1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.Matriz = new System.Windows.Forms.DataGridView();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -175,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AMRpictureBox0)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Matriz)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage6
@@ -757,6 +764,12 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.Matriz);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.button13);
             this.tabPage3.Controls.Add(this.textvos);
             this.tabPage3.Controls.Add(this.label8);
@@ -780,10 +793,11 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(93, 247);
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.button13.Location = new System.Drawing.Point(208, 457);
             this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
+            this.button13.Size = new System.Drawing.Size(75, 43);
             this.button13.TabIndex = 10;
             this.button13.Text = "Limpiar";
             this.button13.UseVisualStyleBackColor = true;
@@ -792,99 +806,109 @@
             // textvos
             // 
             this.textvos.AutoSize = true;
-            this.textvos.Location = new System.Drawing.Point(273, 345);
+            this.textvos.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.textvos.Location = new System.Drawing.Point(313, 492);
             this.textvos.Name = "textvos";
-            this.textvos.Size = new System.Drawing.Size(30, 17);
+            this.textvos.Size = new System.Drawing.Size(71, 37);
             this.textvos.TabIndex = 9;
             this.textvos.Text = "nxn";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(107, 217);
+            this.label8.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label8.Location = new System.Drawing.Point(223, 247);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 17);
+            this.label8.Size = new System.Drawing.Size(93, 37);
             this.label8.TabIndex = 8;
             this.label8.Text = "Clave";
             // 
             // qey
             // 
-            this.qey.Location = new System.Drawing.Point(36, 191);
+            this.qey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qey.Location = new System.Drawing.Point(45, 214);
             this.qey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qey.Name = "qey";
-            this.qey.Size = new System.Drawing.Size(296, 22);
+            this.qey.Size = new System.Drawing.Size(592, 30);
             this.qey.TabIndex = 7;
             this.qey.TextChanged += new System.EventHandler(this.qey_TextChanged);
             // 
             // nxn
             // 
-            this.nxn.Location = new System.Drawing.Point(241, 304);
+            this.nxn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nxn.Location = new System.Drawing.Point(300, 460);
             this.nxn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nxn.Name = "nxn";
-            this.nxn.Size = new System.Drawing.Size(100, 22);
+            this.nxn.Size = new System.Drawing.Size(100, 30);
             this.nxn.TabIndex = 6;
             this.nxn.UseWaitCursor = true;
             // 
             // output
             // 
-            this.output.Location = new System.Drawing.Point(429, 247);
+            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.output.Location = new System.Drawing.Point(399, 261);
             this.output.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(657, 96);
+            this.output.Size = new System.Drawing.Size(657, 147);
             this.output.TabIndex = 5;
             this.output.Text = "";
             // 
             // input
             // 
-            this.input.Location = new System.Drawing.Point(411, 68);
+            this.input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.input.Location = new System.Drawing.Point(411, 47);
             this.input.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.input.Name = "input";
-            this.input.Size = new System.Drawing.Size(679, 96);
+            this.input.Size = new System.Drawing.Size(645, 163);
             this.input.TabIndex = 4;
             this.input.Text = "";
             this.input.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(69, 9);
+            this.button12.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.button12.Location = new System.Drawing.Point(81, 58);
             this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(132, 23);
+            this.button12.Size = new System.Drawing.Size(154, 50);
             this.button12.TabIndex = 3;
-            this.button12.Text = "Cifrado Playfair";
+            this.button12.Text = "Cifrar";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(69, 50);
+            this.button10.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.button10.Location = new System.Drawing.Point(70, 112);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(132, 23);
+            this.button10.Size = new System.Drawing.Size(186, 53);
             this.button10.TabIndex = 2;
-            this.button10.Text = "Descifrado Playfair";
+            this.button10.Text = "Descifrar";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(69, 414);
+            this.button9.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.button9.Location = new System.Drawing.Point(60, 380);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(141, 23);
+            this.button9.Size = new System.Drawing.Size(175, 52);
             this.button9.TabIndex = 1;
-            this.button9.Text = "Descifrado Hill";
+            this.button9.Text = "Descifrar";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click_1);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(69, 367);
+            this.button8.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.button8.Location = new System.Drawing.Point(60, 331);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(141, 23);
+            this.button8.Size = new System.Drawing.Size(175, 45);
             this.button8.TabIndex = 0;
-            this.button8.Text = "Cifrado Hill";
+            this.button8.Text = "Cifrar";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
@@ -1318,7 +1342,7 @@
             this.AMRlabelDesc1.Location = new System.Drawing.Point(161, 178);
             this.AMRlabelDesc1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelDesc1.Name = "AMRlabelDesc1";
-            this.AMRlabelDesc1.Size = new System.Drawing.Size(525, 44);
+            this.AMRlabelDesc1.Size = new System.Drawing.Size(524, 44);
             this.AMRlabelDesc1.TabIndex = 2;
             this.AMRlabelDesc1.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1466,7 +1490,7 @@
             this.AMRlabelTitulo.Location = new System.Drawing.Point(669, 23);
             this.AMRlabelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelTitulo.Name = "AMRlabelTitulo";
-            this.AMRlabelTitulo.Size = new System.Drawing.Size(609, 52);
+            this.AMRlabelTitulo.Size = new System.Drawing.Size(608, 52);
             this.AMRlabelTitulo.TabIndex = 1;
             this.AMRlabelTitulo.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1513,6 +1537,73 @@
             this.tabControl1.Size = new System.Drawing.Size(1800, 923);
             this.tabControl1.TabIndex = 25;
             this.tabControl1.Tag = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label4.Location = new System.Drawing.Point(107, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 37);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Playfair";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label6.Location = new System.Drawing.Point(93, 292);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 37);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Hill";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.button1.Location = new System.Drawing.Point(70, 457);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 43);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Generar Clave";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label7.Location = new System.Drawing.Point(625, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(188, 37);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Texto Plano";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label13.Location = new System.Drawing.Point(659, 437);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(200, 37);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Criptograma";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // Matriz
+            // 
+            this.Matriz.BackgroundColor = System.Drawing.Color.Azure;
+            this.Matriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Matriz.ColumnHeadersVisible = false;
+            this.Matriz.Location = new System.Drawing.Point(1062, 47);
+            this.Matriz.Name = "Matriz";
+            this.Matriz.RowHeadersVisible = false;
+            this.Matriz.RowHeadersWidth = 51;
+            this.Matriz.RowTemplate.Height = 24;
+            this.Matriz.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Matriz.Size = new System.Drawing.Size(606, 152);
+            this.Matriz.TabIndex = 16;
             // 
             // Form1
             // 
@@ -1569,6 +1660,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Matriz)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1678,6 +1770,12 @@
         private System.Windows.Forms.Label AMRlabel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView Matriz;
     }
 }
 
