@@ -573,7 +573,6 @@ namespace cipher_genius
             clave = clave.Trim();
             String texto = input.Text;
             texto = texto.Trim();
-            playfair.run(clave);
             String salida = playfair.Encriptar(texto, clave);
 
             output.Text = salida;
