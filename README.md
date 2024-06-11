@@ -3,34 +3,32 @@
 <table>
   <tr>
     <td>
+      <p>Adolfo Mendoza Ribera</p>
       <a href="https://postimages.org/" target="_blank">
         <img src="https://i.postimg.cc/dVk9FVG1/Captura-de-pantalla-2024-06-08-172010.png" alt="Captura-de-pantalla-2024-06-08-172010"/>
       </a>
     </td>
     <td>
-      <a href="https://postimages.org/" target="_blank">
-        <img src="https://i.postimg.cc/bNvT6TJ1/Captura-de-pantalla-2024-06-08-172120.png" alt="Captura-de-pantalla-2024-06-08-172120"/>
-      </a>
+      <p>Mejia Zarate Alimbert</p>
+      <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/76j0ZSkW/Captura-de-pantalla-2024-06-08-172236.png" alt="Captura-de-pantalla-2024-06-08-172236"/></a>
     </td>
   </tr>
   <tr>
     <td>
+      <p>Yo</p>
       <a href="https://postimages.org/" target="_blank">
         <img src="https://i.postimg.cc/5NkmDCYT/Captura-de-pantalla-2024-06-08-172144.png" alt="Captura-de-pantalla-2024-06-08-172144"/>
       </a>
-    </td>
+      </td>
     <td>
-      <a href="https://postimages.org/" target="_blank">
-        <img src="https://i.postimg.cc/brmRyG6G/Captura-de-pantalla-2024-06-08-172214.png" alt="Captura-de-pantalla-2024-06-08-172214"/>
-      </a>
+      <p>Yo</p>
+      <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/90TTRzXF/Captura-de-pantalla-2024-06-08-172214.png" alt="Captura-de-pantalla-2024-06-08-172214"/></a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://postimages.org/" target="_blank">
-        <img src="https://i.postimg.cc/sfmm98VV/Captura-de-pantalla-2024-06-08-172236.png" alt="Captura-de-pantalla-2024-06-08-172236"/>
-      </a>
-    </td>
+      <p>Josué Vito Zarate Mollo</p>
+    <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/MGP1ghrx/Captura-de-pantalla-2024-06-08-17223121.png" alt="Captura-de-pantalla-2024-06-08-17223121"/></a><br/><br/>
     <td></td>
   </tr>
 </table>
