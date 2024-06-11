@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using One1;
 using Two2;
+using System.Drawing.Drawing2D;
 
 namespace cipher_genius
 {
@@ -568,15 +569,32 @@ namespace cipher_genius
 
         private void button12_Click(object sender, EventArgs e)
         {
-            ///encriptao playfair
+            Matriz.RowCount = 5;
+            Matriz.ColumnCount = 5;
             String clave = qey.Text;
             clave = clave.Trim();
             String texto = input.Text;
             texto = texto.Trim();
-            playfair.run(clave);
             String salida = playfair.Encriptar(texto, clave);
-
             output.Text = salida;
+            // Limpiar cualquier dato existente en el DataGridView
+            Matriz.Rows.Clear();
+            Matriz.Columns.Clear();
+            // Agregar las columnas al DataGridView
+            for (int i = 0; i < 5; i++)
+            {
+                Matriz.Columns.Add("Columna" + i, "Columna" + i);
+            }
+
+            // Agregar las filas al DataGridView
+            for (int i = 0; i < 5; i++)
+            {
+                Matriz.Rows.Add();
+                for (int j = 0; j < 5; j++)
+                {
+                    Matriz.Rows[i].Cells[j].Value = playfair.Matriz[i, j];
+                }
+            }
         }
 
         private void richTextBox4_TextChanged(object sender, EventArgs e)
@@ -586,6 +604,9 @@ namespace cipher_genius
 
         private void button10_Click_1(object sender, EventArgs e)
         {
+            output.Clear();
+            Matriz.RowCount = 5;
+            Matriz.ColumnCount = 5;
             ///descencri playfair
             String clave = qey.Text;
             clave = clave.Trim();
@@ -593,6 +614,24 @@ namespace cipher_genius
             cripto = cripto.Trim();
             String salida = playfair.Desencriptar(cripto, clave);
             output.Text = salida;
+            Matriz.Rows.Clear();
+            Matriz.Columns.Clear();
+
+            // Agregar las columnas al DataGridView
+            for (int i = 0; i < 5; i++)
+            {
+                Matriz.Columns.Add("Columna" + i, "Columna" + i);
+            }
+
+            // Agregar las filas al DataGridView
+            for (int i = 0; i < 5; i++)
+            {
+                Matriz.Rows.Add();
+                for (int j = 0; j < 5; j++)
+                {
+                    Matriz.Rows[i].Cells[j].Value = playfair.Matriz[i, j];
+                }
+            }
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -600,19 +639,17 @@ namespace cipher_genius
             qey.Clear();
             input.Clear();
             output.Clear();
+            Matriz.Columns.Clear();
+            Matriz.Rows.Clear();
         }
 
         private void button8_Click_1(object sender, EventArgs e)
         {
-            //boton `encriptar hill
+            
+            int nnn = int.Parse(nxn.Text);
             String clave = qey.Text;
-            clave = clave.Trim();
-
             String texto = input.Text;
             texto = texto.Trim();
-
-            int nnn = int.Parse(nxn.Text);
-            hill.run(clave, nnn);
             String salida = hill.Encriptar(texto, clave, nnn);
             output.Text = salida;
         }
@@ -620,11 +657,13 @@ namespace cipher_genius
         private void button9_Click_1(object sender, EventArgs e)
         {
             //boton desencriptar hill
+            output.Clear();
             String clave = qey.Text;
             clave = clave.Trim();
             String texto = input.Text;
+            int nnn = int.Parse(nxn.Text);
             texto = texto.Trim();
-            String salida = hill.Desencriptar(texto, clave);
+            String salida = hill.Desencriptar(texto, clave, nnn);
             output.Text = salida;
         }
 
@@ -1787,6 +1826,24 @@ namespace cipher_genius
         private void AMRcomboBoxA_SelectedIndexChanged(object sender, EventArgs e)
         {
             // void
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int n = int.Parse(nxn.Text);
+            HashSet<string> mySet = hill.Generaclave(n, 1);
+            List<String> clavesValidas = new List<String>();
+            foreach (string fruit in mySet)
+            {
+                clavesValidas.Add(fruit);
+            }
+            String clave = clavesValidas[0];
+            qey.Text = clave;
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

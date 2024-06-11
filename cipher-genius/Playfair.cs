@@ -20,22 +20,33 @@ namespace Two2
 {
     public class Playfair
     {
+
         public const int Limite = 5;
         public char[,] Matriz = new char[Limite, Limite];
 
         public char[] CaracteresAlfabeticos = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-
-        public Playfair()
+        public String reemplazoNyJ(String texto)
         {
+            StringBuilder r = new StringBuilder();
 
+            for (int i = 0; i < texto.Length; i++)
+            {
+                if (texto[i] == 'J')
+                {
+                    r.Append('I');
+
+                }
+                else if (texto[i] == 'Ñ')
+                {
+                    r.Append('N');
+                }
+                else
+                {
+                    r.Append(texto[i]);
+                }
+            }
+            return r.ToString();
         }
-
-        public void run(String clave)
-        {
-            CargarClave(clave);
-            CargarAlfabetoRestante();
-        }
-
         public String ImprimirMatriz()
         {
             String resultado = "";
@@ -52,21 +63,25 @@ namespace Two2
 
         public void CargarClave(String clave)
         {
-            string claveMayuscula = clave.ToUpper();
+
             int columna = 0, fila = 0;
             for (int i = 0; i < clave.Length; i++)
             {
-                if (BuscarCaracter(claveMayuscula[i]) == false)
+                if (BuscarCaracter(clave[i]) == false)
                 {
                     if (columna == Limite)
                     {
                         columna = 0; fila++;
                     }
-                    Matriz[fila, columna] = claveMayuscula[i];
+                    Console.Write(clave[i] + "-> ");
+                    Matriz[fila, columna] = clave[i];
                     columna++;
                 }
             }
+
         }
+
+
         public Boolean BuscarCaracter(char caracter)
         {
             for (int i = 0; i < Limite; i++)
@@ -120,16 +135,39 @@ namespace Two2
             }
             return r;
         }
-
+        public String QuitarEspacios(String s)
+        {
+            String nuevo = ""; ;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != ' ')
+                {
+                    nuevo += s[i];
+                }
+            }
+            return nuevo;
+        }
         public String Encriptar(String texto, String clave)
         {
+            Console.WriteLine("clave dentro del metodoo " + clave);
+            String newClave = QuitarEspacios(clave);
+            String newTexto = QuitarEspacios(texto);
+
+            newTexto = newTexto.ToUpper();
+            newClave = newClave.ToUpper();
+            //reemplamos la j->i y la ñ->n
+            newClave = reemplazoNyJ(newClave);
+            newTexto = reemplazoNyJ(newTexto);
+            LimpiarMatrix(Matriz);
+            CargarClave(newClave);
+            CargarAlfabetoRestante();
 
             int[] vectorCordenadaA = new int[2];
             int[] vectorCordenadaB = new int[2];
             char xA, xB;
 
             StringBuilder s = new StringBuilder();
-            List<List<char>> lista = CargarPares(texto.ToUpper());
+            List<List<char>> lista = CargarPares(newTexto);
 
 
             for (int i = 0; i < lista.Count; i++)
@@ -202,38 +240,55 @@ namespace Two2
 
             }
 
+
             return s.ToString();
+
         }
+        public void LimpiarMatrix(char[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    matrix[i, j] = '\0';
+                }
+            }
+        }
+
 
         public String Desencriptar(String texto, String clave)
         {
+            String newClave = QuitarEspacios(clave);
+            String newTexto = QuitarEspacios(texto);
 
+            newTexto = newTexto.ToUpper();
+            newClave = newClave.ToUpper();
+
+            //reemplamos la j->i y la ñ->n
+            newClave = reemplazoNyJ(newClave);
+            newTexto = reemplazoNyJ(newTexto);
+            //cargamos la clave y el alfabeto restante
+            LimpiarMatrix(Matriz);
+            CargarClave(newClave);
+            CargarAlfabetoRestante();
             int[] vectorCordenadaA = new int[2];
             int[] vectorCordenadaB = new int[2];
             char xA, xB;
             StringBuilder s = new StringBuilder();
             List<List<char>> lista = new List<List<char>>();
             int x = 0;
-            while (x <= texto.Length - 1)
+            while (x <= newTexto.Length - 1)
             {
                 List<Char> li = new List<char>();
-                li.Add(texto[x]);
-                li.Add(texto[x + 1]);
+                li.Add(newTexto[x]);
+                li.Add(newTexto[x + 1]);
                 lista.Add(li);
                 x = x + 2;
             }
 
-            //for (int i = 0; i < lista.Count; i++)
-            //{
-            //    Console.Write("Lista {0}: ", i + 1); // Print the list index
-
-            //    for (int j = 0; j < lista[i].Count; j++)
-            //    {
-            //        Console.Write(lista[i][j] + " "); // Print each character
-            //    }
-
-            //    Console.WriteLine(); // New line after each list
-            //}
 
             for (int i = 0; i < lista.Count; i++)
             {
@@ -261,11 +316,11 @@ namespace Two2
 
                     if (y_2 - 1 == -1)
                     {
-                        xB = Matriz[y_2, 4];
+                        xB = Matriz[x_2, 4];
                     }
                     else
                     {
-                        xB = Matriz[x_1, y_2 - 1];
+                        xB = Matriz[x_2, y_2 - 1];
                     }
 
                     s.Append(xA);
@@ -309,7 +364,6 @@ namespace Two2
             return s.ToString();
 
         }
-
         public List<List<char>> CargarPares(String texto)
         {
             List<List<char>> lista = new List<List<char>>();
@@ -328,7 +382,6 @@ namespace Two2
             }
             return lista;
         }
-
         public string EliminarEspacios(string texto)
         {
             if (string.IsNullOrEmpty(texto))
@@ -362,13 +415,16 @@ namespace Two2
                     listaCaracteres.Add(caracter);
 
                 }
+                int x = 0;
                 while (listaCaracteres.Count != 0)
                 {
+
                     if (listaCaracteres[0] == listaCaracteres[1])
                     {
                         modifiedString.Append(listaCaracteres[0]);
                         listaCaracteres.RemoveAt(0);
                         modifiedString.Append('X');
+
                     }
                     else
                     {
@@ -380,8 +436,22 @@ namespace Two2
 
                     if ((listaCaracteres.Count) == 1)
                     {
-                        listaCaracteres.Add('X');
+                        if (listaCaracteres[0] == 'X')
+                        {
+                            modifiedString.Append(listaCaracteres[0]);
+                            listaCaracteres.RemoveAt(0);
+                            modifiedString.Append('X');
+
+                        }
+                        else
+                        {
+                            modifiedString.Append(listaCaracteres[0]);
+                            modifiedString.Append('X');
+                            listaCaracteres.RemoveAt(0);
+                        }
+
                     }
+                    x++;
                 }
 
             }
@@ -393,8 +463,9 @@ namespace Two2
             return modifiedString.ToString();
 
         }
-        // ... other methods (omitted for brevity)
+
     }
+
 }
 
 
