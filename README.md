@@ -3,33 +3,33 @@
 <table>
   <tr>
     <td>
-      <p>Adolfo Mendoza Ribera</p>
-      <a href="https://postimages.org/" target="_blank">
+      <p>Adolfo Mendoza Ribera</p>    
         <img src="https://i.postimg.cc/dVk9FVG1/Captura-de-pantalla-2024-06-08-172010.png" alt="Captura-de-pantalla-2024-06-08-172010"/>
-      </a>
     </td>
     <td>
       <p>Mejia Zarate Alimbert</p>
-      <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/76j0ZSkW/Captura-de-pantalla-2024-06-08-172236.png" alt="Captura-de-pantalla-2024-06-08-172236"/></a>
+      <img src="https://i.postimg.cc/76j0ZSkW/Captura-de-pantalla-2024-06-08-172236.png" alt="Captura-de-pantalla-2024-06-08-172236"/>
     </td>
   </tr>
   <tr>
     <td>
       <p>Yo</p>
-      <a href="https://postimages.org/" target="_blank">
         <img src="https://i.postimg.cc/5NkmDCYT/Captura-de-pantalla-2024-06-08-172144.png" alt="Captura-de-pantalla-2024-06-08-172144"/>
-      </a>
       </td>
     <td>
       <p>Yo</p>
-      <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/90TTRzXF/Captura-de-pantalla-2024-06-08-172214.png" alt="Captura-de-pantalla-2024-06-08-172214"/></a>
+     <img src="https://i.postimg.cc/90TTRzXF/Captura-de-pantalla-2024-06-08-172214.png" alt="Captura-de-pantalla-2024-06-08-172214"/>
     </td>
   </tr>
   <tr>
     <td>
       <p>Josué Vito Zarate Mollo</p>
-    <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/MGP1ghrx/Captura-de-pantalla-2024-06-08-17223121.png" alt="Captura-de-pantalla-2024-06-08-17223121"/></a><br/><br/>
-    <td></td>
+  <img src="https://i.postimg.cc/MGP1ghrx/Captura-de-pantalla-2024-06-08-17223121.png" alt="Captura-de-pantalla-2024-06-08-17223121"/>
+    </td>
+    <td>
+      <p>Daniel Eduardo Dorado Suarez</p>
+  <img src="https://i.postimg.cc/MGP1ghrx/Captura-de-pantalla-2024-06-08-17223121.png" alt="Captura-de-pantalla-2024-06-08-17223121"/>
+    </td>
   </tr>
 </table>
 
@@ -146,12 +146,13 @@ multiplicar bloques de letras y producir el texto cifrado.
 
 ```c#
 // cifrar:
-string mensaje = "";
-string clave = "";
+string mensaje = "MI TIO ME PEGO";
+string nxn = 4;
+string claveGenerada = "UEÑMMHAULHBTROQP"; // Esta parte es generada
 
 // descifrar:
-string criptograma = "";
-string clave = "";
+string criptograma = "KNADIHAMXKTU";
+string claveGenerada = "UEÑMMHAULHBTROQP"; // la misma clave para descifrar
 ```
 
 ### 8. Beufort
@@ -229,10 +230,29 @@ derivan de una cuadrícula o rejilla predefinida, dividiendo el alfabeto en segm
 conocido por su apariencia visual distintiva y fue utilizado históricamente por los
 masones para mantener sus escritos encriptados.
 
-# pendiente:
+```c#
+// cifrar:
+string modo =  "Alfanumerico"
+string mensaje = "MI MAMI ME QUIERE";
+```
 
-- Francmson
-- Hill
+- Criptograma:
+
+<img src='https://i.postimg.cc/zBqTMyyc/image.png' border='0' alt='image'/>
+
+```c#
+// cifrar
+string modo = "Mixto"
+string criptograma = "121212";
+```
+
+- Criptograma:
+
+<img src="https://i.postimg.cc/FFW0WsNT/image.png" alt="image"/>
+
+# pendiente demostración:
+
+- Vernam
 - Transformación por conversión de base
 - Transformación por lógica de Boole
 - Transformación matricial
