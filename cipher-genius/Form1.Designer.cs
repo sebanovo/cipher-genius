@@ -82,6 +82,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Matriz = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.textvos = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -138,12 +144,6 @@
             this.AMRcomboBoxListasCD = new System.Windows.Forms.ComboBox();
             this.AMRlabel1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.Matriz = new System.Windows.Forms.DataGridView();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -152,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Matriz)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AMRpictureBox25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AMRpictureBox24)).BeginInit();
@@ -181,11 +182,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.AMRpictureBox0)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Matriz)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage6
             // 
+            this.tabPage6.BackColor = System.Drawing.Color.Coral;
             this.tabPage6.Controls.Add(this.textBox11);
             this.tabPage6.Controls.Add(this.textBox10);
             this.tabPage6.Controls.Add(this.textBox9);
@@ -208,139 +209,171 @@
             this.tabPage6.Size = new System.Drawing.Size(1792, 894);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "JOSUE";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(915, 292);
+            this.textBox11.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(936, 271);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(147, 22);
+            this.textBox11.Size = new System.Drawing.Size(229, 54);
             this.textBox11.TabIndex = 29;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(1103, 190);
+            this.textBox10.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(1173, 186);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(132, 22);
+            this.textBox10.Size = new System.Drawing.Size(229, 54);
             this.textBox10.TabIndex = 28;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(915, 190);
+            this.textBox9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(936, 186);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(132, 22);
+            this.textBox9.Size = new System.Drawing.Size(229, 55);
             this.textBox9.TabIndex = 27;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(1103, 126);
+            this.textBox8.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(1173, 114);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(132, 22);
+            this.textBox8.Size = new System.Drawing.Size(229, 54);
             this.textBox8.TabIndex = 26;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(915, 126);
+            this.textBox7.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(936, 114);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(132, 22);
+            this.textBox7.Size = new System.Drawing.Size(229, 54);
             this.textBox7.TabIndex = 25;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(252, 292);
+            this.textBox6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(183, 271);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(132, 22);
+            this.textBox6.Size = new System.Drawing.Size(229, 54);
             this.textBox6.TabIndex = 24;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(432, 190);
+            this.textBox5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(420, 181);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 22);
+            this.textBox5.Size = new System.Drawing.Size(229, 54);
             this.textBox5.TabIndex = 23;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(432, 117);
+            this.textBox4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(420, 114);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 22);
+            this.textBox4.Size = new System.Drawing.Size(229, 54);
             this.textBox4.TabIndex = 22;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(252, 190);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(183, 181);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 22);
+            this.textBox3.Size = new System.Drawing.Size(229, 54);
             this.textBox3.TabIndex = 21;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(252, 117);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(183, 114);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
+            this.textBox1.Size = new System.Drawing.Size(229, 54);
             this.textBox1.TabIndex = 20;
             // 
             // comboBox2
             // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(555, 57);
+            this.comboBox2.Location = new System.Drawing.Point(613, 60);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 24);
+            this.comboBox2.Size = new System.Drawing.Size(130, 31);
             this.comboBox2.TabIndex = 19;
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(707, 178);
+            this.button17.BackColor = System.Drawing.Color.Aqua;
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.Font = new System.Drawing.Font("Britannic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Location = new System.Drawing.Point(698, 184);
             this.button17.Margin = new System.Windows.Forms.Padding(4);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(167, 42);
+            this.button17.Size = new System.Drawing.Size(204, 54);
             this.button17.TabIndex = 18;
             this.button17.Text = "Decodificar Booleano";
-            this.button17.UseVisualStyleBackColor = true;
+            this.button17.UseVisualStyleBackColor = false;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(707, 114);
+            this.button16.BackColor = System.Drawing.Color.Aqua;
+            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button16.Font = new System.Drawing.Font("Britannic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Location = new System.Drawing.Point(698, 114);
             this.button16.Margin = new System.Windows.Forms.Padding(4);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(180, 36);
+            this.button16.Size = new System.Drawing.Size(204, 54);
             this.button16.TabIndex = 17;
             this.button16.Text = "Codificar Booleano";
-            this.button16.UseVisualStyleBackColor = true;
+            this.button16.UseVisualStyleBackColor = false;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(49, 186);
+            this.button15.BackColor = System.Drawing.Color.Aqua;
+            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button15.Font = new System.Drawing.Font("Britannic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(7, 184);
             this.button15.Margin = new System.Windows.Forms.Padding(4);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(147, 28);
+            this.button15.Size = new System.Drawing.Size(168, 47);
             this.button15.TabIndex = 16;
             this.button15.Text = "Decodificar Base";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(49, 114);
+            this.button14.BackColor = System.Drawing.Color.Aqua;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.Font = new System.Drawing.Font("Britannic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Location = new System.Drawing.Point(7, 114);
             this.button14.Margin = new System.Windows.Forms.Padding(4);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(147, 28);
+            this.button14.Size = new System.Drawing.Size(168, 54);
             this.button14.TabIndex = 15;
             this.button14.Text = "Codificar Base";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // tabPage5
@@ -425,7 +458,7 @@
             // 
             // Edit3
             // 
-            this.Edit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit3.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Edit3.Location = new System.Drawing.Point(765, 437);
             this.Edit3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Edit3.Multiline = true;
@@ -435,7 +468,7 @@
             // 
             // Edit2
             // 
-            this.Edit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit2.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Edit2.Location = new System.Drawing.Point(765, 292);
             this.Edit2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Edit2.Multiline = true;
@@ -445,7 +478,7 @@
             // 
             // Edit1
             // 
-            this.Edit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit1.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Edit1.Location = new System.Drawing.Point(765, 174);
             this.Edit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Edit1.Multiline = true;
@@ -789,7 +822,72 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "MEJIAS";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // Matriz
+            // 
+            this.Matriz.BackgroundColor = System.Drawing.Color.Azure;
+            this.Matriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Matriz.ColumnHeadersVisible = false;
+            this.Matriz.Location = new System.Drawing.Point(1062, 47);
+            this.Matriz.Name = "Matriz";
+            this.Matriz.RowHeadersVisible = false;
+            this.Matriz.RowHeadersWidth = 51;
+            this.Matriz.RowTemplate.Height = 24;
+            this.Matriz.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Matriz.Size = new System.Drawing.Size(606, 152);
+            this.Matriz.TabIndex = 16;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label13.Location = new System.Drawing.Point(659, 437);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(200, 37);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Criptograma";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label7.Location = new System.Drawing.Point(625, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(188, 37);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Texto Plano";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.button1.Location = new System.Drawing.Point(70, 457);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 43);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Generar Clave";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label6.Location = new System.Drawing.Point(93, 292);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 37);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Hill";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
+            this.label4.Location = new System.Drawing.Point(107, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 37);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Playfair";
             // 
             // button13
             // 
@@ -831,7 +929,6 @@
             this.qey.Name = "qey";
             this.qey.Size = new System.Drawing.Size(592, 30);
             this.qey.TabIndex = 7;
-            this.qey.TextChanged += new System.EventHandler(this.qey_TextChanged);
             // 
             // nxn
             // 
@@ -862,7 +959,6 @@
             this.input.Size = new System.Drawing.Size(645, 163);
             this.input.TabIndex = 4;
             this.input.Text = "";
-            this.input.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
             // 
             // button12
             // 
@@ -1342,7 +1438,7 @@
             this.AMRlabelDesc1.Location = new System.Drawing.Point(161, 178);
             this.AMRlabelDesc1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelDesc1.Name = "AMRlabelDesc1";
-            this.AMRlabelDesc1.Size = new System.Drawing.Size(524, 44);
+            this.AMRlabelDesc1.Size = new System.Drawing.Size(525, 44);
             this.AMRlabelDesc1.TabIndex = 2;
             this.AMRlabelDesc1.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1429,7 +1525,6 @@
             this.AMRcomboBoxA.Name = "AMRcomboBoxA";
             this.AMRcomboBoxA.Size = new System.Drawing.Size(256, 38);
             this.AMRcomboBoxA.TabIndex = 53;
-            this.AMRcomboBoxA.SelectedIndexChanged += new System.EventHandler(this.AMRcomboBoxA_SelectedIndexChanged);
             // 
             // AMRcomboBoxTL
             // 
@@ -1490,7 +1585,7 @@
             this.AMRlabelTitulo.Location = new System.Drawing.Point(669, 23);
             this.AMRlabelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelTitulo.Name = "AMRlabelTitulo";
-            this.AMRlabelTitulo.Size = new System.Drawing.Size(608, 52);
+            this.AMRlabelTitulo.Size = new System.Drawing.Size(609, 52);
             this.AMRlabelTitulo.TabIndex = 1;
             this.AMRlabelTitulo.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1538,73 +1633,6 @@
             this.tabControl1.TabIndex = 25;
             this.tabControl1.Tag = "";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
-            this.label4.Location = new System.Drawing.Point(107, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 37);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Playfair";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
-            this.label6.Location = new System.Drawing.Point(93, 292);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 37);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Hill";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.button1.Location = new System.Drawing.Point(70, 457);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 43);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Generar Clave";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
-            this.label7.Location = new System.Drawing.Point(625, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 37);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Texto Plano";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
-            this.label13.Location = new System.Drawing.Point(659, 437);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(200, 37);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Criptograma";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // Matriz
-            // 
-            this.Matriz.BackgroundColor = System.Drawing.Color.Azure;
-            this.Matriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Matriz.ColumnHeadersVisible = false;
-            this.Matriz.Location = new System.Drawing.Point(1062, 47);
-            this.Matriz.Name = "Matriz";
-            this.Matriz.RowHeadersVisible = false;
-            this.Matriz.RowHeadersWidth = 51;
-            this.Matriz.RowTemplate.Height = 24;
-            this.Matriz.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.Matriz.Size = new System.Drawing.Size(606, 152);
-            this.Matriz.TabIndex = 16;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1616,7 +1644,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "GRUPO A";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -1629,6 +1656,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Matriz)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AMRpictureBox25)).EndInit();
@@ -1660,7 +1688,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Matriz)).EndInit();
             this.ResumeLayout(false);
 
         }

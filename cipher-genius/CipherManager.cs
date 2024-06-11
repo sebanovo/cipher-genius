@@ -171,7 +171,6 @@ namespace cipher_genius
             }
         }
 
-
         public List<char> CifradoVigenere(string textoClaro, string clave)
         {
             // Elimina los espacios en blanco y convierte todo a mayúsculas
@@ -404,8 +403,6 @@ namespace cipher_genius
             return -1;
         }
 
-
-
         private Dictionary<char, int> abecedarioEspañolAux = new Dictionary<char, int>
          {
              {'A', 0}, {'B', 1}, {'C', 2}, {'D', 3}, {'E', 4}, {'F', 5}, {'G', 6},
@@ -432,7 +429,6 @@ namespace cipher_genius
                 throw new ArgumentOutOfRangeException("El valor debe estar entre 0 y 24.");
             }
         }
-
 
         public int ObtenerValorLetraAux(char letra)
         {
@@ -514,9 +510,7 @@ namespace cipher_genius
             return textoClaro;
         }
 
-
         //-----------------------------------------------------------
-        //-----------------------otra parte-----------------//
 
         public List<char> CifradorClaveContinua(string textoClaro, string clave)
         {
@@ -665,7 +659,6 @@ namespace cipher_genius
             }
         }
 
-
         public List<char> CifradorVernam(string textoClaro, string clave)
         {
             textoClaro = textoClaro.Replace(" ", "").ToUpper();
@@ -722,6 +715,4 @@ namespace cipher_genius
         }
 
     }
-
-    /*******************Adolfo FIN **********************/
 }

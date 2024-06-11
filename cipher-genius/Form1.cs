@@ -69,8 +69,7 @@ namespace cipher_genius
             //Adolfo Mendoza Ribera
             //-----------------------------------------
             pictureBoxes = new List<PictureBox>();
-            lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(false, 1);
+            lista = new List<int>();
 
             AMRcomboBoxListasCD.Text = "Selecciona";
             AMRcomboBoxTL.Text = "14";
@@ -117,6 +116,13 @@ namespace cipher_genius
             AMRrichTextBox3.Enabled = false;
 
             // Fin ADOLFO
+
+            // JOSUE
+            roundedButton(ref button14);
+            roundedButton(ref button15);
+            roundedButton(ref button16);
+            roundedButton(ref button17);
+            // Fin JOSUE
         }
 
         private void deshabilitarTexBox()
@@ -181,11 +187,6 @@ namespace cipher_genius
             {
                 textBoxClave.Enabled = false;
             }
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-            // void
         }
 
         private void buttonConvertir_Click(object sender, EventArgs e)
@@ -261,9 +262,10 @@ namespace cipher_genius
         {
             Application.Restart();
         }
-        /**************************** Sebastian FIN *********************************************************************/
 
-        /*************************Adolfo INICIO ********************************************************/
+        // Sebatian Fin 
+
+        // Adolfo Inicio
 
         /**
          * Adolfo Mendoza Ribera 
@@ -271,301 +273,6 @@ namespace cipher_genius
         List<int> lista = new List<int>(); // Inicializa la lista vacía
         CipherManager cipher1 = new CipherManager();
         private List<PictureBox> pictureBoxes = new List<PictureBox>();
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void pictureBox0_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(0);
-            this.agregarPinturaAux(0);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(1);
-            this.agregarPinturaAux(1);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(2);
-            this.agregarPinturaAux(2);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(3);
-            this.agregarPinturaAux(3);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(4);
-            this.agregarPinturaAux(4);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(5);
-            this.agregarPinturaAux(5);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(6);
-            this.agregarPinturaAux(6);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(7);
-            this.agregarPinturaAux(7);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(8);
-            this.agregarPinturaAux(8);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox16_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(16);
-            this.agregarPinturaAux(16);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox15_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(15);
-            this.agregarPinturaAux(15);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(14);
-            this.agregarPinturaAux(14);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox13_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(13);
-            this.agregarPinturaAux(13);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox12_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(12);
-            this.agregarPinturaAux(12);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox11_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(11);
-            this.agregarPinturaAux(11);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(10);
-            this.agregarPinturaAux(10);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(9);
-            this.agregarPinturaAux(9);
-            //textBox1.Text = string.Join(", ", lista); // Muestra los elementos separados por comas
-        }
-
-        private void pictureBox17_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void pictureBox17_Click_1(object sender, EventArgs e)
-        {
-            this.AgregarElemento(17);
-            this.agregarPinturaAux(17);
-        }
-
-        private void MostrarUOcultar(bool ver, int num)
-        {
-            // void
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            pictureBoxes = new List<PictureBox>();
-            lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(false, 1);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            pictureBoxes = new List<PictureBox>();
-            lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(true, 2);
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            // Oculta los botones de maximizar, minimizar y cerrar en la esquina superior derecha de la ventana
-            this.FormBorderStyle = FormBorderStyle.None;
-            tabControl1.Size = new Size(1350, 700);
-
-
-            // Ajusta el tamaño del formulario para que ocupe toda la pantalla
-            this.Bounds = Screen.PrimaryScreen.Bounds;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            // Muestra los botones de maximizar, minimizar y cerrar en la esquina superior derecha de la ventana
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-
-            // Restaura el tamaño original del formulario (puedes ajustar esto según tus necesidades)
-            this.WindowState = FormWindowState.Normal;
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            // void
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(false, 3);
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            lista = new List<int>(); // Inicializa la lista vacía
-            this.MostrarUOcultar(false, 4);
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            // void 
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            this.MostrarUOcultar(false, 5);
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            this.MostrarUOcultar(false, 6);
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void pictureBox18_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(18);
-            this.agregarPinturaAux(18);
-        }
-
-        private void pictureBox19_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(19);
-            this.agregarPinturaAux(19);
-        }
-
-        private void pictureBox20_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(20);
-            this.agregarPinturaAux(20);
-        }
-
-        private void pictureBox21_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(21);
-            this.agregarPinturaAux(21);
-        }
-
-        private void pictureBox22_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(22);
-            this.agregarPinturaAux(22);
-        }
-
-        private void pictureBox23_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(23);
-            this.agregarPinturaAux(23);
-        }
-
-        private void pictureBox24_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(24);
-            this.agregarPinturaAux(24);
-        }
-
-        private void pictureBox25_Click(object sender, EventArgs e)
-        {
-            this.AgregarElemento(25);
-            this.agregarPinturaAux(25);
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-            // void
-        }
 
         private void button12_Click(object sender, EventArgs e)
         {
@@ -595,11 +302,6 @@ namespace cipher_genius
                     Matriz.Rows[i].Cells[j].Value = playfair.Matriz[i, j];
                 }
             }
-        }
-
-        private void richTextBox4_TextChanged(object sender, EventArgs e)
-        {
-            // void
         }
 
         private void button10_Click_1(object sender, EventArgs e)
@@ -645,7 +347,7 @@ namespace cipher_genius
 
         private void button8_Click_1(object sender, EventArgs e)
         {
-            
+
             int nnn = int.Parse(nxn.Text);
             String clave = qey.Text;
             String texto = input.Text;
@@ -667,13 +369,8 @@ namespace cipher_genius
             output.Text = salida;
         }
 
-        private void qey_TextChanged(object sender, EventArgs e)
-        {
-            // void
-        }
         private void buttonVigenere_Click(object sender, EventArgs e)
         {
-            // Beufort cifrar
             Edit3.Text = beufortCipher.Cifrar(Edit1.Text, Edit2.Text);
         }
 
@@ -682,22 +379,7 @@ namespace cipher_genius
             Edit1.Text = beufortCipher.Descifrar(Edit3.Text, Edit2.Text);
         }
 
-        /*************************Adolfo Fin ********************************************************/
-
-        private void buttonCCC_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void buttonDCC_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
-        private void buttonCV_Click(object sender, EventArgs e)
-        {
-            // void
-        }
+        // Adolfo Fin
 
         private String[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " " };
         private String[] caracteresMixtos = { "[", "¡", "?", "{", "}", "*", "♥", "♦", "♣", "♣", "≠", "#", "@", "%", "&", "(", ")", "=", ">", "<", "0", "1", "2", "3", "4", "5", "]", " " };
@@ -718,33 +400,10 @@ namespace cipher_genius
              {'U', 21}, {'V', 22}, {'W', 23}, {'X', 24}, {'Y', 25}, {'Z', 26}, {' ',27}
          };
 
-        public int BinarioADecimal(string input)
-        {
-            char[] array = input.ToCharArray(); // Invertido porque los valores incrementan de derecha a izquierda: 16-8-4-2-1
-            Array.Reverse(array);
-            int sum = 0;
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] == '1')
-                {
-                    // Usamos la potencia de 2 según la posición
-                    sum += (int)Math.Pow(2, i);
-                }
-            }
-
-            return sum;
-        }
-
-        private void buttonDV_Click(object sender, EventArgs e)
-        {
-            // void
-        }
-
         private void button14_Click(object sender, EventArgs e)
         {
             string texto = textBox1.Text;
-            //AQUI EL SEGUNDO EDIT TNEGOQ UE MANDARLE UN NUMEERO PERO COMO CONVERITO DE INT A CADENA
+            //AQUI EL SEGUNDO EDIT TENGO QUE MANDARLE UN NUMEERO PERO COMO CONVERITO DE INT A CADENA
 
             int baseTo;
             if (int.TryParse(textBox4.Text, out baseTo))
@@ -758,7 +417,7 @@ namespace cipher_genius
             else
             {
                 // Manejar el error si la conversión falla
-                MessageBox.Show("Por favor, ingresa un número válido en el segundo campo.");
+                MessageBox.Show("Por favor, ingrese un número válido en el segundo campo.");
             }
         }
 
@@ -804,11 +463,6 @@ namespace cipher_genius
 
             textBox11.Text = desencript;
 
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // void
         }
 
         //--------------ADOLFO--------------------------------------------
@@ -899,7 +553,6 @@ namespace cipher_genius
             // Opcional: Asigna una posición inicial dentro del FlowLayoutPanel
             // (El FlowLayoutPanel organizará automáticamente los controles)
             pictureBoxes.Add(pictureBox);
-
         }
 
         private void agregarPinturaAux(int num)
@@ -982,8 +635,6 @@ namespace cipher_genius
 
                 AMRlabel4.Visible = true;
                 AMRlabel4.Enabled = true;
-
-
 
                 AMRbuttonLIMPIAR.Location = new Point(400, 360);
                 AMRbuttonLIMPIAR.Width = 260;
@@ -1344,25 +995,6 @@ namespace cipher_genius
             return true; // Si todos los caracteres están en el abecedario o en la lista de caracteres mixtos, retornamos verdadero
         }
 
-        private bool VerificarNumerosEnLista(List<int> lista)
-        {
-            foreach (int numero in lista)
-            {
-                string numeroComoTexto = numero.ToString();
-                if (!EsNumerico(numeroComoTexto))
-                {
-                    return false; // Si encontramos un elemento que no es un número, retornamos falso
-                }
-            }
-            return true; // Si todos los elementos son números, retornamos verdadero
-        }
-
-        private bool EsNumerico(string cadena)
-        {
-            int _;
-            return int.TryParse(cadena, out _);
-        }
-
         private bool VerificarNumerosYComasEnArreglo(string[] arreglo)
         {
             foreach (string elemento in arreglo)
@@ -1410,8 +1042,6 @@ namespace cipher_genius
 
                     if (ver == true)
                     {
-
-
                         // Invoca el método CifradorCesarMixto
                         listaPosiciones = cipher1.CifradorCesarMixto(textoClaro, opcion);
                         AMRflowLayoutPanel1.Controls.Clear();
@@ -1635,7 +1265,6 @@ namespace cipher_genius
             }
         }
 
-
         private void AMRcomboBoxTC_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedItem = AMRcomboBoxTC.SelectedItem.ToString();
@@ -1823,11 +1452,6 @@ namespace cipher_genius
             this.agregarPinturaAux(num);
         }
 
-        private void AMRcomboBoxA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // void
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             int n = int.Parse(nxn.Text);
@@ -1841,9 +1465,17 @@ namespace cipher_genius
             qey.Text = clave;
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        // JOSUE
+        public void roundedButton(ref Button roundedButton)
         {
-
+            int radius = 40;
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
+            path.AddArc(new Rectangle(roundedButton.Width - radius, 0, radius, radius), -90, 90);
+            path.AddArc(new Rectangle(roundedButton.Width - radius, roundedButton.Height - radius, radius, radius), 0, 90);
+            path.AddArc(new Rectangle(0, roundedButton.Height - radius, radius, radius), 90, 90);
+            path.CloseFigure();
+            roundedButton.Region = new Region(path);
         }
     }
 }
