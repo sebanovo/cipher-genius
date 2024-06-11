@@ -841,11 +841,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
-            this.label13.Location = new System.Drawing.Point(659, 437);
+            this.label13.Location = new System.Drawing.Point(639, 425);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(200, 37);
+            this.label13.Size = new System.Drawing.Size(105, 37);
             this.label13.TabIndex = 15;
-            this.label13.Text = "Criptograma";
+            this.label13.Text = "Salida";
             // 
             // label7
             // 
@@ -853,9 +853,9 @@
             this.label7.Font = new System.Drawing.Font("Britannic Bold", 19.8F);
             this.label7.Location = new System.Drawing.Point(625, 2);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 37);
+            this.label7.Size = new System.Drawing.Size(131, 37);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Texto Plano";
+            this.label7.Text = "Entrada";
             // 
             // button1
             // 
@@ -1438,7 +1438,7 @@
             this.AMRlabelDesc1.Location = new System.Drawing.Point(161, 178);
             this.AMRlabelDesc1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelDesc1.Name = "AMRlabelDesc1";
-            this.AMRlabelDesc1.Size = new System.Drawing.Size(525, 44);
+            this.AMRlabelDesc1.Size = new System.Drawing.Size(524, 44);
             this.AMRlabelDesc1.TabIndex = 2;
             this.AMRlabelDesc1.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1585,7 +1585,7 @@
             this.AMRlabelTitulo.Location = new System.Drawing.Point(669, 23);
             this.AMRlabelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelTitulo.Name = "AMRlabelTitulo";
-            this.AMRlabelTitulo.Size = new System.Drawing.Size(609, 52);
+            this.AMRlabelTitulo.Size = new System.Drawing.Size(608, 52);
             this.AMRlabelTitulo.TabIndex = 1;
             this.AMRlabelTitulo.Text = "Selecciona el tipo de cifrado";
             // 
