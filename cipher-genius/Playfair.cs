@@ -20,6 +20,7 @@ namespace Two2
 {
     public class Playfair
     {
+        //esta clase no sirvve
         public const int Limite = 5;
         public char[,] Matriz = new char[Limite, Limite];
 
