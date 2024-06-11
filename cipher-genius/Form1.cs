@@ -601,7 +601,7 @@ namespace cipher_genius
             AMRrichTextBox3.Text = "";
 
             AMRcomboBoxTC.Visible = true;
-            AMRcomboBoxTC.Visible = true;
+            AMRcomboBoxTC.Enabled = true;
 
             AMRcomboBoxA.Visible = true;
             AMRcomboBoxA.Enabled = true;
@@ -689,7 +689,7 @@ namespace cipher_genius
                 AMRlabel4.Enabled = true;
 
                 AMRcomboBoxTC.Visible = true;
-                AMRcomboBoxTC.Visible = true;
+                AMRcomboBoxTC.Enabled = true;
 
                 AMRcomboBoxA.Visible = true;
                 AMRcomboBoxA.Enabled = true;
