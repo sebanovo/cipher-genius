@@ -181,12 +181,12 @@ al sistema binario (base 2) o hexadecimal (base 16).
 
 ```c#
 // cifrar:
-string mensaje = "";
-string clave = "";
+string mensaje = "MUNDO";
+string base = "16"; // hexadecimal u otra base
 
 // descifrar:
-string criptograma = "";
-string clave = "";
+string criptograma = "4D 55 4E 44 4F";
+string base = "16"; // la misma base
 ```
 
 ### 10. Transformación por lógica de Boole
@@ -197,32 +197,15 @@ circuitos digitales y programación.
 
 ```c#
 // cifrar:
-string mensaje = "";
-string clave = "";
+string mensaje = "ANGUILA";
+string clave = "KEY";
 
 // descifrar:
-string criptograma = "";
-string clave = "";
+string criptograma = "";
+string clave = "key";
 ```
 
-### 11. Transformación matricial
-
-La transformación matricial emplea matrices y operaciones matriciales para modificar
-datos. Se utiliza ampliamente en gráficos por computadora, álgebra lineal y cifrado de
-datos, donde los datos se representan y transforman mediante multiplicaciones y adiciones
-de matrices.
-
-```c#
-// cifrar:
-string mensaje = "";
-string clave = "";
-
-// descifrar:
-string criptograma = "";
-string clave = "";
-```
-
-### 12. Francmason
+### 11. Francmason
 
 El cifrado Francmason, también conocido como cifrado Pigpen, es un cifrado por sustitución
 simple que reemplaza cada letra del alfabeto con un símbolo gráfico. Estos símbolos se
@@ -242,7 +225,7 @@ string mensaje = "MI MAMI ME QUIERE";
 
 ```c#
 // cifrar
-string modo = "Mixto"
+string modo = "Mixto";
 string criptograma = "121212";
 ```
 
@@ -250,12 +233,23 @@ string criptograma = "121212";
 
 <img src="https://i.postimg.cc/FFW0WsNT/image.png" alt="image"/>
 
-# pendiente demostración:
+### 12. Vernam
 
-- Vernam
-- Transformación por conversión de base
-- Transformación por lógica de Boole
-- Transformación matricial
+El cifrado Vernam, también conocido como One-Time Pad, es un método de cifrado en el que
+cada bit del texto original se combina con un bit correspondiente de una clave secreta
+completamente aleatoria y de la misma longitud, utilizando la operación XOR. Este cifrado
+es teóricamente irrompible siempre y cuando la clave sea verdaderamente aleatoria, de un
+solo uso, y se mantenga en secreto.
+
+```c#
+// cifrar
+string mensaje = "HOLA";
+string clave = "XMCK"; // clave aleatoria del mismo tamañano que el mensaje
+
+// descifrar
+string criptograma = "^";
+string clave = "XMCK"; // La misma clave del cifrado
+```
 
 ## Uso del proyecto
 
