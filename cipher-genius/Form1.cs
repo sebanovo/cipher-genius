@@ -694,7 +694,6 @@ namespace cipher_genius
                 AMRcomboBoxA.Visible = true;
                 AMRcomboBoxA.Enabled = true;
 
-
                 AMRbuttonLIMPIAR.Location = new Point(400, 380);
                 AMRbuttonLIMPIAR.Width = 260;
                 AMRbuttonLIMPIAR.Height = 70;

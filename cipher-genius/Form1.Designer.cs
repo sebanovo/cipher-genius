@@ -144,6 +144,7 @@
             this.AMRcomboBoxListasCD = new System.Windows.Forms.ComboBox();
             this.AMRlabel1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -206,7 +207,7 @@
             this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage6.Size = new System.Drawing.Size(1792, 894);
+            this.tabPage6.Size = new System.Drawing.Size(1239, 885);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "JOSUE";
             // 
@@ -1438,7 +1439,7 @@
             this.AMRlabelDesc1.Location = new System.Drawing.Point(161, 178);
             this.AMRlabelDesc1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelDesc1.Name = "AMRlabelDesc1";
-            this.AMRlabelDesc1.Size = new System.Drawing.Size(524, 44);
+            this.AMRlabelDesc1.Size = new System.Drawing.Size(525, 44);
             this.AMRlabelDesc1.TabIndex = 2;
             this.AMRlabelDesc1.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1585,7 +1586,7 @@
             this.AMRlabelTitulo.Location = new System.Drawing.Point(669, 23);
             this.AMRlabelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AMRlabelTitulo.Name = "AMRlabelTitulo";
-            this.AMRlabelTitulo.Size = new System.Drawing.Size(608, 52);
+            this.AMRlabelTitulo.Size = new System.Drawing.Size(609, 52);
             this.AMRlabelTitulo.TabIndex = 1;
             this.AMRlabelTitulo.Text = "Selecciona el tipo de cifrado";
             // 
@@ -1625,13 +1626,24 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(12, 11);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1800, 923);
+            this.tabControl1.Size = new System.Drawing.Size(1687, 988);
             this.tabControl1.TabIndex = 25;
             this.tabControl1.Tag = "";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1679, 959);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "DANIEL";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1803,6 +1815,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView Matriz;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 
