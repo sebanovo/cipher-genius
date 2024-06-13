@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cipher_genius
 {
-    class CesarMixto
+    class Francmason
     {
         public List<int> Cifrar(string textoClaro, int num)
         {

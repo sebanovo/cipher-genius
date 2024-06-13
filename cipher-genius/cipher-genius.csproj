@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Ciphers\BaseConvertion.cs" />
     <Compile Include="Ciphers\BoolLogic.cs" />
-    <Compile Include="Ciphers\CesarMixto.cs" />
+    <Compile Include="Ciphers\Francmason.cs" />
     <Compile Include="Ciphers\ColumnaDoble.cs" />
     <Compile Include="Ciphers\FilaSimple.cs" />
     <Compile Include="Form1.cs">

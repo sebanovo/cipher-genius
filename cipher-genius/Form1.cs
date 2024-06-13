@@ -37,7 +37,7 @@ namespace cipher_genius
          */
         // Mendoza Inicio
         List<int> lista = new List<int>(); // Inicializa la lista vacía
-        CesarMixto cipherCesarMixto = new CesarMixto();
+        Francmason cipherCesarMixto = new Francmason();
         Homofono cipherHomofono = new Homofono();
         Vigenere cipherVigenere = new Vigenere();
 
