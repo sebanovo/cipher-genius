@@ -9,7 +9,7 @@ namespace cipher_genius
     class Grupos
     {
         private char X = '❌';
-        public string CifrarPorGrupos(string mensaje, int[] permutacion)
+        public string Cifrar(string mensaje, int[] permutacion)
         {
             mensaje = mensaje.Replace(" ", "");
             var mensajeArray = mensaje.Trim().ToCharArray().ToList();
@@ -44,7 +44,7 @@ namespace cipher_genius
             return mensajeCifrado;
         }
 
-        public string DescifrarPorGrupos(string mensajeCifrado, int[] permutacion)
+        public string Descifrar(string mensajeCifrado, int[] permutacion)
         {
             mensajeCifrado = mensajeCifrado.Replace(" ", "");
             var longitudGrupo = permutacion.Length;

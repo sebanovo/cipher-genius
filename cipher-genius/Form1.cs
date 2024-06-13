@@ -19,7 +19,7 @@ namespace cipher_genius
     {
         /**
          * Sebastian Cespedes Rodas 
-        */
+         */
         Grupos cipherByGroups = new Grupos();
         ColumnaDoble doubleColumnCipher = new ColumnaDoble();
         FilaSimple singleRowCipher = new FilaSimple();
@@ -28,23 +28,33 @@ namespace cipher_genius
 
         /*
          * Mejia  
-        */
+         */
         Hill hill = new Hill();
         Playfair playfair = new Playfair();
 
-
         /*
          * Adolfo Mendoza Ribera 
-        */
+         */
+        // Mendoza Inicio
+        List<int> lista = new List<int>(); // Inicializa la lista vacía
+        CesarMixto cipherCesarMixto = new CesarMixto();
+        Homofono cipherHomofono = new Homofono();
+        Vigenere cipherVigenere = new Vigenere();
+
+        private List<PictureBox> pictureBoxes = new List<PictureBox>();
         int controlador = -1;
         int tamCuadros = 40;
 
+        /*
+         * Josué Vito Zarate Mollo 
+         */
+        BoolLogic cipherBool = new BoolLogic();
+        BaseConvertion cipherBase = new BaseConvertion();
 
         public Form1()
         {
             InitializeComponent();
             // Sebastian Cespedes Rodas
-            //-----------------------------------------
             deshabilitarTexBox();
             validacionesDTG(dataGridView1);
             validacionesDTG(dataGridView2);
@@ -67,7 +77,6 @@ namespace cipher_genius
             // FIN Sebastian 
 
             //Adolfo Mendoza Ribera
-            //-----------------------------------------
             pictureBoxes = new List<PictureBox>();
             lista = new List<int>();
 
@@ -118,13 +127,14 @@ namespace cipher_genius
             // Fin ADOLFO
 
             // JOSUE
-            roundedButton(ref button14);
-            roundedButton(ref button15);
-            roundedButton(ref button16);
-            roundedButton(ref button17);
+            roundedButton(button14);
+            roundedButton(button15);
+            roundedButton(button16);
+            roundedButton(button17);
             // Fin JOSUE
         }
 
+        // Sebastian Inicio
         private void deshabilitarTexBox()
         {
             textBoxMensaje.Enabled = false;
@@ -132,25 +142,21 @@ namespace cipher_genius
             textBoxCriptograma.Enabled = false;
         }
 
-        private void validacionesDTG(DataGridView datagridView)
+        private void validacionesDTG(DataGridView dataGridView)
         {
-            datagridView.EnableHeadersVisualStyles = false;
-            datagridView.AllowUserToAddRows = false;
-            datagridView.AllowUserToDeleteRows = false;
-            datagridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            datagridView.ReadOnly = true;
-            datagridView.AllowUserToResizeColumns = false;
-            datagridView.AllowUserToResizeRows = false;
+            dataGridView.EnableHeadersVisualStyles = false;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.ReadOnly = true;
+            dataGridView.AllowUserToResizeColumns = false;
+            dataGridView.AllowUserToResizeRows = false;
         }
 
-        private void LimpiarDataGridView()
+        private void LimpiarDataGridView(DataGridView dataGridView)
         {
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
-            dataGridView2.Columns.Clear();
-            dataGridView2.Rows.Clear();
-            dataGridView3.Columns.Clear();
-            dataGridView3.Rows.Clear();
+            dataGridView.Columns.Clear();
+            dataGridView.Rows.Clear();
         }
 
         private void handleChangeRadioButton()
@@ -195,21 +201,31 @@ namespace cipher_genius
             string clave = textBoxClave.Text;
             string criptograma = textBoxCriptograma.Text;
 
-            LimpiarDataGridView();
+            LimpiarDataGridView(dataGridView1);
+            LimpiarDataGridView(dataGridView2);
+            LimpiarDataGridView(dataGridView3);
 
             if (radioPorGrupos.Checked)
             {
-                if (estaCifrando)
+                int[] permutacion = textBoxPermutacion.Text.Trim().Split(' ').Select(int.Parse).ToArray();
+                int[] esperados = Enumerable.Range(0, permutacion.Length).ToArray();
+                bool esValida = permutacion.OrderBy(x => x).SequenceEqual(esperados);
+                if (esValida)
                 {
-                    int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
-                    string cifradoFinal = cipherByGroups.CifrarPorGrupos(mensaje, permutacion);
-                    textBoxCriptograma.Text = cifradoFinal;
+                    if (estaCifrando)
+                    {
+                        string cifradoFinal = cipherByGroups.Cifrar(mensaje.ToUpper(), permutacion);
+                        textBoxCriptograma.Text = cifradoFinal;
+                    }
+                    else
+                    {
+                        string cifradoFinal = cipherByGroups.Descifrar(criptograma.ToUpper(), permutacion);
+                        textBoxMensaje.Text = cifradoFinal;
+                    }
                 }
                 else
                 {
-                    int[] permutacion = textBoxPermutacion.Text.Split(' ').Select(int.Parse).ToArray(); ;
-                    string cifradoFinal = cipherByGroups.DescifrarPorGrupos(criptograma, permutacion);
-                    textBoxMensaje.Text = cifradoFinal;
+                    MessageBox.Show("La permutación no es válida. Asegúrese de que contiene todos los números necesarios sin repetir empezando en 0. Ejemplo: 0 1 2 3 4 ...etc , ó 3 1 2 4 0 ... etc.");
                 }
             }
             else if (radioDoble.Checked)
@@ -217,14 +233,14 @@ namespace cipher_genius
                 if (estaCifrando)
                 {
 
-                    string cifradoIntermedio = doubleColumnCipher.PrimerCifrado(mensaje, clave, ref dataGridView1);
-                    string cifradoFinal = doubleColumnCipher.SegundoCifrado(cifradoIntermedio, clave, ref dataGridView2, ref dataGridView3);
+                    string cifradoIntermedio = doubleColumnCipher.PrimerCifrado(mensaje.ToUpper(), clave.ToUpper(), ref dataGridView1);
+                    string cifradoFinal = doubleColumnCipher.SegundoCifrado(cifradoIntermedio.ToUpper(), clave.ToUpper(), ref dataGridView2, ref dataGridView3);
                     textBoxCriptograma.Text = cifradoFinal;
                 }
                 else
                 {
-                    string descifradoIntemedio = doubleColumnCipher.PrimerDescrifrado(criptograma, clave, ref dataGridView1, ref dataGridView2);
-                    string descifradoFinal = doubleColumnCipher.SegundoDescifrado(descifradoIntemedio, clave, ref dataGridView3);
+                    string descifradoIntemedio = doubleColumnCipher.PrimerDescrifrado(criptograma.ToUpper(), clave.ToUpper(), ref dataGridView1, ref dataGridView2);
+                    string descifradoFinal = doubleColumnCipher.SegundoDescifrado(descifradoIntemedio.ToUpper(), clave.ToUpper(), ref dataGridView3);
                     textBoxMensaje.Text = descifradoFinal;
                 }
             }
@@ -232,12 +248,12 @@ namespace cipher_genius
             {
                 if (estaCifrando)
                 {
-                    string cifradoFinal = singleRowCipher.CifrarPorFilas(mensaje, clave, ref dataGridView1, ref dataGridView2);
+                    string cifradoFinal = singleRowCipher.CifrarPorFilas(mensaje.ToUpper(), clave, ref dataGridView1, ref dataGridView2);
                     textBoxCriptograma.Text = cifradoFinal;
                 }
                 else
                 {
-                    string descifradoFinal = singleRowCipher.DescifrarPorFilas(criptograma, clave, ref dataGridView1, ref dataGridView2);
+                    string descifradoFinal = singleRowCipher.DescifrarPorFilas(criptograma.ToUpper(), clave, ref dataGridView1, ref dataGridView2);
                     textBoxMensaje.Text = descifradoFinal;
                 }
             }
@@ -263,17 +279,19 @@ namespace cipher_genius
             Application.Restart();
         }
 
+        private void buttonVigenere_Click(object sender, EventArgs e)
+        {
+            Edit3.Text = beufortCipher.Cifrar(Edit1.Text, Edit2.Text);
+        }
+
+        private void buttonVigenereDes_Click(object sender, EventArgs e)
+        {
+            Edit1.Text = beufortCipher.Descifrar(Edit3.Text, Edit2.Text);
+        }
+
         // Sebatian Fin 
 
-        // Adolfo Inicio
-
-        /**
-         * Adolfo Mendoza Ribera 
-        */
-        List<int> lista = new List<int>(); // Inicializa la lista vacía
-        CipherManager cipher1 = new CipherManager();
-        private List<PictureBox> pictureBoxes = new List<PictureBox>();
-
+        //  Mejia  Inicio
         private void button12_Click(object sender, EventArgs e)
         {
             Matriz.RowCount = 5;
@@ -368,48 +386,30 @@ namespace cipher_genius
             String salida = hill.Desencriptar(texto, clave, nnn);
             output.Text = salida;
         }
-
-        private void buttonVigenere_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            Edit3.Text = beufortCipher.Cifrar(Edit1.Text, Edit2.Text);
+            int n = int.Parse(nxn.Text);
+            HashSet<string> mySet = hill.Generaclave(n, 1);
+            List<String> clavesValidas = new List<String>();
+            foreach (string fruit in mySet)
+            {
+                clavesValidas.Add(fruit);
+            }
+            String clave = clavesValidas[0];
+            qey.Text = clave;
         }
 
-        private void buttonVigenereDes_Click(object sender, EventArgs e)
-        {
-            Edit1.Text = beufortCipher.Descifrar(Edit3.Text, Edit2.Text);
-        }
+        // Fin Mejia
 
-        // Adolfo Fin
-
-        private String[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " " };
-        private String[] caracteresMixtos = { "[", "¡", "?", "{", "}", "*", "♥", "♦", "♣", "♣", "≠", "#", "@", "%", "&", "(", ")", "=", ">", "<", "0", "1", "2", "3", "4", "5", "]", " " };
-
-        private Dictionary<char, int> abecedarioEspañol = new Dictionary<char, int>
-         {
-             {'A', 0}, {'B', 1}, {'C', 2}, {'D', 3}, {'E', 4}, {'F', 5}, {'G', 6},
-             {'H', 7}, {'I', 8}, {'J', 9}, {'K', 10}, {'L', 11}, {'M', 12}, {'N', 13},
-             {'Ñ', 14}, {'O', 15}, {'P', 16}, {'Q', 17}, {'R', 18}, {'S', 19}, {'T', 20},
-             {'U', 21}, {'V', 22}, {'W', 23}, {'X', 24}, {'Y', 25}, {'Z', 26}, {' ',27}
-         };
-
-        private Dictionary<char, int> alfabetoMixto = new Dictionary<char, int>
-         {
-             {'A', 0}, {'B', 1}, {'C', 2}, {'D', 3}, {'E', 4}, {'F', 5}, {'G', 6},
-             {'H', 7}, {'I', 8}, {'J', 9}, {'K', 10}, {'L', 11}, {'M', 12}, {'N', 13},
-             {'Ñ', 14}, {'O', 15}, {'P', 16}, {'Q', 17}, {'R', 18}, {'S', 19}, {'T', 20},
-             {'U', 21}, {'V', 22}, {'W', 23}, {'X', 24}, {'Y', 25}, {'Z', 26}, {' ',27}
-         };
-
+        // Inicio Josue
         private void button14_Click(object sender, EventArgs e)
         {
             string texto = textBox1.Text;
-            //AQUI EL SEGUNDO EDIT TENGO QUE MANDARLE UN NUMEERO PERO COMO CONVERITO DE INT A CADENA
 
             int baseTo;
             if (int.TryParse(textBox4.Text, out baseTo))
             {
-                // Llamar al método Encryptar con los valores obtenidos
-                string encryptedText = Santana.Encryptar(texto, baseTo);
+                string encryptedText = cipherBase.Encrypt(texto, baseTo);
 
                 // Mostrar el texto encriptado en textBox3 (por ejemplo, si quieres mostrar el resultado en otro TextBox)
                 textBox3.Text = encryptedText;
@@ -424,30 +424,39 @@ namespace cipher_genius
         private void button15_Click(object sender, EventArgs e)
         {
             string texto = textBox3.Text;
-            //AQUI EL SEGUNDO EDIT TNEGOQ UE MANDARLE UN NUMEERO PERO COMO CONVERITO DE INT A CADENA
 
             int baseTo;
             if (int.TryParse(textBox5.Text, out baseTo))
             {
-                // Llamar al método Encryptar con los valores obtenidos
-                string desencrypt = Santana.Decrypt(texto, baseTo);
+                string desencrypt = cipherBase.Decrypt(texto, baseTo);
 
-                // Mostrar el texto encriptado en textBox3 (por ejemplo, si quieres mostrar el resultado en otro TextBox)
                 textBox6.Text = desencrypt;
             }
             else
             {
-                // Manejar el error si la conversión falla
                 MessageBox.Show("Por favor, ingresa un número válido en el segundo campo.");
             }
         }
+
+        public void roundedButton(Button roundedButton)
+        {
+            int radius = 40;
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
+            path.AddArc(new Rectangle(roundedButton.Width - radius, 0, radius, radius), -90, 90);
+            path.AddArc(new Rectangle(roundedButton.Width - radius, roundedButton.Height - radius, radius, radius), 0, 90);
+            path.AddArc(new Rectangle(0, roundedButton.Height - radius, radius, radius), 90, 90);
+            path.CloseFigure();
+            roundedButton.Region = new Region(path);
+        }
+
 
         private void button16_Click(object sender, EventArgs e)
         {
             string texto = textBox7.Text;
             string text2 = textBox8.Text;
 
-            string encript = Santana.EncryptarBool(texto, text2);
+            string encript = cipherBool.Encrypt(texto, text2);
 
             textBox9.Text = encript;
 
@@ -459,11 +468,13 @@ namespace cipher_genius
             string texto = textBox9.Text;
             string text2 = textBox10.Text;
 
-            string desencript = Santana.Desencriptar(texto, text2);
+            string desencript = cipherBool.Decrypt(texto, text2);
 
             textBox11.Text = desencript;
 
         }
+
+        // Fin Josue
 
         //--------------ADOLFO--------------------------------------------
         private void AgregarElemento(int elemento)
@@ -1042,7 +1053,7 @@ namespace cipher_genius
                     if (ver == true)
                     {
                         // Invoca el método CifradorCesarMixto
-                        listaPosiciones = cipher1.CifradorCesarMixto(textoClaro, opcion);
+                        listaPosiciones = cipherCesarMixto.Cifrar(textoClaro, opcion);
                         AMRflowLayoutPanel1.Controls.Clear();
                         foreach (int num in listaPosiciones)
                         {
@@ -1060,8 +1071,6 @@ namespace cipher_genius
 
                         AMRflowLayoutPanel1.Controls.Clear();
                     }
-
-
                 }
                 else
                 {
@@ -1078,7 +1087,6 @@ namespace cipher_genius
             }
             else if (this.controlador == 1)
             {
-
                 if (this.lista.Count != 0)
                 {
                     string texto1 = AMRcomboBoxA.SelectedItem.ToString();
@@ -1095,16 +1103,13 @@ namespace cipher_genius
                         opcion = 0;
                     }
 
-
-                    List<string> listaTextoCifrado = cipher1.DescifradorCesarMixto(arregloPosiciones, opcion);
+                    List<string> listaTextoCifrado = cipherCesarMixto.Descifrar(arregloPosiciones, opcion);
                     AMRrichTextBox1.Text = string.Join("", listaTextoCifrado); // Muestra los elementos separados por comas
                 }
                 else
                 {
                     AMRrichTextBox1.Text = "No hay nada que descifrar";
                 }
-
-
             }
             else if (this.controlador == 2)
             {
@@ -1118,7 +1123,7 @@ namespace cipher_genius
 
                     if (ver1 == true & ver2 == true)
                     {
-                        List<char> textoCifrado = cipher1.CifradoVigenere(textoClaro, cifra);
+                        List<char> textoCifrado = cipherVigenere.Cifrar(textoClaro, cifra);
 
 
                         // Convierte la lista de caracteres cifrados a una cadena y muestra el resultado
@@ -1135,8 +1140,6 @@ namespace cipher_genius
                 {
                     AMRrichTextBox3.Text = "Revisa que en el campo de texto y clave tengan datos";
                 }
-
-
             }
             else if (this.controlador == 3)
             {
@@ -1150,7 +1153,7 @@ namespace cipher_genius
 
                     if (ver1 == true & ver2 == true)
                     {
-                        List<char> textoCifrado = cipher1.DescifradoVigenere(textoClaro, cifra);
+                        List<char> textoCifrado = cipherVigenere.Descifrar(textoClaro, cifra);
 
 
                         // Convierte la lista de caracteres cifrados a una cadena y muestra el resultado
@@ -1168,7 +1171,7 @@ namespace cipher_genius
             }
             else if (this.controlador == 4)
             {
-                int[,] matriz = cipher1.GenerarMatriz();
+                int[,] matriz = cipherHomofono.GenerarMatriz();
                 string palabra = AMRrichTextBox1.Text;
                 string clave = AMRrichTextBox2.Text;
                 if (clave.Length == 4)
@@ -1178,7 +1181,7 @@ namespace cipher_genius
 
                     if (ver1 == true & ver2 == true)
                     {
-                        List<int> textoCifrado = cipher1.CifradorHomofono(matriz, palabra, clave);
+                        List<int> textoCifrado = cipherHomofono.Cifrar(matriz, palabra, clave);
                         // Convertir la lista de enteros a una cadena de texto separada por comas
                         string textoCifradoString = string.Join(", ", textoCifrado);
 
@@ -1197,7 +1200,7 @@ namespace cipher_genius
             }
             else if (this.controlador == 5)
             {
-                int[,] matriz = cipher1.GenerarMatriz();
+                int[,] matriz = cipherHomofono.GenerarMatriz();
                 string textoCifradoString = AMRrichTextBox1.Text; // Cambio: Convertir a cadena de texto
                 string[] valoresTextoCifrado = textoCifradoString.Split(','); // Separar los valores por comas
 
@@ -1225,11 +1228,9 @@ namespace cipher_genius
                                 // Puedes mostrar un mensaje de error o tomar otra acción
                             }
                         }
-
-
                         if (clave.Length == 4)
                         {
-                            List<char> textoClaro = cipher1.DescifradorHomofono(matriz, textoCifrado, clave);
+                            List<char> textoClaro = cipherHomofono.Descifrar(matriz, textoCifrado, clave);
 
                             // Convertir la lista de caracteres a una cadena de texto
                             string textoClaroString = new string(textoClaro.ToArray());
@@ -1246,7 +1247,6 @@ namespace cipher_genius
                     {
                         AMRrichTextBox3.Text = "La clave solo debe contener letras del alfabeto";
                     }
-
                 }
                 else
                 {
@@ -1450,31 +1450,6 @@ namespace cipher_genius
             this.AgregarElemento(num);
             this.agregarPinturaAux(num);
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            int n = int.Parse(nxn.Text);
-            HashSet<string> mySet = hill.Generaclave(n, 1);
-            List<String> clavesValidas = new List<String>();
-            foreach (string fruit in mySet)
-            {
-                clavesValidas.Add(fruit);
-            }
-            String clave = clavesValidas[0];
-            qey.Text = clave;
-        }
-
-        // JOSUE
-        public void roundedButton(ref Button roundedButton)
-        {
-            int radius = 40;
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
-            path.AddArc(new Rectangle(roundedButton.Width - radius, 0, radius, radius), -90, 90);
-            path.AddArc(new Rectangle(roundedButton.Width - radius, roundedButton.Height - radius, radius, radius), 0, 90);
-            path.AddArc(new Rectangle(0, roundedButton.Height - radius, radius, radius), 90, 90);
-            path.CloseFigure();
-            roundedButton.Region = new Region(path);
-        }
+        // Fin Mendoza
     }
 }
