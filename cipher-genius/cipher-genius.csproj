@@ -67,6 +67,7 @@
     <Compile Include="Ciphers\Francmason.cs" />
     <Compile Include="Ciphers\ColumnaDoble.cs" />
     <Compile Include="Ciphers\FilaSimple.cs" />
+    <Compile Include="Ciphers\Vernam.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASCII Conversion Chart.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Compuerta-logica-XOR-tabla-de-verdad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

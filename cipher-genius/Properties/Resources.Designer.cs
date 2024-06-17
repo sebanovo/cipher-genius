@@ -63,6 +63,26 @@ namespace cipher_genius.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ASCII_Conversion_Chart {
+            get {
+                object obj = ResourceManager.GetObject("ASCII_Conversion_Chart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Compuerta_logica_XOR_tabla_de_verdad {
+            get {
+                object obj = ResourceManager.GetObject("Compuerta_logica_XOR_tabla_de_verdad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap img1 {
             get {
                 object obj = ResourceManager.GetObject("img1", resourceCulture);

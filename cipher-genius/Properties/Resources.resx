@@ -196,4 +196,10 @@
   <data name="img26" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ASCII_Conversion_Chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ASCII Conversion Chart.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Compuerta_logica_XOR_tabla_de_verdad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Compuerta-logica-XOR-tabla-de-verdad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

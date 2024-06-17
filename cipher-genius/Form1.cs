@@ -35,7 +35,6 @@ namespace cipher_genius
         /*
          * Adolfo Mendoza Ribera 
          */
-        // Mendoza Inicio
         List<int> lista = new List<int>(); // Inicializa la lista vacía
         Francmason cipherCesarMixto = new Francmason();
         Homofono cipherHomofono = new Homofono();
@@ -50,6 +49,12 @@ namespace cipher_genius
          */
         BoolLogic cipherBool = new BoolLogic();
         BaseConvertion cipherBase = new BaseConvertion();
+
+        /*
+         * Daniel Eduardo Dorado Suarez 
+         */
+        Vernam vernamCipher = new Vernam();
+
 
         public Form1()
         {
@@ -1451,5 +1456,47 @@ namespace cipher_genius
             this.agregarPinturaAux(num);
         }
         // Fin Mendoza
+        // Inicio Daniel
+
+        private void btnEncrypt_Click(object sender, EventArgs e)
+        {
+            string mensaje = txtMensaje.Text;
+            string llave = txtLlave.Text;
+
+            if (mensaje.Length != llave.Length)
+            {
+                MessageBox.Show("La longitud del mensaje y la clave deben ser iguales.");
+                return;
+            }
+
+            string mensajeCifrado = vernamCipher.Encrypt(mensaje, llave);
+            string mensajeBinario = vernamCipher.ConvertToBinary(mensaje);
+            string llaveBinaria = vernamCipher.ConvertToBinary(llave);
+            string resultadoXOR = vernamCipher.XORBinaryStrings(mensajeBinario, llaveBinaria);
+
+            txtMensajeBinario.Text = mensajeBinario;
+            txtLlaveBinaria.Text = llaveBinaria;
+            txtResultadoXOR.Text = resultadoXOR;
+            txtCripto.Text = mensajeCifrado;
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            string mensajeCifrado = txtCripto.Text;
+            string llave = txtLlave.Text;
+
+            if (mensajeCifrado.Length != llave.Length)
+            {
+                MessageBox.Show("La longitud del mensaje cifrado y la clave deben ser iguales.");
+                return;
+            }
+
+            string mensajeDescifrado = vernamCipher.Decrypt(mensajeCifrado, llave);
+            string mensajeCifradoBinario = vernamCipher.ConvertToBinary(mensajeCifrado);
+            string llaveBinaria = vernamCipher.ConvertToBinary(llave);
+            string resultadoXOR = vernamCipher.XORBinaryStrings(mensajeCifradoBinario, llaveBinaria);
+
+            txtMensajeDescifrado.Text = mensajeDescifrado;
+        }
     }
 }

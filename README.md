@@ -28,7 +28,7 @@
     </td>
     <td>
       <p>Daniel Eduardo Dorado Suarez</p>
-  <img src="https://i.postimg.cc/MGP1ghrx/Captura-de-pantalla-2024-06-08-17223121.png" alt="Captura-de-pantalla-2024-06-08-17223121"/>
+      <img src='https://i.postimg.cc/V6ncgfb6/Captura-de-pantalla-2024-06-17-133912.png' alt='Captura-de-pantalla-2024-06-17-133912'/>
     </td>
   </tr>
 </table>
