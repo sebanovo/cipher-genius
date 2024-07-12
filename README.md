@@ -7,7 +7,7 @@
         <img src="https://i.postimg.cc/dVk9FVG1/Captura-de-pantalla-2024-06-08-172010.png" alt="Captura-de-pantalla-2024-06-08-172010"/>
     </td>
     <td>
-      <p>Mejia Zarate Alimbert</p>
+      <p>Eduardo Flores Gutierrez</p>
       <img src="https://i.postimg.cc/76j0ZSkW/Captura-de-pantalla-2024-06-08-172236.png" alt="Captura-de-pantalla-2024-06-08-172236"/>
     </td>
   </tr>
